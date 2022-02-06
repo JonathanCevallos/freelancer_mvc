@@ -1,15 +1,14 @@
 package uteq.freelancer_mvc.models;
 
-import lombok.Data;
-
+import lombok.*;
 import java.sql.Date;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "preguntas")
 

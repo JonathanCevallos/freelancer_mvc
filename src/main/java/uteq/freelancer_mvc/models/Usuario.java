@@ -1,20 +1,14 @@
 package uteq.freelancer_mvc.models;
 
-import lombok.Data;
-
+import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-//La anotación @Data proporciona los métodos de obtención y configuración de
-//de las propiedades de la clase
-@Data
-
-//La anotacion @Entity define que la clase se puede asignar a una tabla
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
-
-//La anotación @Table permite especificar el nombre de la tabla donde se
-//persistirá la entidad
 @Table(name = "usuarios")
 
 public class Usuario {
@@ -56,7 +50,6 @@ public class Usuario {
 	@Column(name="email", length = 50)
 	private String email;
 
-	//todo: relacion con la entidad pais
 	@OneToOne(cascade = {CascadeType.PERSIST})
 	@JoinColumn(name="id_pais")
 	private Pais pais;
