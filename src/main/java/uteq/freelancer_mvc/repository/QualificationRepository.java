@@ -5,8 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import uteq.freelancer_mvc.models.Qualification;
 
-
-
 @Repository
 public interface QualificationRepository extends JpaRepository<Qualification, Long> {
 

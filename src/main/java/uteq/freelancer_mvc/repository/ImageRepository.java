@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import uteq.freelancer_mvc.models.Image;
 
-
 @Repository
 public interface ImageRepository extends JpaRepository<Image, Long> {
 

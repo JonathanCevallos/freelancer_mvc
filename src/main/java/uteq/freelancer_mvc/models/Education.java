@@ -11,23 +11,23 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name ="education")
+@Table(name = "education")
 public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id_education")
+    @Column(name = "id_education")
     private Long idEducation;
 
     @NotEmpty
-    @Column(name ="name_institution", length = 80, nullable = false)
+    @Column(name = "name_institution", length = 80, nullable = false)
     private String nameInstitution;
 
     @NotEmpty
-    @Column(name ="description", length = 50, nullable = false)
+    @Column(name = "description", length = 50, nullable = false)
     private String description;
 
     @NotEmpty
-    @Column(name="year", nullable = false)
+    @Column(name = "year", nullable = false)
     private String year;
 
     //Todo: relacion con la entidad pais

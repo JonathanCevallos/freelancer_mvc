@@ -9,7 +9,7 @@ import uteq.freelancer_mvc.service.ProfessionalService;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/profesionales")
+@RequestMapping("api/professionals")
 @CrossOrigin("*")
 public class ProfessionalController {
     @Autowired

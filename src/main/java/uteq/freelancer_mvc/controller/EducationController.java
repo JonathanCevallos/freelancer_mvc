@@ -10,7 +10,7 @@ import uteq.freelancer_mvc.service.EducationService;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/formaciones")
+@RequestMapping("api/educations")
 @CrossOrigin("*")
 public class EducationController {
     @Autowired

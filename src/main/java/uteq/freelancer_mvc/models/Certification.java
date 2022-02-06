@@ -23,7 +23,7 @@ public class Certification {
     private String name;
 
     @NotEmpty
-    @Column(name="year")
+    @Column(name = "year")
     private String year;
 
 }

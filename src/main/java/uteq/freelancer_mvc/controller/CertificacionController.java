@@ -10,7 +10,7 @@ import uteq.freelancer_mvc.service.CertificationService;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/certificaciones")
+@RequestMapping("api/certifications")
 @CrossOrigin("*")
 public class CertificacionController {
     @Autowired

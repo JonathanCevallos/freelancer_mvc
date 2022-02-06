@@ -5,9 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import uteq.freelancer_mvc.models.Quote;
 
-
-
 @Repository
-public interface QuoteRepository extends JpaRepository<Quote, Integer>{
+public interface QuoteRepository extends JpaRepository<Quote, Integer> {
 
 }

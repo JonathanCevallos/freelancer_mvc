@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import uteq.freelancer_mvc.models.Ability;
 
 @Repository
-public interface AbilityRepository extends JpaRepository<Ability,Integer> {
+public interface AbilityRepository extends JpaRepository<Ability, Integer> {
 
 }

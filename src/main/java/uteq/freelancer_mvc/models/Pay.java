@@ -2,6 +2,7 @@ package uteq.freelancer_mvc.models;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
@@ -13,28 +14,28 @@ import java.util.Date;
 @Table(name = "pay")
 
 public class Pay {
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_pay")
+    @Column(name = "id_pay")
     private Long idPay;
 
-	@NotEmpty
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	@Column(name="date")
+    @NotEmpty
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @Column(name = "date")
     private Date date;
 
-	@Column(name="total")
+    @Column(name = "total")
     private Double total;
 
-	@Column(name="status")
+    @Column(name = "status")
     private Boolean status;
 
-	@OneToOne(cascade = {CascadeType.PERSIST})
-	@JoinColumn(name="id_people")
-	private People people;
+    @OneToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "id_people")
+    private People people;
 
-	@ManyToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name="id_publication")
-	private Publication publication;
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_publication")
+    private Publication publication;
 }

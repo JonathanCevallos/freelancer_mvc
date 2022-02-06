@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import uteq.freelancer_mvc.models.Professional;
 
 @Repository
-public interface ProfessionalRepository extends JpaRepository<Professional,Long> {
+public interface ProfessionalRepository extends JpaRepository<Professional, Long> {
 
 }

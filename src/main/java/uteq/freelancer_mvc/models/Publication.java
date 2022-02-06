@@ -2,6 +2,7 @@ package uteq.freelancer_mvc.models;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;

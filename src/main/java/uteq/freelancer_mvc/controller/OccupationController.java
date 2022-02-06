@@ -10,7 +10,7 @@ import uteq.freelancer_mvc.service.OccupationService;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/ocupaciones")
+@RequestMapping("api/occupations")
 @CrossOrigin("*")
 public class OccupationController {
     @Autowired

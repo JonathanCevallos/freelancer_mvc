@@ -1,6 +1,4 @@
 package uteq.freelancer_mvc.service;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,61 +17,61 @@ public class ImageService {
 
     //Este metodo permite lisatr todos los registro de la entidad.
     @Transactional
-    public List<Image> findAll() throws Exception{
+    public List<Image> findAll() throws Exception {
         try {
             return imageRepository.findAll();
-        }catch (Exception e){
-            throw  new Exception(e.getMessage());
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         }
     }
 
     //Este metodo permite: Buscar un imagen mediante su ID.
     @Transactional
-    public Image findById(Long id) throws Exception{
+    public Image findById(Long id) throws Exception {
         try {
             Optional<Image> entityOptional = imageRepository.findById(id);
             return entityOptional.get();
-        }catch (Exception e){
-            throw  new Exception(e.getMessage());
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         }
     }
 
     //Este metodo permite: guardar.
     @Transactional
-    public Image save(Image entity) throws Exception{
+    public Image save(Image entity) throws Exception {
         try {
             entity = imageRepository.save(entity);
             return entity;
-        }catch (Exception e){
-            throw  new Exception(e.getMessage());
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         }
     }
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Image update(Long id, Image entity) throws Exception{
+    public Image update(Long id, Image entity) throws Exception {
         try {
             Optional<Image> entityOptional = imageRepository.findById(id);
             Image image = entityOptional.get();
             image = imageRepository.save(entity);
-            return  image;
-        }catch (Exception e){
-            throw  new Exception(e.getMessage());
+            return image;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         }
     }
 
     //Este metodo permite: Eliminar mediante su ID.
     @Transactional
-    public boolean delete(Long id) throws Exception{
+    public boolean delete(Long id) throws Exception {
         try {
-            if(imageRepository.existsById(id)){
+            if (imageRepository.existsById(id)) {
                 imageRepository.deleteById(id);
-                return  true;
-            }else {
-                throw  new Exception();
+                return true;
+            } else {
+                throw new Exception();
             }
-        }catch (Exception e){
-            throw  new Exception(e.getMessage());
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         }
     }
 }

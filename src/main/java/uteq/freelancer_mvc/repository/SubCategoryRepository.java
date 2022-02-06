@@ -5,8 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import uteq.freelancer_mvc.models.SubCategory;
 
-
-
 @Repository
 public interface SubCategoryRepository extends JpaRepository<SubCategory, Integer>{
 

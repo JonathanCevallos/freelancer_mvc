@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import uteq.freelancer_mvc.models.Certification;
 
 @Repository
-public interface CertificationRepository extends JpaRepository<Certification,Integer> {
+public interface CertificationRepository extends JpaRepository<Certification, Integer> {
 
 }

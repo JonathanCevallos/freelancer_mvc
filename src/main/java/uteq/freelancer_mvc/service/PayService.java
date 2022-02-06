@@ -5,29 +5,29 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.People;
-import uteq.freelancer_mvc.repository.UserRepository;
+import uteq.freelancer_mvc.models.Pay;
+import uteq.freelancer_mvc.repository.PayRepository;
 
 @Service
-public class UserService {
+public class PayService {
     @Autowired
-    private UserRepository userRepository;
+    private PayRepository payRepository;
 
     //Este metodo permite listar todos los registro de la entidad.
     @Transactional
-    public List<People> findAll() throws Exception {
+    public List<Pay> findAll() throws Exception {
         try {
-            return userRepository.findAll();
+            return payRepository.findAll();
         } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
     }
 
-    //Este metodo permite: Actualizar una persona mediante su ID.
+    //Este metodo permite: Actualizar una factura mediante su ID.
     @Transactional
-    public People findById(long id) throws Exception {
+    public Pay findById(long id) throws Exception {
         try {
-            Optional<People> entityOptional = userRepository.findById(id);
+            Optional<Pay> entityOptional = payRepository.findById(id);
             return entityOptional.get();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -36,9 +36,9 @@ public class UserService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public People save(People entity) throws Exception {
+    public Pay save(Pay entity) throws Exception {
         try {
-            entity = userRepository.save(entity);
+            entity = payRepository.save(entity);
             return entity;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -47,12 +47,12 @@ public class UserService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public People update(long id, People entity) throws Exception {
+    public Pay update(long id, Pay entity) throws Exception {
         try {
-            Optional<People> entityOptional = userRepository.findById(id);
-            People user = entityOptional.get();
-            user = userRepository.save(entity);
-            return user;
+            Optional<Pay> entityOptional = payRepository.findById(id);
+            Pay pay = entityOptional.get();
+            pay = payRepository.save(entity);
+            return pay;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -62,8 +62,8 @@ public class UserService {
     @Transactional
     public boolean delete(long id) throws Exception {
         try {
-            if (userRepository.existsById(id)) {
-                userRepository.deleteById(id);
+            if (payRepository.existsById(id)) {
+                payRepository.deleteById(id);
                 return true;
             } else {
                 throw new Exception();

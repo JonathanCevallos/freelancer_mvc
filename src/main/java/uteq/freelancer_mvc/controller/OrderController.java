@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uteq.freelancer_mvc.models.Pay;
-import uteq.freelancer_mvc.service.OrderService;
+import uteq.freelancer_mvc.service.PayService;
 
 @RestController
-@RequestMapping("api/order")
+@RequestMapping("api/orders")
 @CrossOrigin("*")
 public class OrderController {
 	@Autowired
-	private OrderService orderService;
+	private PayService payService;
 	
 	//LISTAR TODO
     @GetMapping
@@ -29,7 +29,7 @@ public class OrderController {
     {
         try
         {
-            return ResponseEntity.ok().body(orderService.findAll());
+            return ResponseEntity.ok().body(payService.findAll());
         }
         catch (Exception e)
         {
@@ -43,7 +43,7 @@ public class OrderController {
     {
         try
         {
-            return ResponseEntity.ok().body(orderService.findById(id));
+            return ResponseEntity.ok().body(payService.findById(id));
         }
         catch (Exception e)
         {
@@ -57,7 +57,7 @@ public class OrderController {
     {
         try
         {
-            return ResponseEntity.ok().body(orderService.save(entity));
+            return ResponseEntity.ok().body(payService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +71,7 @@ public class OrderController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(orderService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(payService.delete(id));
         }
         catch (Exception e)
         {
@@ -85,7 +85,7 @@ public class OrderController {
     {
         try
         {
-            return ResponseEntity.ok().body(orderService.update(id,entity));
+            return ResponseEntity.ok().body(payService.update(id,entity));
         }
         catch (Exception e)
         {

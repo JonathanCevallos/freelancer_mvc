@@ -10,7 +10,7 @@ import uteq.freelancer_mvc.service.AbilityService;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/habilidades")
+@RequestMapping("api/abilities")
 @CrossOrigin("*")
 public class AbilityController {
     @Autowired
@@ -28,7 +28,7 @@ public class AbilityController {
 
     // BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Ability> finfById(@PathVariable("id")int id){
+    public ResponseEntity<Ability> finfById(@PathVariable("id") int id) {
         try {
             return ResponseEntity.ok().body(abilityService.findById(id));
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public class AbilityController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Ability> create (@RequestBody Ability entity) {
+    public ResponseEntity<Ability> create(@RequestBody Ability entity) {
         try {
             return ResponseEntity.ok().body(abilityService.save(entity));
         } catch (Exception e) {
@@ -47,8 +47,8 @@ public class AbilityController {
     }
 
     //ELIMINAR
-    @DeleteMapping(value =  "{id}")
-    public ResponseEntity<Boolean> delete (@PathVariable int id) {
+    @DeleteMapping(value = "{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable int id) {
         try {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(abilityService.delete(id));
         } catch (Exception e) {
@@ -57,10 +57,10 @@ public class AbilityController {
     }
 
     //ACTUALIZAR
-    @PutMapping(value =  "{id}")
-    private ResponseEntity<Ability>update(@PathVariable int id, @RequestBody Ability entity){
+    @PutMapping(value = "{id}")
+    private ResponseEntity<Ability> update(@PathVariable int id, @RequestBody Ability entity) {
         try {
-            return ResponseEntity.ok().body(abilityService.update(id,entity));
+            return ResponseEntity.ok().body(abilityService.update(id, entity));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
