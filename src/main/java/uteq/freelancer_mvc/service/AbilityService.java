@@ -2,32 +2,33 @@ package uteq.freelancer_mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Education;
-import uteq.freelancer_mvc.repository.FormacionRepository;
+import uteq.freelancer_mvc.models.Ability;
+import uteq.freelancer_mvc.repository.AbilityRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+
 @Service
-public class FormacionService {
+public class AbilityService {
     @Autowired
-    private FormacionRepository formacionRepository;
+    private AbilityRepository abilityRepository;
 
     //Este metodo permite lisatr todos los registro de la entidad.
     @Transactional
-    public List<Education> findAll() throws Exception{
+    public List<Ability> findAll() throws Exception{
         try {
-            return formacionRepository.findAll();
+            return abilityRepository.findAll();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }
     }
 
-    //Este metodo permite: Buscar un formacion mediante su ID.
+    //Este metodo permite: Buscar un habilidad mediante su ID.
     @Transactional
-    public Education findById(int id) throws Exception{
+    public Ability findById(int id) throws Exception{
         try {
-            Optional<Education> entityOptional = formacionRepository.findById(id);
+            Optional<Ability> entityOptional = abilityRepository.findById(id);
             return entityOptional.get();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -36,9 +37,9 @@ public class FormacionService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Education save(Education entity) throws Exception{
+    public Ability save(Ability entity) throws Exception{
         try {
-            entity = formacionRepository.save(entity);
+            entity = abilityRepository.save(entity);
             return entity;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -47,12 +48,12 @@ public class FormacionService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Education update(int id, Education entity) throws Exception{
+    public Ability update(int id, Ability entity) throws Exception{
         try {
-            Optional<Education> entityOptional = formacionRepository.findById(id);
-            Education education = entityOptional.get();
-            education = formacionRepository.save(entity);
-            return education;
+            Optional<Ability> entityOptional = abilityRepository.findById(id);
+            Ability ability = entityOptional.get();
+            ability = abilityRepository.save(entity);
+            return ability;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }
@@ -62,8 +63,8 @@ public class FormacionService {
     @Transactional
     public boolean delete(int id) throws Exception{
         try {
-            if(formacionRepository.existsById(id)){
-                formacionRepository.deleteById(id);
+            if(abilityRepository.existsById(id)){
+                abilityRepository.deleteById(id);
                 return  true;
             }else {
                 throw  new Exception();
@@ -72,4 +73,5 @@ public class FormacionService {
             throw  new Exception(e.getMessage());
         }
     }
+
 }

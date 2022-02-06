@@ -3,7 +3,7 @@ package uteq.freelancer_mvc.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.freelancer_mvc.models.Occupation;
-import uteq.freelancer_mvc.repository.OcupacionRepository;
+import uteq.freelancer_mvc.repository.OccupationRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class OcupacionService {
     @Autowired
-    private OcupacionRepository ocupasionRepository;
+    private OccupationRepository ocupasionRepository;
 
     //Este metodo permite listar todos los registro de la entidad.
     @Transactional

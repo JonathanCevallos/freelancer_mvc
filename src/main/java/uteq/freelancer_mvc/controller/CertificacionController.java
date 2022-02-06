@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uteq.freelancer_mvc.models.Certification;
-import uteq.freelancer_mvc.service.CertificacionService;
+import uteq.freelancer_mvc.service.CertificationService;
 
 import java.util.List;
 
@@ -14,13 +14,13 @@ import java.util.List;
 @CrossOrigin("*")
 public class CertificacionController {
     @Autowired
-    private CertificacionService certificacionService;
+    private CertificationService certificationService;
 
     //LISTAR TODO
     @GetMapping
     public ResponseEntity<List<Certification>> getAll() {
         try {
-            return ResponseEntity.ok().body(certificacionService.findAll());
+            return ResponseEntity.ok().body(certificationService.findAll());
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
@@ -30,7 +30,7 @@ public class CertificacionController {
     @RequestMapping(value = "{id}")
     public ResponseEntity<Certification> finfById(@PathVariable("id")int id){
         try {
-            return ResponseEntity.ok().body(certificacionService.findById(id));
+            return ResponseEntity.ok().body(certificationService.findById(id));
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
@@ -40,7 +40,7 @@ public class CertificacionController {
     @PostMapping
     public ResponseEntity<Certification> create (@RequestBody Certification entity) {
         try {
-            return ResponseEntity.ok().body(certificacionService.save(entity));
+            return ResponseEntity.ok().body(certificationService.save(entity));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
@@ -50,7 +50,7 @@ public class CertificacionController {
     @DeleteMapping(value =  "{id}")
     public ResponseEntity<Boolean> delete (@PathVariable int id) {
         try {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(certificacionService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(certificationService.delete(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
@@ -60,7 +60,7 @@ public class CertificacionController {
     @PutMapping(value =  "{id}")
     private ResponseEntity<Certification>update(@PathVariable int id, @RequestBody Certification entity){
         try {
-            return ResponseEntity.ok().body(certificacionService.update(id,entity));
+            return ResponseEntity.ok().body(certificationService.update(id,entity));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

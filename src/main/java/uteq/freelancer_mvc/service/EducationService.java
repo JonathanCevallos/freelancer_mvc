@@ -2,33 +2,32 @@ package uteq.freelancer_mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Ability;
-import uteq.freelancer_mvc.repository.HabilidadRepository;
+import uteq.freelancer_mvc.models.Education;
+import uteq.freelancer_mvc.repository.EducationRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-
 @Service
-public class HabilidadService {
+public class EducationService {
     @Autowired
-    private HabilidadRepository habilidadRepository;
+    private EducationRepository educationRepository;
 
     //Este metodo permite lisatr todos los registro de la entidad.
     @Transactional
-    public List<Ability> findAll() throws Exception{
+    public List<Education> findAll() throws Exception{
         try {
-            return habilidadRepository.findAll();
+            return educationRepository.findAll();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }
     }
 
-    //Este metodo permite: Buscar un habilidad mediante su ID.
+    //Este metodo permite: Buscar un formacion mediante su ID.
     @Transactional
-    public Ability findById(int id) throws Exception{
+    public Education findById(int id) throws Exception{
         try {
-            Optional<Ability> entityOptional = habilidadRepository.findById(id);
+            Optional<Education> entityOptional = educationRepository.findById(id);
             return entityOptional.get();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -37,9 +36,9 @@ public class HabilidadService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Ability save(Ability entity) throws Exception{
+    public Education save(Education entity) throws Exception{
         try {
-            entity = habilidadRepository.save(entity);
+            entity = educationRepository.save(entity);
             return entity;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -48,12 +47,12 @@ public class HabilidadService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Ability update(int id, Ability entity) throws Exception{
+    public Education update(int id, Education entity) throws Exception{
         try {
-            Optional<Ability> entityOptional = habilidadRepository.findById(id);
-            Ability ability = entityOptional.get();
-            ability = habilidadRepository.save(entity);
-            return ability;
+            Optional<Education> entityOptional = educationRepository.findById(id);
+            Education education = entityOptional.get();
+            education = educationRepository.save(entity);
+            return education;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }
@@ -63,8 +62,8 @@ public class HabilidadService {
     @Transactional
     public boolean delete(int id) throws Exception{
         try {
-            if(habilidadRepository.existsById(id)){
-                habilidadRepository.deleteById(id);
+            if(educationRepository.existsById(id)){
+                educationRepository.deleteById(id);
                 return  true;
             }else {
                 throw  new Exception();
@@ -73,5 +72,4 @@ public class HabilidadService {
             throw  new Exception(e.getMessage());
         }
     }
-
 }
