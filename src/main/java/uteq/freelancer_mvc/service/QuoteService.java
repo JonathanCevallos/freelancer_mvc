@@ -8,21 +8,22 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uteq.freelancer_mvc.models.SubCategoria;
-import uteq.freelancer_mvc.repository.SubCategoriaRepository;
+import uteq.freelancer_mvc.models.Quote;
+import uteq.freelancer_mvc.repository.QuoteRepository;
+
 
 @Service
-public class SubCategoriaService {
+public class QuoteService {
 	@Autowired
-	private SubCategoriaRepository subCategoriaReposiroty;
+	private QuoteRepository quoteRepository;
 	
-	//Este metodo permite listar todos los registro de la entidad.
+	//Este metodo permite listar todos los registros de la entidad.
     @Transactional
-    public List<SubCategoria> findAll() throws Exception
+    public List<Quote> findAll() throws Exception
     {
         try
         {
-            return subCategoriaReposiroty.findAll();
+            return quoteRepository.findAll();
         }
         catch (Exception e)
         {
@@ -30,13 +31,13 @@ public class SubCategoriaService {
         }
     }
 
-    //Este metodo permite: Buscar una subcategoría mediante su ID.
+    //Este metodo permite: Buscar una cotización mediante su ID.
     @Transactional
-    public SubCategoria findById(int id) throws Exception
+    public Quote findById(int id) throws Exception
     {
         try
         {
-            Optional<SubCategoria> entityOptional = subCategoriaReposiroty.findById(id);
+            Optional<Quote> entityOptional = quoteRepository.findById(id);
             return entityOptional.get();
         }
         catch (Exception e)
@@ -47,11 +48,11 @@ public class SubCategoriaService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public SubCategoria save(SubCategoria entity) throws Exception
+    public Quote save(Quote entity) throws Exception
     {
         try
         {
-            entity = subCategoriaReposiroty.save(entity);
+            entity = quoteRepository.save(entity);
             return entity;
         }
         catch (Exception e)
@@ -62,14 +63,14 @@ public class SubCategoriaService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public SubCategoria update(int id, SubCategoria entity) throws Exception
+    public Quote update(int id, Quote entity) throws Exception
     {
         try
         {
-            Optional<SubCategoria> entityOptional = subCategoriaReposiroty.findById(id);
-            SubCategoria subCategoria = entityOptional.get();
-            subCategoria = subCategoriaReposiroty.save(entity);
-            return  subCategoria;
+            Optional<Quote> entityOptional = quoteRepository.findById(id);
+            Quote quote = entityOptional.get();
+            quote = quoteRepository.save(entity);
+            return  quote;
         }
         catch (Exception e)
         {
@@ -83,9 +84,9 @@ public class SubCategoriaService {
     {
         try
         {
-            if(subCategoriaReposiroty.existsById(id))
+            if(quoteRepository.existsById(id))
             {
-            	subCategoriaReposiroty.deleteById(id);
+            	quoteRepository.deleteById(id);
                 return  true;
             }
             else

@@ -43,7 +43,7 @@ public class Publication {
 
     @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "id_sub_categoria")
-    private SubCategoria subCategoria;
+    private SubCategory subCategory;
 
     @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "id_profesional")
@@ -55,5 +55,5 @@ public class Publication {
 
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Plan.class)
     @JoinColumn(name = "id_servicio", referencedColumnName = "id_servicio")
-    private Set<Calificacion> calificaciones;
+    private Set<Qualification> calificaciones;
 }

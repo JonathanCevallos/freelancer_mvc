@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name= "imagenes")
 
-public class Imagen {
+public class Image {
 	@Id
     @Column(name= "id_imagen")
     private Long idImagen;

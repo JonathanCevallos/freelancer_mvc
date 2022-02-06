@@ -3,10 +3,11 @@ package uteq.freelancer_mvc.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import uteq.freelancer_mvc.models.Imagen;
+import uteq.freelancer_mvc.models.Quote;
+
 
 
 @Repository
-public interface ImagenRepository extends JpaRepository<Imagen, Long> {
+public interface QuoteRepository extends JpaRepository<Quote, Integer>{
 
 }

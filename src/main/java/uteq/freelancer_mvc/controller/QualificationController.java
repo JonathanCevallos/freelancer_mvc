@@ -8,22 +8,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import uteq.freelancer_mvc.models.Calificacion;
-import uteq.freelancer_mvc.service.CalificacionService;
+import uteq.freelancer_mvc.models.Qualification;
+import uteq.freelancer_mvc.service.QualificationService;
 
 @RestController
-@RequestMapping("api/calificaciones")
+@RequestMapping("api/qualification")
 @CrossOrigin("*")
-public class CalificacionController {
+public class QualificationController {
 	
 	 @Autowired
-	    private CalificacionService calificacionService;
+	    private QualificationService qualificationService;
 
 	    //LISTAR TODO
 	    @GetMapping
-	    public ResponseEntity<List<Calificacion>> getAll() {
+	    public ResponseEntity<List<Qualification>> getAll() {
 	        try {
-	            return ResponseEntity.ok().body(calificacionService.findAll());
+	            return ResponseEntity.ok().body(qualificationService.findAll());
 	        } catch (Exception e) {
 	            return ResponseEntity.notFound().build();
 	        }
@@ -31,9 +31,9 @@ public class CalificacionController {
 
 	    //BUSCAR POR ID
 	    @RequestMapping(value = "{id}")
-	    public ResponseEntity<Calificacion> finfById(@PathVariable("id") Long id) {
+	    public ResponseEntity<Qualification> finfById(@PathVariable("id") Long id) {
 	        try {
-	            return ResponseEntity.ok().body(calificacionService.findById(id));
+	            return ResponseEntity.ok().body(qualificationService.findById(id));
 	        } catch (Exception e) {
 	            return ResponseEntity.notFound().build();
 	        }
@@ -41,9 +41,9 @@ public class CalificacionController {
 
 	    //GUARDAR
 	    @PostMapping
-	    public ResponseEntity<Calificacion> create(@RequestBody Calificacion entity) {
+	    public ResponseEntity<Qualification> create(@RequestBody Qualification entity) {
 	        try {
-	            return ResponseEntity.ok().body(calificacionService.save(entity));
+	            return ResponseEntity.ok().body(qualificationService.save(entity));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }
@@ -53,7 +53,7 @@ public class CalificacionController {
 	    @DeleteMapping(value = "{id}")
 	    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
 	        try {
-	            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(calificacionService.delete(id));
+	            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(qualificationService.delete(id));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }
@@ -61,9 +61,9 @@ public class CalificacionController {
 
 	    //ACTUALIZAR
 	    @PutMapping(value = "{id}")
-	    private ResponseEntity<Calificacion> update(@PathVariable Long id, @RequestBody Calificacion entity) {
+	    private ResponseEntity<Qualification> update(@PathVariable Long id, @RequestBody Qualification entity) {
 	        try {
-	            return ResponseEntity.ok().body(calificacionService.update(id, entity));
+	            return ResponseEntity.ok().body(qualificationService.update(id, entity));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }

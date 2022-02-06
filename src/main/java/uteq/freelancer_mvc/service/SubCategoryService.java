@@ -8,22 +8,21 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uteq.freelancer_mvc.models.Cotizacion;
-import uteq.freelancer_mvc.repository.CotizacionRepository;
-
+import uteq.freelancer_mvc.models.SubCategory;
+import uteq.freelancer_mvc.repository.SubCategoryRepository;
 
 @Service
-public class CotizacionService {
+public class SubCategoryService {
 	@Autowired
-	private CotizacionRepository cotizacionRepository;
+	private SubCategoryRepository subCategoriaReposiroty;
 	
-	//Este metodo permite listar todos los registros de la entidad.
+	//Este metodo permite listar todos los registro de la entidad.
     @Transactional
-    public List<Cotizacion> findAll() throws Exception
+    public List<SubCategory> findAll() throws Exception
     {
         try
         {
-            return cotizacionRepository.findAll();
+            return subCategoriaReposiroty.findAll();
         }
         catch (Exception e)
         {
@@ -31,13 +30,13 @@ public class CotizacionService {
         }
     }
 
-    //Este metodo permite: Buscar una cotización mediante su ID.
+    //Este metodo permite: Buscar una subcategoría mediante su ID.
     @Transactional
-    public Cotizacion findById(int id) throws Exception
+    public SubCategory findById(int id) throws Exception
     {
         try
         {
-            Optional<Cotizacion> entityOptional = cotizacionRepository.findById(id);
+            Optional<SubCategory> entityOptional = subCategoriaReposiroty.findById(id);
             return entityOptional.get();
         }
         catch (Exception e)
@@ -48,11 +47,11 @@ public class CotizacionService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Cotizacion save(Cotizacion entity) throws Exception
+    public SubCategory save(SubCategory entity) throws Exception
     {
         try
         {
-            entity = cotizacionRepository.save(entity);
+            entity = subCategoriaReposiroty.save(entity);
             return entity;
         }
         catch (Exception e)
@@ -63,14 +62,14 @@ public class CotizacionService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Cotizacion update(int id, Cotizacion entity) throws Exception
+    public SubCategory update(int id, SubCategory entity) throws Exception
     {
         try
         {
-            Optional<Cotizacion> entityOptional = cotizacionRepository.findById(id);
-            Cotizacion cotizacion = entityOptional.get();
-            cotizacion = cotizacionRepository.save(entity);
-            return  cotizacion;
+            Optional<SubCategory> entityOptional = subCategoriaReposiroty.findById(id);
+            SubCategory subCategory = entityOptional.get();
+            subCategory = subCategoriaReposiroty.save(entity);
+            return  subCategory;
         }
         catch (Exception e)
         {
@@ -84,9 +83,9 @@ public class CotizacionService {
     {
         try
         {
-            if(cotizacionRepository.existsById(id))
+            if(subCategoriaReposiroty.existsById(id))
             {
-            	cotizacionRepository.deleteById(id);
+            	subCategoriaReposiroty.deleteById(id);
                 return  true;
             }
             else

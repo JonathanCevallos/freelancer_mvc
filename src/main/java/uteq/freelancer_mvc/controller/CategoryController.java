@@ -1,7 +1,6 @@
 package uteq.freelancer_mvc.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,26 +14,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import uteq.freelancer_mvc.models.Cotizacion;
-import uteq.freelancer_mvc.service.CotizacionService;
-
-
+import uteq.freelancer_mvc.models.Category;
+import uteq.freelancer_mvc.service.CategoryService;
 
 @RestController
-@RequestMapping("api/cotizaciones")
+@RequestMapping("api/category")
 @CrossOrigin("*")
-
-public class CotizacionController {
-
+public class CategoryController {
 	@Autowired
-	private CotizacionService cotizacionService;
+	private CategoryService categoryService;
+	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Cotizacion>> getAll()
+    public ResponseEntity<List<Category>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(cotizacionService.findAll());
+            return ResponseEntity.ok().body(categoryService.findAll());
         }
         catch (Exception e)
         {
@@ -44,11 +40,11 @@ public class CotizacionController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Cotizacion> finfById(@PathVariable("id")int id)
+    public ResponseEntity<Category> finfById(@PathVariable("id")int id)
     {
         try
         {
-            return ResponseEntity.ok().body(cotizacionService.findById(id));
+            return ResponseEntity.ok().body(categoryService.findById(id));
         }
         catch (Exception e)
         {
@@ -58,11 +54,11 @@ public class CotizacionController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Cotizacion> create (@RequestBody Cotizacion entity)
+    public ResponseEntity<Category> create (@RequestBody Category entity)
     {
         try
         {
-            return ResponseEntity.ok().body(cotizacionService.save(entity));
+            return ResponseEntity.ok().body(categoryService.save(entity));
         }
         catch (Exception e)
         {
@@ -76,7 +72,7 @@ public class CotizacionController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(cotizacionService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(categoryService.delete(id));
         }
         catch (Exception e)
         {
@@ -86,15 +82,15 @@ public class CotizacionController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Cotizacion>update(@PathVariable int id, @RequestBody Cotizacion entity)
+    private ResponseEntity<Category>update(@PathVariable int id, @RequestBody Category entity)
     {
         try
         {
-            return ResponseEntity.ok().body(cotizacionService.update(id,entity));
+            return ResponseEntity.ok().body(categoryService.update(id,entity));
         }
         catch (Exception e)
         {
             return ResponseEntity.badRequest().build();
         }
     }
-	}
+}

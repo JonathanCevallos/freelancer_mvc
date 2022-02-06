@@ -1,4 +1,4 @@
-package uteq.freelancer_mvc.controller;
+package uteq.freelancer_mvc.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,21 +8,23 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uteq.freelancer_mvc.models.Categoria;
-import uteq.freelancer_mvc.repository.CategoriaRepository;
+import uteq.freelancer_mvc.models.Qualification;
+import uteq.freelancer_mvc.repository.QualificationRepository;
+
+
 
 @Service
-public class CategoriaController {
+public class QualificationService {
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	private QualificationRepository qualificationRepository;
 	
 	//Este metodo permite listar todos los registro de la entidad.
     @Transactional
-    public List<Categoria> findAll() throws Exception
+    public List<Qualification> findAll() throws Exception
     {
         try
         {
-            return categoriaRepository.findAll();
+            return qualificationRepository.findAll();
         }
         catch (Exception e)
         {
@@ -30,13 +32,13 @@ public class CategoriaController {
         }
     }
 
-    //Este metodo permite: Buscar una categoría mediante su ID.
+    //Este metodo permite: Buscar una calificacion mediante su ID.
     @Transactional
-    public Categoria findById(int id) throws Exception
+    public Qualification findById(Long id) throws Exception
     {
         try
         {
-            Optional<Categoria> entityOptional = categoriaRepository.findById(id);
+            Optional<Qualification> entityOptional = qualificationRepository.findById(id);
             return entityOptional.get();
         }
         catch (Exception e)
@@ -47,11 +49,11 @@ public class CategoriaController {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Categoria save(Categoria entity) throws Exception
+    public Qualification save(Qualification entity) throws Exception
     {
         try
         {
-            entity = categoriaRepository.save(entity);
+            entity = qualificationRepository.save(entity);
             return entity;
         }
         catch (Exception e)
@@ -62,14 +64,14 @@ public class CategoriaController {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Categoria update(int id, Categoria entity) throws Exception
+    public Qualification update(Long id, Qualification entity) throws Exception
     {
         try
         {
-            Optional<Categoria> entityOptional = categoriaRepository.findById(id);
-            Categoria categoria = entityOptional.get();
-            categoria = categoriaRepository.save(entity);
-            return  categoria;
+            Optional<Qualification> entityOptional = qualificationRepository.findById(id);
+            Qualification qualification = entityOptional.get();
+            qualification = qualificationRepository.save(entity);
+            return  qualification;
         }
         catch (Exception e)
         {
@@ -79,13 +81,13 @@ public class CategoriaController {
 
     //Este metodo permite: Eliminar mediante su ID.
     @Transactional
-    public boolean delete(int id) throws Exception
+    public boolean delete(Long id) throws Exception
     {
         try
         {
-            if(categoriaRepository.existsById(id))
+            if(qualificationRepository.existsById(id))
             {
-            	categoriaRepository.deleteById(id);
+            	qualificationRepository.deleteById(id);
                 return  true;
             }
             else

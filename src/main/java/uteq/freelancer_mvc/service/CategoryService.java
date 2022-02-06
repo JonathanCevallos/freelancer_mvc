@@ -8,21 +8,21 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uteq.freelancer_mvc.models.Categoria;
-import uteq.freelancer_mvc.repository.CategoriaRepository;
+import uteq.freelancer_mvc.models.Category;
+import uteq.freelancer_mvc.repository.CategoryRepository;
 
 @Service
-public class CategoriaService {
+public class CategoryService {
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	private CategoryRepository categoryRepository;
 	
 	//Este metodo permite listar todos los registro de la entidad.
     @Transactional
-    public List<Categoria> findAll() throws Exception
+    public List<Category> findAll() throws Exception
     {
         try
         {
-            return categoriaRepository.findAll();
+            return categoryRepository.findAll();
         }
         catch (Exception e)
         {
@@ -32,11 +32,11 @@ public class CategoriaService {
 
     //Este metodo permite: Buscar una categoría mediante su ID.
     @Transactional
-    public Categoria findById(int id) throws Exception
+    public Category findById(int id) throws Exception
     {
         try
         {
-            Optional<Categoria> entityOptional = categoriaRepository.findById(id);
+            Optional<Category> entityOptional = categoryRepository.findById(id);
             return entityOptional.get();
         }
         catch (Exception e)
@@ -47,11 +47,11 @@ public class CategoriaService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Categoria save(Categoria entity) throws Exception
+    public Category save(Category entity) throws Exception
     {
         try
         {
-            entity = categoriaRepository.save(entity);
+            entity = categoryRepository.save(entity);
             return entity;
         }
         catch (Exception e)
@@ -62,14 +62,14 @@ public class CategoriaService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Categoria update(int id, Categoria entity) throws Exception
+    public Category update(int id, Category entity) throws Exception
     {
         try
         {
-            Optional<Categoria> entityOptional = categoriaRepository.findById(id);
-            Categoria categoria = entityOptional.get();
-            categoria = categoriaRepository.save(entity);
-            return  categoria;
+            Optional<Category> entityOptional = categoryRepository.findById(id);
+            Category category = entityOptional.get();
+            category = categoryRepository.save(entity);
+            return  category;
         }
         catch (Exception e)
         {
@@ -83,9 +83,9 @@ public class CategoriaService {
     {
         try
         {
-            if(categoriaRepository.existsById(id))
+            if(categoryRepository.existsById(id))
             {
-            	categoriaRepository.deleteById(id);
+            	categoryRepository.deleteById(id);
                 return  true;
             }
             else

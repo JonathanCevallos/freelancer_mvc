@@ -4,24 +4,24 @@ package uteq.freelancer_mvc.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uteq.freelancer_mvc.models.Imagen;
-import uteq.freelancer_mvc.repository.ImagenRepository;
+import uteq.freelancer_mvc.models.Image;
+import uteq.freelancer_mvc.repository.ImageRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ImagenService {
+public class ImageService {
 
     @Autowired
-    private ImagenRepository imagenRepository;
+    private ImageRepository imageRepository;
 
     //Este metodo permite lisatr todos los registro de la entidad.
     @Transactional
-    public List<Imagen> findAll() throws Exception{
+    public List<Image> findAll() throws Exception{
         try {
-            return imagenRepository.findAll();
+            return imageRepository.findAll();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }
@@ -29,9 +29,9 @@ public class ImagenService {
 
     //Este metodo permite: Buscar un imagen mediante su ID.
     @Transactional
-    public Imagen findById(Long id) throws Exception{
+    public Image findById(Long id) throws Exception{
         try {
-            Optional<Imagen> entityOptional = imagenRepository.findById(id);
+            Optional<Image> entityOptional = imageRepository.findById(id);
             return entityOptional.get();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -40,9 +40,9 @@ public class ImagenService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Imagen save(Imagen entity) throws Exception{
+    public Image save(Image entity) throws Exception{
         try {
-            entity = imagenRepository.save(entity);
+            entity = imageRepository.save(entity);
             return entity;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -51,12 +51,12 @@ public class ImagenService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Imagen update(Long id, Imagen entity) throws Exception{
+    public Image update(Long id, Image entity) throws Exception{
         try {
-            Optional<Imagen> entityOptional = imagenRepository.findById(id);
-            Imagen imagen = entityOptional.get();
-            imagen = imagenRepository.save(entity);
-            return  imagen;
+            Optional<Image> entityOptional = imageRepository.findById(id);
+            Image image = entityOptional.get();
+            image = imageRepository.save(entity);
+            return  image;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }
@@ -66,8 +66,8 @@ public class ImagenService {
     @Transactional
     public boolean delete(Long id) throws Exception{
         try {
-            if(imagenRepository.existsById(id)){
-                imagenRepository.deleteById(id);
+            if(imageRepository.existsById(id)){
+                imageRepository.deleteById(id);
                 return  true;
             }else {
                 throw  new Exception();

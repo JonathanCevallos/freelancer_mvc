@@ -15,22 +15,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import uteq.freelancer_mvc.models.SubCategoria;
-import uteq.freelancer_mvc.service.SubCategoriaService;
+import uteq.freelancer_mvc.models.Quote;
+import uteq.freelancer_mvc.service.QuoteService;
+
+
 
 @RestController
-@RequestMapping("api/subcategorias")
+@RequestMapping("api/quote")
 @CrossOrigin("*")
-public class SubCategoriaController {
+
+public class QuoteController {
+
 	@Autowired
-	private SubCategoriaService subCategoriaService;
+	private QuoteService quoteService;
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<SubCategoria>> getAll()
+    public ResponseEntity<List<Quote>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(subCategoriaService.findAll());
+            return ResponseEntity.ok().body(quoteService.findAll());
         }
         catch (Exception e)
         {
@@ -40,11 +44,11 @@ public class SubCategoriaController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<SubCategoria> finfById(@PathVariable("id")int id)
+    public ResponseEntity<Quote> finfById(@PathVariable("id")int id)
     {
         try
         {
-            return ResponseEntity.ok().body(subCategoriaService.findById(id));
+            return ResponseEntity.ok().body(quoteService.findById(id));
         }
         catch (Exception e)
         {
@@ -54,11 +58,11 @@ public class SubCategoriaController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<SubCategoria> create (@RequestBody SubCategoria entity)
+    public ResponseEntity<Quote> create (@RequestBody Quote entity)
     {
         try
         {
-            return ResponseEntity.ok().body(subCategoriaService.save(entity));
+            return ResponseEntity.ok().body(quoteService.save(entity));
         }
         catch (Exception e)
         {
@@ -72,7 +76,7 @@ public class SubCategoriaController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(subCategoriaService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(quoteService.delete(id));
         }
         catch (Exception e)
         {
@@ -82,17 +86,15 @@ public class SubCategoriaController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<SubCategoria>update(@PathVariable int id, @RequestBody SubCategoria entity)
+    private ResponseEntity<Quote>update(@PathVariable int id, @RequestBody Quote entity)
     {
         try
         {
-            return ResponseEntity.ok().body(subCategoriaService.update(id,entity));
+            return ResponseEntity.ok().body(quoteService.update(id,entity));
         }
         catch (Exception e)
         {
             return ResponseEntity.badRequest().build();
         }
     }
-}
-
-
+	}

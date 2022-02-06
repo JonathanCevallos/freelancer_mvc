@@ -1,7 +1,7 @@
 package uteq.freelancer_mvc.controller;
 
-import uteq.freelancer_mvc.models.Imagen;
-import uteq.freelancer_mvc.service.ImagenService;
+import uteq.freelancer_mvc.models.Image;
+import uteq.freelancer_mvc.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/imagenes")
+@RequestMapping("api/image")
 @CrossOrigin("*")
-public class ImagenController {
+public class ImageController {
 	 @Autowired
-	    private ImagenService imagenService;
+	    private ImageService imageService;
 
 	    //LISTAR TODO
 	    @GetMapping
-	    public ResponseEntity<List<Imagen>> getAll() {
+	    public ResponseEntity<List<Image>> getAll() {
 	        try {
-	            return ResponseEntity.ok().body(imagenService.findAll());
+	            return ResponseEntity.ok().body(imageService.findAll());
 	        } catch (Exception e) {
 	            return ResponseEntity.notFound().build();
 	        }
@@ -28,9 +28,9 @@ public class ImagenController {
 
 	    // BUSCAR POR ID
 	    @RequestMapping(value = "{id}")
-	    public ResponseEntity<Imagen> finfById(@PathVariable("id") Long id) {
+	    public ResponseEntity<Image> finfById(@PathVariable("id") Long id) {
 	        try {
-	            return ResponseEntity.ok().body(imagenService.findById(id));
+	            return ResponseEntity.ok().body(imageService.findById(id));
 	        } catch (Exception e) {
 	            return ResponseEntity.notFound().build();
 	        }
@@ -38,9 +38,9 @@ public class ImagenController {
 
 	    //GUARDAR
 	    @PostMapping
-	    public ResponseEntity<Imagen> create(@RequestBody Imagen entity) {
+	    public ResponseEntity<Image> create(@RequestBody Image entity) {
 	        try {
-	            return ResponseEntity.ok().body(imagenService.save(entity));
+	            return ResponseEntity.ok().body(imageService.save(entity));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }
@@ -50,7 +50,7 @@ public class ImagenController {
 	    @DeleteMapping(value = "{id}")
 	    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
 	        try {
-	            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(imagenService.delete(id));
+	            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(imageService.delete(id));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }
@@ -58,9 +58,9 @@ public class ImagenController {
 
 	    //ACTUALIZAR
 	    @PutMapping(value = "{id}")
-	    public ResponseEntity<Imagen> update(@PathVariable Long id, @RequestBody Imagen entity) {
+	    public ResponseEntity<Image> update(@PathVariable Long id, @RequestBody Image entity) {
 	        try {
-	            return ResponseEntity.ok().body(imagenService.update(id, entity));
+	            return ResponseEntity.ok().body(imageService.update(id, entity));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }

@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Entity
 @Table(name = "cotizaciones")
-public class Cotizacion {
+public class Quote {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

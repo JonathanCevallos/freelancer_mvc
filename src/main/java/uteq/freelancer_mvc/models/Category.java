@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @Entity
 @Table(name = "Categorias")
-public class Categoria {
+public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_categoria")
@@ -22,7 +22,7 @@ public class Categoria {
 	private String nombre;
 
 	//todo: lista de formaciones
-	@OneToMany(cascade = {CascadeType.ALL}, targetEntity = SubCategoria.class)
+	@OneToMany(cascade = {CascadeType.ALL}, targetEntity = SubCategory.class)
 	@JoinColumn(name = "id_categoria",referencedColumnName = "id_categoria")
-	private Set<SubCategoria> subcategorias;
+	private Set<SubCategory> subcategorias;
 }

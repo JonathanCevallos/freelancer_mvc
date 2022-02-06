@@ -12,7 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Entity
 @Table(name = "sub_categorias")
-public class SubCategoria {
+public class SubCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
