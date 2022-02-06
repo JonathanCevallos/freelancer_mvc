@@ -1,14 +1,16 @@
 package uteq.freelancer_mvc.models;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.*;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "profesionales")
 public class Profesional {

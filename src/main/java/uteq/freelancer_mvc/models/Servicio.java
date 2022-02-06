@@ -1,14 +1,15 @@
 package uteq.freelancer_mvc.models;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 import java.util.Set;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "servicios")
 
@@ -40,22 +41,18 @@ public class Servicio {
     @Column(name = "fecha_plublicacion")
     private Date fechaPublicacion;
 
-    //todo: relacion con la entidad categoria
     @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "id_sub_categoria")
     private SubCategoria subCategoria;
 
-    //todo: relacion con la entidad profesional
     @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "id_profesional")
     private Profesional profesional;
 
-    //todo: lista de planes
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Plan.class)
     @JoinColumn(name = "id_servicio", referencedColumnName = "id_servicio")
     private Set<Plan> planes;
 
-    //todo: lista de calificaciones
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Plan.class)
     @JoinColumn(name = "id_servicio", referencedColumnName = "id_servicio")
     private Set<Calificacion> calificaciones;

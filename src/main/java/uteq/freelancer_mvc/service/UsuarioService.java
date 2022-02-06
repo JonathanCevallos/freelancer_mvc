@@ -5,9 +5,9 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import uteq.freelancer_mvc.models.Usuario;
 import uteq.freelancer_mvc.repository.UsuarioRepository;
+
 @Service
 public class UsuarioService {
 	@Autowired

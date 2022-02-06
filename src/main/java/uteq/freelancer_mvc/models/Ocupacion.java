@@ -1,11 +1,14 @@
 package uteq.freelancer_mvc.models;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "ocupaciones")
 public class Ocupacion {

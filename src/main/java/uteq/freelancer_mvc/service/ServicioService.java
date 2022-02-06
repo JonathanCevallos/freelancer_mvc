@@ -2,14 +2,12 @@ package uteq.freelancer_mvc.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import uteq.freelancer_mvc.models.Servicio;
 import uteq.freelancer_mvc.repository.ServicioRepository;
+
 @Service
 public class ServicioService {
 	@Autowired
