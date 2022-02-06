@@ -28,7 +28,7 @@ public class FormacionController {
 
     // BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Formacion> finfById(@PathVariable("id")int id){
+    public ResponseEntity<Formacion> finfById(@PathVariable("id") int id) {
         try {
             return ResponseEntity.ok().body(formacionService.findById(id));
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public class FormacionController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Formacion> create (@RequestBody Formacion entity) {
+    public ResponseEntity<Formacion> create(@RequestBody Formacion entity) {
         try {
             return ResponseEntity.ok().body(formacionService.save(entity));
         } catch (Exception e) {
@@ -47,8 +47,8 @@ public class FormacionController {
     }
 
     //ELIMINAR
-    @DeleteMapping(value =  "{id}")
-    public ResponseEntity<Boolean> delete (@PathVariable int id) {
+    @DeleteMapping(value = "{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable int id) {
         try {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(formacionService.delete(id));
         } catch (Exception e) {
@@ -57,10 +57,10 @@ public class FormacionController {
     }
 
     //ACTUALIZAR
-    @PutMapping(value =  "{id}")
-    private ResponseEntity<Formacion>update(@PathVariable int id, @RequestBody Formacion entity){
+    @PutMapping(value = "{id}")
+    private ResponseEntity<Formacion> update(@PathVariable int id, @RequestBody Formacion entity) {
         try {
-            return ResponseEntity.ok().body(formacionService.update(id,entity));
+            return ResponseEntity.ok().body(formacionService.update(id, entity));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
