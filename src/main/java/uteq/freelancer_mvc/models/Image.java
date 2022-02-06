@@ -8,13 +8,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name= "imagenes")
+@Table(name= "image")
 
 public class Image {
 	@Id
-    @Column(name= "id_imagen")
-    private Long idImagen;
+    @Column(name= "id_image")
+    private Long idImage;
 
-    @Column(name= "imagen", length=50)
-    private String imagen;
+    @Column(name= "image", length=50)
+    private String image;
 }

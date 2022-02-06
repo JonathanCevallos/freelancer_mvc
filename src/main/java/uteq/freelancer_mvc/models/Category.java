@@ -10,19 +10,19 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "Categorias")
+@Table(name = "category")
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_categoria")
-	private int idCategoria;
+	@Column(name = "id_category")
+	private int idcategory;
 
 	@NotEmpty
-	@Column(name = "nombre", length = 50)
-	private String nombre;
+	@Column(name = "name", length = 50)
+	private String name;
 
 	//todo: lista de formaciones
 	@OneToMany(cascade = {CascadeType.ALL}, targetEntity = SubCategory.class)
-	@JoinColumn(name = "id_categoria",referencedColumnName = "id_categoria")
-	private Set<SubCategory> subcategorias;
+	@JoinColumn(name = "id_category",referencedColumnName = "id_category")
+	private Set<SubCategory> subCategory;
 }

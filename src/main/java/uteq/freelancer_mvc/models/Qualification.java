@@ -9,24 +9,24 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "calificaciones")
+@Table(name = "qualification")
 public class Qualification {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_calificacion")
-    private Long idCalificacion;
+	@Column(name="id_qualification")
+    private Long idQualification;
   	
   	@NotEmpty
-	@Column(name="calificacion")
-    private Short calificacion;
+	@Column(name="qualification")
+    private Short qualification;
   	
   	@NotEmpty
-	@Column(name="comentario")
-    private String comentario;
+	@Column(name="comment")
+    private String comment;
  
   	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	@Column(name="fecha")
-	private Date fecha;
+	@Column(name="date")
+	private Date date;
 
 }

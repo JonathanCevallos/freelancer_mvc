@@ -11,16 +11,16 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "sub_categorias")
+@Table(name = "sub_category")
 public class SubCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_sub_categoria")
-    private int idSubCategoria;
+    @Column(name = "id_sub_category")
+    private int idSubCategory;
 
     @NotEmpty
-    @Column(name = "nombre", length = 50)
-    private String nombre;
+    @Column(name = "name", length = 50)
+    private String name;
 
 }

@@ -10,32 +10,32 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "cotizaciones")
+@Table(name = "quote")
 public class Quote {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_cotizar")
-    private int idCotizar;
+	@Column(name="id_quote")
+    private int idQuote;
 
 	@NotEmpty
-	@Column(name="descripcion")
-    private String descripcion;
+	@Column(name="description")
+    private String description;
 
 	@NotEmpty
-	@Column(name="precio")
-    private Double precio;
+	@Column(name="price")
+    private Double price;
 
 	@NotEmpty
-	@Column(name="dias_espera")
-    private Short dias_espera;
+	@Column(name="delivery_day")
+    private Short deliveryDay;
 	
-	@Column(name="fecha_cotizacion")
-    private Date fechaCotizacion;
+	@Column(name="quote_date")
+    private Date quoteDate;
 	
-	@Column(name="documento", length = 50)
-    private String documento;
+	@Column(name="document", length = 50)
+    private String document;
 
 	@OneToOne(cascade = {CascadeType.PERSIST})
-	private Publication  publication;
+	private Publication publication;
 }

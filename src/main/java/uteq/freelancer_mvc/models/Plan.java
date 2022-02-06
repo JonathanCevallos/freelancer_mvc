@@ -17,19 +17,19 @@ public class Plan {
     private int idPlan;
 
     @NotEmpty
-    @Column(name ="nombre", length = 50)
-    private String nombre;
+    @Column(name ="name", length = 50)
+    private String name;
 
     @NotEmpty
-    @Column(name="descripcion")
-    private String descripcion;
+    @Column(name="description")
+    private String description;
 
     @NotEmpty
-    @Column(name="dias_delivery")
-    private Short diasDeliviery;
+    @Column(name="delivery_day")
+    private Short deliveryDay;
 
     @NotEmpty
-    @Column(name="precio")
-    private Double precio;
+    @Column(name="price")
+    private Double price;
 
 }
