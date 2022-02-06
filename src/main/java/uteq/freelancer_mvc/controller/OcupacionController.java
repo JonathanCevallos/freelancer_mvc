@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uteq.freelancer_mvc.models.Ocupacion;
+import uteq.freelancer_mvc.models.Occupation;
 import uteq.freelancer_mvc.service.OcupacionService;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class OcupacionController {
 
     //LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Ocupacion>> getAll()
+    public ResponseEntity<List<Occupation>> getAll()
     {
         try
         {
@@ -32,7 +32,7 @@ public class OcupacionController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Ocupacion> finfById(@PathVariable("id")int id)
+    public ResponseEntity<Occupation> finfById(@PathVariable("id")int id)
     {
         try
         {
@@ -46,7 +46,7 @@ public class OcupacionController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Ocupacion> create (@RequestBody Ocupacion entity)
+    public ResponseEntity<Occupation> create (@RequestBody Occupation entity)
     {
         try
         {
@@ -74,7 +74,7 @@ public class OcupacionController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Ocupacion>update(@PathVariable int id, @RequestBody Ocupacion entity)
+    private ResponseEntity<Occupation>update(@PathVariable int id, @RequestBody Occupation entity)
     {
         try
         {

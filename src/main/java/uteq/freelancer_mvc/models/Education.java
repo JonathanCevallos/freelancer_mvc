@@ -11,20 +11,20 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name ="formaciones")
-public class Formacion {
+@Table(name ="education")
+public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_formacion")
-    private Long idFormacion;
+    private Long idEducation;
 
     @NotEmpty
-    @Column(name ="nombre_institucion", length = 80)
-    private String nombreInstitucion;
+    @Column(name ="name_institution", length = 80)
+    private String nameInstitution;
 
     @NotEmpty
-    @Column(name ="descripcion", length = 50)
-    private String descripcion;
+    @Column(name ="description", length = 50)
+    private String description;
 
     @NotEmpty
     @Column(name="year")
@@ -32,6 +32,6 @@ public class Formacion {
 
     //Todo: relacion con la entidad pais
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_pais")
+    @JoinColumn(name = "id_country")
     private Pais pais;
 }

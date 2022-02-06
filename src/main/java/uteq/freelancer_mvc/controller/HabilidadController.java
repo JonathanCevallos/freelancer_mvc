@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uteq.freelancer_mvc.models.Habilidad;
+import uteq.freelancer_mvc.models.Ability;
 import uteq.freelancer_mvc.service.HabilidadService;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class HabilidadController {
 
     //LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Habilidad>> getAll() {
+    public ResponseEntity<List<Ability>> getAll() {
         try {
             return ResponseEntity.ok().body(habilidadService.findAll());
         } catch (Exception e) {
@@ -28,7 +28,7 @@ public class HabilidadController {
 
     // BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Habilidad> finfById(@PathVariable("id")int id){
+    public ResponseEntity<Ability> finfById(@PathVariable("id")int id){
         try {
             return ResponseEntity.ok().body(habilidadService.findById(id));
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public class HabilidadController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Habilidad> create (@RequestBody Habilidad entity) {
+    public ResponseEntity<Ability> create (@RequestBody Ability entity) {
         try {
             return ResponseEntity.ok().body(habilidadService.save(entity));
         } catch (Exception e) {
@@ -58,7 +58,7 @@ public class HabilidadController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Habilidad>update(@PathVariable int id, @RequestBody Habilidad entity){
+    private ResponseEntity<Ability>update(@PathVariable int id, @RequestBody Ability entity){
         try {
             return ResponseEntity.ok().body(habilidadService.update(id,entity));
         } catch (Exception e) {

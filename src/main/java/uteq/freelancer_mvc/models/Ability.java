@@ -1,6 +1,7 @@
 package uteq.freelancer_mvc.models;
 
 import lombok.AllArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -12,22 +13,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "habilidades")
-public class Habilidad {
+@Table(name = "ability")
+public class Ability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id_habilidad")
-    private int idHabilidad;
+    @Column(name = "id_ability")
+    private int idAbility;
 
     @NotEmpty
-    @Column(name ="nombre")
-    private String nombre;
-
+    @Column(name = "name")
+    private String name;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name ="fecha_desde")
-    private String fechaDesde;
+    @Column(name = "date_from")
+    private String dateFrom;
 
-    @Column(name ="descripcion")
-    private String descripcion;
+    @Column(name = "description")
+    private String description;
 }
