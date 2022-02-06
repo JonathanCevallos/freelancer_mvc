@@ -33,5 +33,5 @@ public class Formacion {
     //Todo: relacion con la entidad pais
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_pais")
-    private Pais pais;
+    private Country country;
 }

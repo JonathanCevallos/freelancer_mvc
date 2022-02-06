@@ -37,5 +37,5 @@ public class Cotizacion {
     private String documento;
 
 	@OneToOne(cascade = {CascadeType.PERSIST})
-	private Servicio  servicio;
+	private Publication  publication;
 }
