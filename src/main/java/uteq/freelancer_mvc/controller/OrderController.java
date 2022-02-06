@@ -17,7 +17,7 @@ import uteq.freelancer_mvc.models.Order;
 import uteq.freelancer_mvc.service.OrderService;
 
 @RestController
-@RequestMapping("api/facturas")
+@RequestMapping("api/order")
 @CrossOrigin("*")
 public class OrderController {
 	@Autowired

@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uteq.freelancer_mvc.models.Publication;
-import uteq.freelancer_mvc.service.ServiceService;
+import uteq.freelancer_mvc.service.PublicationService;
 
 @RestController
-@RequestMapping("api/servicios")
+@RequestMapping("api/publication")
 @CrossOrigin("*")
 public class PublicationController {
 	@Autowired
-	private ServiceService serviceService;
+	private PublicationService publicationService;
 	
 	//LISTAR TODO
     @GetMapping
@@ -29,7 +29,7 @@ public class PublicationController {
     {
         try
         {
-            return ResponseEntity.ok().body(serviceService.findAll());
+            return ResponseEntity.ok().body(publicationService.findAll());
         }
         catch (Exception e)
         {
@@ -43,7 +43,7 @@ public class PublicationController {
     {
         try
         {
-            return ResponseEntity.ok().body(serviceService.findById(id));
+            return ResponseEntity.ok().body(publicationService.findById(id));
         }
         catch (Exception e)
         {
@@ -57,7 +57,7 @@ public class PublicationController {
     {
         try
         {
-            return ResponseEntity.ok().body(serviceService.save(entity));
+            return ResponseEntity.ok().body(publicationService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +71,7 @@ public class PublicationController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(serviceService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(publicationService.delete(id));
         }
         catch (Exception e)
         {
@@ -85,7 +85,7 @@ public class PublicationController {
     {
         try
         {
-            return ResponseEntity.ok().body(serviceService.update(id,entity));
+            return ResponseEntity.ok().body(publicationService.update(id,entity));
         }
         catch (Exception e)
         {

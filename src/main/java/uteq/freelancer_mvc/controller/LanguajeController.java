@@ -17,7 +17,7 @@ import uteq.freelancer_mvc.models.Languaje;
 import uteq.freelancer_mvc.service.LanguajeService;
 
 @RestController
-@RequestMapping("api/idiomas")
+@RequestMapping("api/languaje")
 @CrossOrigin("*")
 
 public class LanguajeController {

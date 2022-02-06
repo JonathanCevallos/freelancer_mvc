@@ -9,7 +9,7 @@ import uteq.freelancer_mvc.models.Publication;
 import uteq.freelancer_mvc.repository.PublicationRepository;
 
 @Service
-public class ServiceService {
+public class PublicationService {
 	@Autowired
 	private PublicationRepository publicationRepository;
 	

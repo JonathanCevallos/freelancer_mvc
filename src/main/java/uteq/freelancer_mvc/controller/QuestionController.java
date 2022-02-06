@@ -5,22 +5,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uteq.freelancer_mvc.models.Question;
-import uteq.freelancer_mvc.service.PreguntaService;
+import uteq.freelancer_mvc.service.QuestionService;
 import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/pregunta")
+@RequestMapping("/api/question")
 
 public class QuestionController {
 	 @Autowired
-	    private PreguntaService preguntaService;
+	    private QuestionService questionService;
 
 	    //LISTAR TODO
 	    @GetMapping
 	    public ResponseEntity<List<Question>> getAll() {
 	        try {
-	            return ResponseEntity.ok().body(preguntaService.findAll());
+	            return ResponseEntity.ok().body(questionService.findAll());
 	        } catch (Exception e) {
 	            return ResponseEntity.notFound().build();
 	        }
@@ -30,7 +30,7 @@ public class QuestionController {
 	    @RequestMapping(value = "{id}")
 	    public ResponseEntity<Question> finfById(@PathVariable("id") Long id) {
 	        try {
-	            return ResponseEntity.ok().body(preguntaService.findById(id));
+	            return ResponseEntity.ok().body(questionService.findById(id));
 	        } catch (Exception e) {
 	            return ResponseEntity.notFound().build();
 	        }
@@ -40,7 +40,7 @@ public class QuestionController {
 	    @PostMapping
 	    public ResponseEntity<Question> create(@RequestBody Question entity) {
 	        try {
-	            return ResponseEntity.ok().body(preguntaService.save(entity));
+	            return ResponseEntity.ok().body(questionService.save(entity));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }
@@ -50,7 +50,7 @@ public class QuestionController {
 	    @DeleteMapping(value = "{id}")
 	    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
 	        try {
-	            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(preguntaService.delete(id));
+	            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(questionService.delete(id));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }
@@ -60,7 +60,7 @@ public class QuestionController {
 	    @PutMapping(value = "{id}")
 	    public ResponseEntity<Question> update(@PathVariable Long id, @RequestBody Question entity) {
 	        try {
-	            return ResponseEntity.ok().body(preguntaService.update(id, entity));
+	            return ResponseEntity.ok().body(questionService.update(id, entity));
 	        } catch (Exception e) {
 	            return ResponseEntity.badRequest().build();
 	        }

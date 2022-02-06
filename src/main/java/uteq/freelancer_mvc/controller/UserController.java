@@ -17,7 +17,7 @@ import uteq.freelancer_mvc.models.User;
 import uteq.freelancer_mvc.service.UserService;
 
 @RestController
-@RequestMapping("api/usuarios")
+@RequestMapping("api/user")
 @CrossOrigin("*")
 public class UserController {
 	@Autowired
