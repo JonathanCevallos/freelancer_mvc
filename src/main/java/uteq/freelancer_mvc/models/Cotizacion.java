@@ -2,11 +2,7 @@ package uteq.freelancer_mvc.models;
 
 import lombok.AllArgsConstructor;
 import lombok.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import java.util.Date;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
