@@ -3,7 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uteq.freelancer_mvc.models.Profesional;
+import uteq.freelancer_mvc.models.Professional;
 import uteq.freelancer_mvc.service.ProfesionalService;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class ProfesionalController {
 
     //TODO LISTAR
     @GetMapping
-    public ResponseEntity<List<Profesional>> getAll() {
+    public ResponseEntity<List<Professional>> getAll() {
         try {
             return ResponseEntity.ok().body(profesionalService.findAll());
         } catch (Exception e) {
@@ -27,7 +27,7 @@ public class ProfesionalController {
 
     //TODO: BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Profesional> finfById(@PathVariable("id")Long id){
+    public ResponseEntity<Professional> finfById(@PathVariable("id")Long id){
         try {
             return ResponseEntity.ok().body(profesionalService.findById(id));
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class ProfesionalController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Profesional> create (@RequestBody Profesional entity) {
+    public ResponseEntity<Professional> create (@RequestBody Professional entity) {
         try {
             return ResponseEntity.ok().body(profesionalService.save(entity));
         } catch (Exception e) {
@@ -57,7 +57,7 @@ public class ProfesionalController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Profesional>update(@PathVariable Long id, @RequestBody Profesional entity){
+    private ResponseEntity<Professional>update(@PathVariable Long id, @RequestBody Professional entity){
         try {
             return ResponseEntity.ok().body(profesionalService.update(id,entity));
         } catch (Exception e) {

@@ -2,7 +2,7 @@ package uteq.freelancer_mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Ocupacion;
+import uteq.freelancer_mvc.models.Occupation;
 import uteq.freelancer_mvc.repository.OcupacionRepository;
 
 import javax.transaction.Transactional;
@@ -16,7 +16,7 @@ public class OcupacionService {
 
     //Este metodo permite listar todos los registro de la entidad.
     @Transactional
-    public List<Ocupacion> findAll() throws Exception
+    public List<Occupation> findAll() throws Exception
     {
         try
         {
@@ -30,11 +30,11 @@ public class OcupacionService {
 
     //Este metodo permite: Actualizar una ocupación mediante su ID.
     @Transactional
-    public Ocupacion findById(int id) throws Exception
+    public Occupation findById(int id) throws Exception
     {
         try
         {
-            Optional<Ocupacion> entityOptional = ocupasionRepository.findById(id);
+            Optional<Occupation> entityOptional = ocupasionRepository.findById(id);
             return entityOptional.get();
         }
         catch (Exception e)
@@ -45,7 +45,7 @@ public class OcupacionService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Ocupacion save(Ocupacion entity) throws Exception
+    public Occupation save(Occupation entity) throws Exception
     {
         try
         {
@@ -60,14 +60,14 @@ public class OcupacionService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Ocupacion update(int id, Ocupacion entity) throws Exception
+    public Occupation update(int id, Occupation entity) throws Exception
     {
         try
         {
-            Optional<Ocupacion> entityOptional = ocupasionRepository.findById(id);
-            Ocupacion ocupacion = entityOptional.get();
-            ocupacion = ocupasionRepository.save(entity);
-            return  ocupacion;
+            Optional<Occupation> entityOptional = ocupasionRepository.findById(id);
+            Occupation occupation = entityOptional.get();
+            occupation = ocupasionRepository.save(entity);
+            return occupation;
         }
         catch (Exception e)
         {

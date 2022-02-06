@@ -10,14 +10,14 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "ocupaciones")
-public class Ocupacion {
+@Table(name = "occupation")
+public class Occupation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_ocupacion")
-    private int idOcupacion;
+    @Column(name = "id_occupation")
+    private int idOccupation;
 
     @NotEmpty
-    @Column(name = "nombre", length = 80)
-    private String nombre;
+    @Column(name = "name", length = 80)
+    private String name;
 }

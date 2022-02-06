@@ -2,7 +2,7 @@ package uteq.freelancer_mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Profesional;
+import uteq.freelancer_mvc.models.Professional;
 import uteq.freelancer_mvc.repository.ProfesionalRepository;
 
 import javax.transaction.Transactional;
@@ -16,7 +16,7 @@ public class ProfesionalService {
 
     //Este metodo permite lisatr todos los profesionales registrados en la BD.
     @Transactional
-    public List<Profesional> findAll() throws Exception{
+    public List<Professional> findAll() throws Exception{
         try {
             return profesionalRepository.findAll();
         }catch (Exception e){
@@ -26,9 +26,9 @@ public class ProfesionalService {
 
     //Este metodo permite: Buscar un profesional mediante su ID.
     @Transactional
-    public Profesional findById(Long id) throws Exception{
+    public Professional findById(Long id) throws Exception{
         try {
-            Optional<Profesional> entityOptional = profesionalRepository.findById(id);
+            Optional<Professional> entityOptional = profesionalRepository.findById(id);
             return entityOptional.get();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -37,7 +37,7 @@ public class ProfesionalService {
 
     //Este metodo permite: guardar un profesional.
     @Transactional
-    public Profesional save(Profesional entity) throws Exception{
+    public Professional save(Professional entity) throws Exception{
         try {
             entity = profesionalRepository.save(entity);
             return entity;
@@ -48,12 +48,12 @@ public class ProfesionalService {
 
     //Este metodo permite: Actualizar un profesional mediante su ID.
     @Transactional
-    public Profesional update(Long id, Profesional entity) throws Exception{
+    public Professional update(Long id, Professional entity) throws Exception{
         try {
-            Optional<Profesional> entityOptional = profesionalRepository.findById(id);
-            Profesional profesional = entityOptional.get();
-            profesional = profesionalRepository.save(entity);
-            return  profesional;
+            Optional<Professional> entityOptional = profesionalRepository.findById(id);
+            Professional professional = entityOptional.get();
+            professional = profesionalRepository.save(entity);
+            return professional;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }

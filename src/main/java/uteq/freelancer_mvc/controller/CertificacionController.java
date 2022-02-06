@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uteq.freelancer_mvc.models.Certificacion;
+import uteq.freelancer_mvc.models.Certification;
 import uteq.freelancer_mvc.service.CertificacionService;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class CertificacionController {
 
     //LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Certificacion>> getAll() {
+    public ResponseEntity<List<Certification>> getAll() {
         try {
             return ResponseEntity.ok().body(certificacionService.findAll());
         } catch (Exception e) {
@@ -28,7 +28,7 @@ public class CertificacionController {
 
     // BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Certificacion> finfById(@PathVariable("id")int id){
+    public ResponseEntity<Certification> finfById(@PathVariable("id")int id){
         try {
             return ResponseEntity.ok().body(certificacionService.findById(id));
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public class CertificacionController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Certificacion> create (@RequestBody Certificacion entity) {
+    public ResponseEntity<Certification> create (@RequestBody Certification entity) {
         try {
             return ResponseEntity.ok().body(certificacionService.save(entity));
         } catch (Exception e) {
@@ -58,7 +58,7 @@ public class CertificacionController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Certificacion>update(@PathVariable int id, @RequestBody Certificacion entity){
+    private ResponseEntity<Certification>update(@PathVariable int id, @RequestBody Certification entity){
         try {
             return ResponseEntity.ok().body(certificacionService.update(id,entity));
         } catch (Exception e) {

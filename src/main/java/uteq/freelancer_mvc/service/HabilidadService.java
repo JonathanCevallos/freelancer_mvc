@@ -2,7 +2,7 @@ package uteq.freelancer_mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Habilidad;
+import uteq.freelancer_mvc.models.Ability;
 import uteq.freelancer_mvc.repository.HabilidadRepository;
 
 import javax.transaction.Transactional;
@@ -16,7 +16,7 @@ public class HabilidadService {
 
     //Este metodo permite lisatr todos los registro de la entidad.
     @Transactional
-    public List<Habilidad> findAll() throws Exception{
+    public List<Ability> findAll() throws Exception{
         try {
             return habilidadRepository.findAll();
         }catch (Exception e){
@@ -26,9 +26,9 @@ public class HabilidadService {
 
     //Este metodo permite: Buscar un habilidad mediante su ID.
     @Transactional
-    public Habilidad findById(int id) throws Exception{
+    public Ability findById(int id) throws Exception{
         try {
-            Optional<Habilidad> entityOptional = habilidadRepository.findById(id);
+            Optional<Ability> entityOptional = habilidadRepository.findById(id);
             return entityOptional.get();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -37,7 +37,7 @@ public class HabilidadService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Habilidad save(Habilidad entity) throws Exception{
+    public Ability save(Ability entity) throws Exception{
         try {
             entity = habilidadRepository.save(entity);
             return entity;
@@ -48,12 +48,12 @@ public class HabilidadService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Habilidad update(int id, Habilidad entity) throws Exception{
+    public Ability update(int id, Ability entity) throws Exception{
         try {
-            Optional<Habilidad> entityOptional = habilidadRepository.findById(id);
-            Habilidad habilidad = entityOptional.get();
-            habilidad = habilidadRepository.save(entity);
-            return  habilidad;
+            Optional<Ability> entityOptional = habilidadRepository.findById(id);
+            Ability ability = entityOptional.get();
+            ability = habilidadRepository.save(entity);
+            return ability;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }

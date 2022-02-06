@@ -12,12 +12,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "profesionales")
-public class Profesional {
+@Table(name = "professional")
+public class Professional {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_profesional")
-    private Long idProfesional;
+    @Column(name = "id_professional")
+    private Long idProfessional;
 
     @Column(name = "url_sitio_web", length = 100)
     private String urlSitioWeb;
@@ -28,11 +28,11 @@ public class Profesional {
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name = "fecha_registro")
-    private Date fechaRegistro;
+    @Column(name = "registration_Date")
+    private Date registrationDate;
 
     //todo: relacion con la entidad usuario
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_user")
     private User user;
 }

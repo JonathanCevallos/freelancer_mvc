@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uteq.freelancer_mvc.models.Formacion;
+import uteq.freelancer_mvc.models.Education;
 import uteq.freelancer_mvc.service.FormacionService;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class FormacionController {
 
     //LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Formacion>> getAll() {
+    public ResponseEntity<List<Education>> getAll() {
         try {
             return ResponseEntity.ok().body(formacionService.findAll());
         } catch (Exception e) {
@@ -28,7 +28,7 @@ public class FormacionController {
 
     // BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Formacion> finfById(@PathVariable("id") int id) {
+    public ResponseEntity<Education> finfById(@PathVariable("id") int id) {
         try {
             return ResponseEntity.ok().body(formacionService.findById(id));
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public class FormacionController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Formacion> create(@RequestBody Formacion entity) {
+    public ResponseEntity<Education> create(@RequestBody Education entity) {
         try {
             return ResponseEntity.ok().body(formacionService.save(entity));
         } catch (Exception e) {
@@ -58,7 +58,7 @@ public class FormacionController {
 
     //ACTUALIZAR
     @PutMapping(value = "{id}")
-    private ResponseEntity<Formacion> update(@PathVariable int id, @RequestBody Formacion entity) {
+    private ResponseEntity<Education> update(@PathVariable int id, @RequestBody Education entity) {
         try {
             return ResponseEntity.ok().body(formacionService.update(id, entity));
         } catch (Exception e) {

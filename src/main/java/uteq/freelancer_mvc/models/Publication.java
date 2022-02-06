@@ -47,7 +47,7 @@ public class Publication {
 
     @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "id_profesional")
-    private Profesional profesional;
+    private Professional professional;
 
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Plan.class)
     @JoinColumn(name = "id_servicio", referencedColumnName = "id_servicio")

@@ -2,7 +2,7 @@ package uteq.freelancer_mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Certificacion;
+import uteq.freelancer_mvc.models.Certification;
 import uteq.freelancer_mvc.repository.CertificacionRepository;
 
 import javax.transaction.Transactional;
@@ -16,7 +16,7 @@ public class CertificacionService {
 
     //Este metodo permite lisatr todos los registro de la entidad.
     @Transactional
-    public List<Certificacion> findAll() throws Exception{
+    public List<Certification> findAll() throws Exception{
         try {
             return certificacionRepository.findAll();
         }catch (Exception e){
@@ -26,9 +26,9 @@ public class CertificacionService {
 
     //Este metodo permite: Buscar un certificacion mediante su ID.
     @Transactional
-    public Certificacion findById(int id) throws Exception{
+    public Certification findById(int id) throws Exception{
         try {
-            Optional<Certificacion> entityOptional = certificacionRepository.findById(id);
+            Optional<Certification> entityOptional = certificacionRepository.findById(id);
             return entityOptional.get();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -37,7 +37,7 @@ public class CertificacionService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Certificacion save(Certificacion entity) throws Exception{
+    public Certification save(Certification entity) throws Exception{
         try {
             entity = certificacionRepository.save(entity);
             return entity;
@@ -48,12 +48,12 @@ public class CertificacionService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Certificacion update(int id, Certificacion entity) throws Exception{
+    public Certification update(int id, Certification entity) throws Exception{
         try {
-            Optional<Certificacion> entityOptional = certificacionRepository.findById(id);
-            Certificacion certificacion = entityOptional.get();
-            certificacion = certificacionRepository.save(entity);
-            return  certificacion;
+            Optional<Certification> entityOptional = certificacionRepository.findById(id);
+            Certification certification = entityOptional.get();
+            certification = certificacionRepository.save(entity);
+            return certification;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }

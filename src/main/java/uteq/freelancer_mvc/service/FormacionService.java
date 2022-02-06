@@ -2,7 +2,7 @@ package uteq.freelancer_mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Formacion;
+import uteq.freelancer_mvc.models.Education;
 import uteq.freelancer_mvc.repository.FormacionRepository;
 
 import javax.transaction.Transactional;
@@ -15,7 +15,7 @@ public class FormacionService {
 
     //Este metodo permite lisatr todos los registro de la entidad.
     @Transactional
-    public List<Formacion> findAll() throws Exception{
+    public List<Education> findAll() throws Exception{
         try {
             return formacionRepository.findAll();
         }catch (Exception e){
@@ -25,9 +25,9 @@ public class FormacionService {
 
     //Este metodo permite: Buscar un formacion mediante su ID.
     @Transactional
-    public Formacion findById(int id) throws Exception{
+    public Education findById(int id) throws Exception{
         try {
-            Optional<Formacion> entityOptional = formacionRepository.findById(id);
+            Optional<Education> entityOptional = formacionRepository.findById(id);
             return entityOptional.get();
         }catch (Exception e){
             throw  new Exception(e.getMessage());
@@ -36,7 +36,7 @@ public class FormacionService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Formacion save(Formacion entity) throws Exception{
+    public Education save(Education entity) throws Exception{
         try {
             entity = formacionRepository.save(entity);
             return entity;
@@ -47,12 +47,12 @@ public class FormacionService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Formacion update(int id, Formacion entity) throws Exception{
+    public Education update(int id, Education entity) throws Exception{
         try {
-            Optional<Formacion> entityOptional = formacionRepository.findById(id);
-            Formacion formacion = entityOptional.get();
-            formacion = formacionRepository.save(entity);
-            return  formacion;
+            Optional<Education> entityOptional = formacionRepository.findById(id);
+            Education education = entityOptional.get();
+            education = formacionRepository.save(entity);
+            return education;
         }catch (Exception e){
             throw  new Exception(e.getMessage());
         }
