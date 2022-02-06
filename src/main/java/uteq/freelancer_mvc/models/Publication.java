@@ -20,11 +20,11 @@ public class Publication {
     private Long idPublication;
 
     @NotEmpty
-    @Column(name = "name", length = 150)
+    @Column(name = "name", length = 150, nullable = false)
     private String name;
 
     @NotEmpty
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
     @Column(name = "status")
@@ -33,7 +33,7 @@ public class Publication {
     @Column(name = "document", length = 50)
     private String document;
 
-    @Column(name = "title", length = 200)
+    @Column(name = "title", length = 200, nullable = false)
     private String title;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

@@ -17,10 +17,10 @@ public class Languaje {
     private int languaje;
 	
     @NotEmpty
-	@Column(name="name", length = 30)
+	@Column(name="name", length = 30, nullable = false)
     private String name;
     
     @NotEmpty
-	@Column(name="level", length = 20)
+	@Column(name="level", length = 20, nullable = false)
     private String level;
 }

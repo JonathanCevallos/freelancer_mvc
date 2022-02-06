@@ -17,14 +17,14 @@ public class People {
     private Long idPeople;
 	
 	@NotEmpty
-	@Column(name="name", length = 100)
+	@Column(name="name", length = 100, nullable = false)
     private String name;
 
 	@NotEmpty
-	@Column(name="last_name", length = 100)
+	@Column(name="last_name", length = 100, nullable = false)
     private String lastName;
 	
-	@Column(name="phone", length = 15)
+	@Column(name="phone", length = 15, nullable = false, unique = false)
     private String phone;
 
 	@NotEmpty
@@ -37,15 +37,15 @@ public class People {
 	@Column(name="description")
     private String description;
 
-	@Column(name="password")
+	@Column(name="password", nullable = false)
     private String password;
 
 	@NotEmpty
-	@Column(name="dni", length = 15)
+	@Column(name="dni", length = 15, nullable = false, unique = true)
 	private String dni;
 
 	@Email
-	@Column(name="email", length = 50)
+	@Column(name="email", length = 50, nullable = false, unique = true)
 	private String email;
 
 	@OneToOne(cascade = {CascadeType.PERSIST})

@@ -20,14 +20,14 @@ public class Question {
 	
 
     @NotEmpty
-	@Column(name="description")
+	@Column(name="description", nullable = false)
     private String description;
 
     @NotEmpty
-	@Column(name="answer")
+	@Column(name="answer", nullable = false)
     private String answer;
     
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     private Date date;
 }

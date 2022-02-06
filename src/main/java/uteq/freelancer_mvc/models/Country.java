@@ -16,6 +16,6 @@ public class Country {
     private int idCountry;
 
     @NotEmpty
-	@Column(name="name", length = 50)
+	@Column(name="name", length = 50, nullable = true)
     private String name;
 }
