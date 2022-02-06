@@ -1,13 +1,15 @@
 package uteq.freelancer_mvc.models;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 
 import javax.validation.constraints.NotEmpty;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "sub_categorias")
 public class SubCategoria {

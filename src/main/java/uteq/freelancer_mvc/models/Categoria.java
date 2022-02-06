@@ -1,13 +1,19 @@
 package uteq.freelancer_mvc.models;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "calificaciones")
 public class Categoria {
