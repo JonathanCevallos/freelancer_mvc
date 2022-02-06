@@ -1,10 +1,16 @@
 package uteq.freelancer_mvc.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.Data;
 
+import javax.persistence.*;
+
+@Data
 @Entity
+@Table(name = "subcategorias")
 public class SubCategoria {
     @Id
-    private Long idSubCategoria;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_sub_categoria")
+    private int idSubCategoria;
+
 }
