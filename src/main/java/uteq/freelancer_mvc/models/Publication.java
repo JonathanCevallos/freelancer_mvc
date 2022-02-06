@@ -36,24 +36,23 @@ public class Publication {
     @Column(name = "title", length = 200)
     private String title;
 
-
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name = "fecha_plublicacion")
-    private Date fechaPublicacion;
+    @Column(name = "publication_date")
+    private Date publicationDate;
 
     @OneToOne(cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "id_sub_categoria")
+    @JoinColumn(name = "id_sub_category")
     private SubCategory subCategory;
 
     @OneToOne(cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "id_profesional")
+    @JoinColumn(name = "id_professional")
     private Professional professional;
 
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Plan.class)
-    @JoinColumn(name = "id_servicio", referencedColumnName = "id_servicio")
-    private Set<Plan> planes;
+    @JoinColumn(name = "id_publication", referencedColumnName = "id_servicio")
+    private Set<Plan> plan;
 
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Plan.class)
-    @JoinColumn(name = "id_servicio", referencedColumnName = "id_servicio")
-    private Set<Qualification> calificaciones;
+    @JoinColumn(name = "id_publication", referencedColumnName = "id_servicio")
+    private Set<Qualification> qualification;
 }
