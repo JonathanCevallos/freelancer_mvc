@@ -14,10 +14,9 @@ import javax.validation.constraints.NotEmpty;
 public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_user")
+	@Column(name="id_usser")
     private Long idUser;
 	
-
 	@NotEmpty
 	@Column(name="name", length = 100)
     private String name;

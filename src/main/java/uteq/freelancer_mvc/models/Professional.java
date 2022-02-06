@@ -33,6 +33,6 @@ public class Professional {
 
     //todo: relacion con la entidad usuario
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "id_usser")
     private User user;
 }

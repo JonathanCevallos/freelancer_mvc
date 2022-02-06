@@ -31,7 +31,7 @@ public class Order {
     private Boolean status;
 
 	@OneToOne(cascade = {CascadeType.PERSIST})
-	@JoinColumn(name="id_user")
+	@JoinColumn(name="id_usser")
 	private User user;
 
 	@ManyToOne(cascade = {CascadeType.ALL})
