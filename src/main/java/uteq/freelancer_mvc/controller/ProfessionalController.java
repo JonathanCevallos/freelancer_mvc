@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uteq.freelancer_mvc.models.Professional;
-import uteq.freelancer_mvc.service.ProfesionalService;
+import uteq.freelancer_mvc.service.ProfessionalService;
 
 import java.util.List;
 
@@ -13,13 +13,13 @@ import java.util.List;
 @CrossOrigin("*")
 public class ProfessionalController {
     @Autowired
-    private ProfesionalService profesionalService;
+    private ProfessionalService professionalService;
 
     //TODO LISTAR
     @GetMapping
     public ResponseEntity<List<Professional>> getAll() {
         try {
-            return ResponseEntity.ok().body(profesionalService.findAll());
+            return ResponseEntity.ok().body(professionalService.findAll());
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
@@ -29,7 +29,7 @@ public class ProfessionalController {
     @RequestMapping(value = "{id}")
     public ResponseEntity<Professional> finfById(@PathVariable("id")Long id){
         try {
-            return ResponseEntity.ok().body(profesionalService.findById(id));
+            return ResponseEntity.ok().body(professionalService.findById(id));
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
@@ -39,7 +39,7 @@ public class ProfessionalController {
     @PostMapping
     public ResponseEntity<Professional> create (@RequestBody Professional entity) {
         try {
-            return ResponseEntity.ok().body(profesionalService.save(entity));
+            return ResponseEntity.ok().body(professionalService.save(entity));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
@@ -49,7 +49,7 @@ public class ProfessionalController {
     @DeleteMapping(value =  "{id}")
     public ResponseEntity<Boolean> delete (@PathVariable Long id) {
         try {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(profesionalService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(professionalService.delete(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
@@ -59,7 +59,7 @@ public class ProfessionalController {
     @PutMapping(value =  "{id}")
     private ResponseEntity<Professional>update(@PathVariable Long id, @RequestBody Professional entity){
         try {
-            return ResponseEntity.ok().body(profesionalService.update(id,entity));
+            return ResponseEntity.ok().body(professionalService.update(id,entity));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

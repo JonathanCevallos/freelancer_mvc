@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProfesionalService {
+public class ProfessionalService {
     @Autowired
     private ProfessionalRepository professionalRepository;
 

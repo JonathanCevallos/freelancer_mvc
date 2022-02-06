@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uteq.freelancer_mvc.models.Occupation;
-import uteq.freelancer_mvc.service.OcupacionService;
+import uteq.freelancer_mvc.service.OccupationService;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class OccupationController {
     @Autowired
-    private OcupacionService ocupacionService;
+    private OccupationService occupationService;
 
     //LISTAR TODO
     @GetMapping
@@ -22,7 +22,7 @@ public class OccupationController {
     {
         try
         {
-            return ResponseEntity.ok().body(ocupacionService.findAll());
+            return ResponseEntity.ok().body(occupationService.findAll());
         }
         catch (Exception e)
         {
@@ -36,7 +36,7 @@ public class OccupationController {
     {
         try
         {
-            return ResponseEntity.ok().body(ocupacionService.findById(id));
+            return ResponseEntity.ok().body(occupationService.findById(id));
         }
         catch (Exception e)
         {
@@ -50,7 +50,7 @@ public class OccupationController {
     {
         try
         {
-            return ResponseEntity.ok().body(ocupacionService.save(entity));
+            return ResponseEntity.ok().body(occupationService.save(entity));
         }
         catch (Exception e)
         {
@@ -64,7 +64,7 @@ public class OccupationController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(ocupacionService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(occupationService.delete(id));
         }
         catch (Exception e)
         {
@@ -78,7 +78,7 @@ public class OccupationController {
     {
         try
         {
-            return ResponseEntity.ok().body(ocupacionService.update(id,entity));
+            return ResponseEntity.ok().body(occupationService.update(id,entity));
         }
         catch (Exception e)
         {

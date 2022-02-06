@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/habilidades")
 @CrossOrigin("*")
-public class HabilidadController {
+public class AbilityController {
     @Autowired
     private AbilityService abilityService;
 

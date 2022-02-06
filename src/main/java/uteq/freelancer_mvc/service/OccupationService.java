@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OcupacionService {
+public class OccupationService {
     @Autowired
     private OccupationRepository ocupasionRepository;
 
