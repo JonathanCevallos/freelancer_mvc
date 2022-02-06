@@ -19,15 +19,15 @@ public class Education {
     private Long idEducation;
 
     @NotEmpty
-    @Column(name ="name_institution", length = 80)
+    @Column(name ="name_institution", length = 80, nullable = false)
     private String nameInstitution;
 
     @NotEmpty
-    @Column(name ="description", length = 50)
+    @Column(name ="description", length = 50, nullable = false)
     private String description;
 
     @NotEmpty
-    @Column(name="year")
+    @Column(name="year", nullable = false)
     private String year;
 
     //Todo: relacion con la entidad pais

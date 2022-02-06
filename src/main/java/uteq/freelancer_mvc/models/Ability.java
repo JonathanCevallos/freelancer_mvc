@@ -21,7 +21,7 @@ public class Ability {
     private int idAbility;
 
     @NotEmpty
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

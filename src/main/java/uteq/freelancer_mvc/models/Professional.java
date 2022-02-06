@@ -25,10 +25,9 @@ public class Professional {
     @Column(name = "url_linkedin", length = 100)
     private String urlLinkedin;
 
-
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name = "registration_Date")
+    @Column(name = "registration_Date", nullable = false)
     private Date registrationDate;
 
     //todo: relacion con la entidad usuario

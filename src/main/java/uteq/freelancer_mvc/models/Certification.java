@@ -19,7 +19,7 @@ public class Certification {
     private int idCertification;
 
     @NotEmpty
-    @Column(name = "name", length = 80)
+    @Column(name = "name", length = 80, nullable = false)
     private String name;
 
     @NotEmpty
