@@ -49,10 +49,10 @@ public class Publication {
     private Professional professional;
 
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Plan.class)
-    @JoinColumn(name = "id_publication", referencedColumnName = "id_servicio")
+    @JoinColumn(name = "id_publication", referencedColumnName = "id_publication")
     private Set<Plan> plan;
 
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Plan.class)
-    @JoinColumn(name = "id_publication", referencedColumnName = "id_servicio")
+    @JoinColumn(name = "id_publication", referencedColumnName = "id_publication")
     private Set<Qualification> qualification;
 }
