@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uteq.freelancer_mvc.models.Order;
+import uteq.freelancer_mvc.models.Pay;
 import uteq.freelancer_mvc.service.OrderService;
 
 @RestController
@@ -25,7 +25,7 @@ public class OrderController {
 	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Order>> getAll()
+    public ResponseEntity<List<Pay>> getAll()
     {
         try
         {
@@ -39,7 +39,7 @@ public class OrderController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Order> finfById(@PathVariable("id")Long id)
+    public ResponseEntity<Pay> finfById(@PathVariable("id")Long id)
     {
         try
         {
@@ -53,7 +53,7 @@ public class OrderController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Order> create (@RequestBody Order entity)
+    public ResponseEntity<Pay> create (@RequestBody Pay entity)
     {
         try
         {
@@ -81,7 +81,7 @@ public class OrderController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Order>update(@PathVariable Long id, @RequestBody Order entity)
+    private ResponseEntity<Pay>update(@PathVariable Long id, @RequestBody Pay entity)
     {
         try
         {

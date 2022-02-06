@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uteq.freelancer_mvc.models.User;
+import uteq.freelancer_mvc.models.People;
 import uteq.freelancer_mvc.service.UserService;
 
 @RestController
@@ -25,7 +25,7 @@ public class UserController {
 	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<User>> getAll()
+    public ResponseEntity<List<People>> getAll()
     {
         try
         {
@@ -39,7 +39,7 @@ public class UserController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<User> finfById(@PathVariable("id")Long id)
+    public ResponseEntity<People> finfById(@PathVariable("id")Long id)
     {
         try
         {
@@ -53,7 +53,7 @@ public class UserController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<User> create (@RequestBody User entity)
+    public ResponseEntity<People> create (@RequestBody People entity)
     {
         try
         {
@@ -81,7 +81,7 @@ public class UserController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<User>update(@PathVariable Long id, @RequestBody User entity)
+    private ResponseEntity<People>update(@PathVariable Long id, @RequestBody People entity)
     {
         try
         {

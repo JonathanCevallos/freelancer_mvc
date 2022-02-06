@@ -9,13 +9,12 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "user")
-
-public class User {
+@Table(name = "people")
+public class People {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_usser")
-    private Long idUser;
+	@Column(name="id_people")
+    private Long idPeople;
 	
 	@NotEmpty
 	@Column(name="name", length = 100)
@@ -29,8 +28,8 @@ public class User {
     private String phone;
 
 	@NotEmpty
-	@Column(name="address")
-    private String address;
+	@Column(name="direction")
+    private String direction;
 	
 	@Column(name="profile_pic", length=50)
     private String profilePic;

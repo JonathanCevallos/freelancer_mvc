@@ -10,13 +10,13 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "order")
+@Table(name = "pay")
 
-public class Order {
+public class Pay {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_order")
-    private Long idOrder;
+	@Column(name="id_pay")
+    private Long idPay;
 
 	@NotEmpty
 	@Temporal(TemporalType.DATE)
@@ -31,8 +31,8 @@ public class Order {
     private Boolean status;
 
 	@OneToOne(cascade = {CascadeType.PERSIST})
-	@JoinColumn(name="id_usser")
-	private User user;
+	@JoinColumn(name="id_people")
+	private People people;
 
 	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name="id_publication")

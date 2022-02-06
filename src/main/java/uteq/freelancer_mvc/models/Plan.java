@@ -9,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name ="planes")
+@Table(name ="plane")
 public class Plan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

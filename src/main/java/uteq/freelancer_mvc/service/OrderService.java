@@ -5,7 +5,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Order;
+import uteq.freelancer_mvc.models.Pay;
 import uteq.freelancer_mvc.repository.OrderRepository;
 
 @Service
@@ -15,7 +15,7 @@ public class OrderService {
 	
 	//Este metodo permite listar todos los registro de la entidad.
 	@Transactional
-	public List<Order> findAll() throws Exception
+	public List<Pay> findAll() throws Exception
 	{
 		try
 		{
@@ -29,11 +29,11 @@ public class OrderService {
 	
 	//Este metodo permite: Actualizar una factura mediante su ID.
 	@Transactional
-	public Order findById(long id) throws Exception
+	public Pay findById(long id) throws Exception
 	{
 	    try
 	    {
-	        Optional<Order> entityOptional = orderRepository.findById(id);
+	        Optional<Pay> entityOptional = orderRepository.findById(id);
 	        return entityOptional.get();
 	    }
 	    catch (Exception e)
@@ -44,7 +44,7 @@ public class OrderService {
 
     //Este metodo permite: guardar.
 	@Transactional
-	public Order save(Order entity) throws Exception
+	public Pay save(Pay entity) throws Exception
 	{
 	    try
 	    {
@@ -59,14 +59,14 @@ public class OrderService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Order update(long id, Order entity) throws Exception
+    public Pay update(long id, Pay entity) throws Exception
     {
         try
         {
-            Optional<Order> entityOptional = orderRepository.findById(id);
-            Order order = entityOptional.get();
-            order = orderRepository.save(entity);
-            return  order;
+            Optional<Pay> entityOptional = orderRepository.findById(id);
+            Pay pay = entityOptional.get();
+            pay = orderRepository.save(entity);
+            return pay;
         }
         catch (Exception e)
         {

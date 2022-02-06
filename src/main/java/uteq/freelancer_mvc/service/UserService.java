@@ -5,7 +5,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.User;
+import uteq.freelancer_mvc.models.People;
 import uteq.freelancer_mvc.repository.UserRepository;
 
 @Service
@@ -15,7 +15,7 @@ public class UserService {
 	
 	//Este metodo permite listar todos los registro de la entidad.
 	@Transactional
-	public List<User> findAll() throws Exception
+	public List<People> findAll() throws Exception
 	{
 		try
 		{
@@ -29,11 +29,11 @@ public class UserService {
 	
 	//Este metodo permite: Actualizar una persona mediante su ID.
     @Transactional
-    public User findById(long id) throws Exception
+    public People findById(long id) throws Exception
     {
         try
         {
-            Optional<User> entityOptional = userRepository.findById(id);
+            Optional<People> entityOptional = userRepository.findById(id);
             return entityOptional.get();
         }
         catch (Exception e)
@@ -44,7 +44,7 @@ public class UserService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public User save(User entity) throws Exception
+    public People save(People entity) throws Exception
     {
         try
         {
@@ -59,12 +59,12 @@ public class UserService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public User update(long id, User entity) throws Exception
+    public People update(long id, People entity) throws Exception
     {
         try
         {
-            Optional<User> entityOptional = userRepository.findById(id);
-            User user = entityOptional.get();
+            Optional<People> entityOptional = userRepository.findById(id);
+            People user = entityOptional.get();
             user = userRepository.save(entity);
             return  user;
         }
