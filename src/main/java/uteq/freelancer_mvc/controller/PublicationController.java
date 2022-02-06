@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uteq.freelancer_mvc.models.Usuario;
-import uteq.freelancer_mvc.service.UsuarioService;
+import uteq.freelancer_mvc.models.Publication;
+import uteq.freelancer_mvc.service.ServiceService;
 
 @RestController
-@RequestMapping("api/usuarios")
+@RequestMapping("api/servicios")
 @CrossOrigin("*")
-public class UsuarioController {
+public class PublicationController {
 	@Autowired
-	private UsuarioService usuarioService;
+	private ServiceService serviceService;
 	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Usuario>> getAll()
+    public ResponseEntity<List<Publication>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(usuarioService.findAll());
+            return ResponseEntity.ok().body(serviceService.findAll());
         }
         catch (Exception e)
         {
@@ -39,11 +39,11 @@ public class UsuarioController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Usuario> finfById(@PathVariable("id")Long id)
+    public ResponseEntity<Publication> finfById(@PathVariable("id")Long id)
     {
         try
         {
-            return ResponseEntity.ok().body(usuarioService.findById(id));
+            return ResponseEntity.ok().body(serviceService.findById(id));
         }
         catch (Exception e)
         {
@@ -53,11 +53,11 @@ public class UsuarioController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Usuario> create (@RequestBody Usuario entity)
+    public ResponseEntity<Publication> create (@RequestBody Publication entity)
     {
         try
         {
-            return ResponseEntity.ok().body(usuarioService.save(entity));
+            return ResponseEntity.ok().body(serviceService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +71,7 @@ public class UsuarioController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(usuarioService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(serviceService.delete(id));
         }
         catch (Exception e)
         {
@@ -81,11 +81,11 @@ public class UsuarioController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Usuario>update(@PathVariable Long id, @RequestBody Usuario entity)
+    private ResponseEntity<Publication>update(@PathVariable Long id, @RequestBody Publication entity)
     {
         try
         {
-            return ResponseEntity.ok().body(usuarioService.update(id,entity));
+            return ResponseEntity.ok().body(serviceService.update(id,entity));
         }
         catch (Exception e)
         {

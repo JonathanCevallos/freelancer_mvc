@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uteq.freelancer_mvc.models.Factura;
-import uteq.freelancer_mvc.service.FacturaService;
+import uteq.freelancer_mvc.models.Order;
+import uteq.freelancer_mvc.service.OrderService;
 
 @RestController
 @RequestMapping("api/facturas")
 @CrossOrigin("*")
-public class FacturaController {
+public class OrderController {
 	@Autowired
-	private FacturaService facturaService;
+	private OrderService orderService;
 	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Factura>> getAll()
+    public ResponseEntity<List<Order>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(facturaService.findAll());
+            return ResponseEntity.ok().body(orderService.findAll());
         }
         catch (Exception e)
         {
@@ -39,11 +39,11 @@ public class FacturaController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Factura> finfById(@PathVariable("id")Long id)
+    public ResponseEntity<Order> finfById(@PathVariable("id")Long id)
     {
         try
         {
-            return ResponseEntity.ok().body(facturaService.findById(id));
+            return ResponseEntity.ok().body(orderService.findById(id));
         }
         catch (Exception e)
         {
@@ -53,11 +53,11 @@ public class FacturaController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Factura> create (@RequestBody Factura entity)
+    public ResponseEntity<Order> create (@RequestBody Order entity)
     {
         try
         {
-            return ResponseEntity.ok().body(facturaService.save(entity));
+            return ResponseEntity.ok().body(orderService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +71,7 @@ public class FacturaController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(facturaService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(orderService.delete(id));
         }
         catch (Exception e)
         {
@@ -81,11 +81,11 @@ public class FacturaController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Factura>update(@PathVariable Long id, @RequestBody Factura entity)
+    private ResponseEntity<Order>update(@PathVariable Long id, @RequestBody Order entity)
     {
         try
         {
-            return ResponseEntity.ok().body(facturaService.update(id,entity));
+            return ResponseEntity.ok().body(orderService.update(id,entity));
         }
         catch (Exception e)
         {

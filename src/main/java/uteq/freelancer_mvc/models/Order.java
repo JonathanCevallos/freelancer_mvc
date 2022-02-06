@@ -10,31 +10,31 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "facturas")
+@Table(name = "order")
 
-public class Factura {
+public class Order {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_factura")
-    private Long idFactura;
+	@Column(name="id_order")
+    private Long idOrder;
 
 	@NotEmpty
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	@Column(name="fecha")
-    private Date fecha;
+	@Column(name="date")
+    private Date date;
 
 	@Column(name="total")
     private Double total;
 
-	@Column(name="estado")
-    private Boolean estado;
+	@Column(name="status")
+    private Boolean status;
 
 	@OneToOne(cascade = {CascadeType.PERSIST})
-	@JoinColumn(name="id_usuario")
-	private Usuario usuario;
+	@JoinColumn(name="id_user")
+	private User user;
 
 	@ManyToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name="id_servicio")
-	private Servicio Servicio;
+	@JoinColumn(name="id_publication")
+	private Publication publication;
 }

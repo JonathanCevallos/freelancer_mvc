@@ -11,30 +11,30 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "servicios")
+@Table(name = "publication")
 
-public class Servicio {
+public class Publication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_servicio")
-    private Long idServicio;
+    @Column(name = "id_publication")
+    private Long idPublication;
 
     @NotEmpty
-    @Column(name = "nombre", length = 150)
-    private String nombre;
+    @Column(name = "name", length = 150)
+    private String name;
 
     @NotEmpty
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "estado")
-    private Boolean estado;
+    @Column(name = "status")
+    private Boolean status;
 
-    @Column(name = "documento", length = 50)
-    private String documento;
+    @Column(name = "document", length = 50)
+    private String document;
 
-    @Column(name = "titulo", length = 200)
-    private String titulo;
+    @Column(name = "title", length = 200)
+    private String title;
 
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

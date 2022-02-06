@@ -5,21 +5,21 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Idioma;
-import uteq.freelancer_mvc.repository.IdiomaRepository;
+import uteq.freelancer_mvc.models.User;
+import uteq.freelancer_mvc.repository.UserRepository;
 
 @Service
-public class IdiomaService {
+public class UserService {
 	@Autowired
-	private IdiomaRepository idiomaRepository;
+	private UserRepository userRepository;
 	
 	//Este metodo permite listar todos los registro de la entidad.
 	@Transactional
-	public List<Idioma> findAll() throws Exception
+	public List<User> findAll() throws Exception
 	{
 		try
 		{
-			return idiomaRepository.findAll();
+			return userRepository.findAll();
 		}
 		catch(Exception ex)
 		{
@@ -27,13 +27,13 @@ public class IdiomaService {
 		}
 	}
 	
-	//Este metodo permite: Actualizar un idioma mediante su ID.
+	//Este metodo permite: Actualizar una persona mediante su ID.
     @Transactional
-    public Idioma findById(int id) throws Exception
+    public User findById(long id) throws Exception
     {
         try
         {
-            Optional<Idioma> entityOptional = idiomaRepository.findById(id);
+            Optional<User> entityOptional = userRepository.findById(id);
             return entityOptional.get();
         }
         catch (Exception e)
@@ -44,11 +44,11 @@ public class IdiomaService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Idioma save(Idioma entity) throws Exception
+    public User save(User entity) throws Exception
     {
         try
         {
-            entity = idiomaRepository.save(entity);
+            entity = userRepository.save(entity);
             return entity;
         }
         catch (Exception e)
@@ -59,14 +59,14 @@ public class IdiomaService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Idioma update(int id, Idioma entity) throws Exception
+    public User update(long id, User entity) throws Exception
     {
         try
         {
-            Optional<Idioma> entityOptional = idiomaRepository.findById(id);
-            Idioma idioma = entityOptional.get();
-            idioma = idiomaRepository.save(entity);
-            return  idioma;
+            Optional<User> entityOptional = userRepository.findById(id);
+            User user = entityOptional.get();
+            user = userRepository.save(entity);
+            return  user;
         }
         catch (Exception e)
         {
@@ -76,13 +76,13 @@ public class IdiomaService {
 
     //Este metodo permite: Eliminar mediante su ID.
     @Transactional
-    public boolean delete(int id) throws Exception
+    public boolean delete(long id) throws Exception
     {
         try
         {
-            if(idiomaRepository.existsById(id))
+            if(userRepository.existsById(id))
             {
-            	idiomaRepository.deleteById(id);
+                userRepository.deleteById(id);
                 return  true;
             }
             else

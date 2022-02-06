@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uteq.freelancer_mvc.models.Pais;
-import uteq.freelancer_mvc.service.PaisService;
+import uteq.freelancer_mvc.models.Country;
+import uteq.freelancer_mvc.service.CountryService;
 
 @RestController
 @RequestMapping("api/paises")
 @CrossOrigin("*")
-public class PaisController {
+public class CountryController {
 	@Autowired
-	private PaisService paisService;
+	private CountryService countryService;
 	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Pais>> getAll()
+    public ResponseEntity<List<Country>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(paisService.findAll());
+            return ResponseEntity.ok().body(countryService.findAll());
         }
         catch (Exception e)
         {
@@ -39,11 +39,11 @@ public class PaisController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Pais> finfById(@PathVariable("id")int id)
+    public ResponseEntity<Country> finfById(@PathVariable("id")int id)
     {
         try
         {
-            return ResponseEntity.ok().body(paisService.findById(id));
+            return ResponseEntity.ok().body(countryService.findById(id));
         }
         catch (Exception e)
         {
@@ -53,11 +53,11 @@ public class PaisController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Pais> create (@RequestBody Pais entity)
+    public ResponseEntity<Country> create (@RequestBody Country entity)
     {
         try
         {
-            return ResponseEntity.ok().body(paisService.save(entity));
+            return ResponseEntity.ok().body(countryService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +71,7 @@ public class PaisController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(paisService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(countryService.delete(id));
         }
         catch (Exception e)
         {
@@ -81,11 +81,11 @@ public class PaisController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Pais>update(@PathVariable int id, @RequestBody Pais entity)
+    private ResponseEntity<Country>update(@PathVariable int id, @RequestBody Country entity)
     {
         try
         {
-            return ResponseEntity.ok().body(paisService.update(id,entity));
+            return ResponseEntity.ok().body(countryService.update(id,entity));
         }
         catch (Exception e)
         {

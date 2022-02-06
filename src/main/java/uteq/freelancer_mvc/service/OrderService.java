@@ -5,21 +5,21 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Servicio;
-import uteq.freelancer_mvc.repository.ServicioRepository;
+import uteq.freelancer_mvc.models.Order;
+import uteq.freelancer_mvc.repository.OrderRepository;
 
 @Service
-public class ServicioService {
+public class OrderService {
 	@Autowired
-	private ServicioRepository servicioRepository;
+	private OrderRepository orderRepository;
 	
 	//Este metodo permite listar todos los registro de la entidad.
 	@Transactional
-	public List<Servicio> findAll() throws Exception
+	public List<Order> findAll() throws Exception
 	{
 		try
 		{
-			return servicioRepository.findAll();
+			return orderRepository.findAll();
 		}
 		catch(Exception ex)
 		{
@@ -27,13 +27,13 @@ public class ServicioService {
 		}
 	}
 	
-	//Este metodo permite: Actualizar un servicio mediante su ID.
+	//Este metodo permite: Actualizar una factura mediante su ID.
 	@Transactional
-	public Servicio findById(Long id) throws Exception
+	public Order findById(long id) throws Exception
 	{
 	    try
 	    {
-	        Optional<Servicio> entityOptional = servicioRepository.findById(id);
+	        Optional<Order> entityOptional = orderRepository.findById(id);
 	        return entityOptional.get();
 	    }
 	    catch (Exception e)
@@ -44,11 +44,11 @@ public class ServicioService {
 
     //Este metodo permite: guardar.
 	@Transactional
-	public Servicio save(Servicio entity) throws Exception
+	public Order save(Order entity) throws Exception
 	{
 	    try
 	    {
-	        entity = servicioRepository.save(entity);
+	        entity = orderRepository.save(entity);
 	        return entity;
 	    }
 	    catch (Exception e)
@@ -59,14 +59,14 @@ public class ServicioService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Servicio update(Long id, Servicio entity) throws Exception
+    public Order update(long id, Order entity) throws Exception
     {
         try
         {
-            Optional<Servicio> entityOptional = servicioRepository.findById(id);
-            Servicio servicio = entityOptional.get();
-            servicio = servicioRepository.save(entity);
-            return  servicio;
+            Optional<Order> entityOptional = orderRepository.findById(id);
+            Order order = entityOptional.get();
+            order = orderRepository.save(entity);
+            return  order;
         }
         catch (Exception e)
         {
@@ -76,13 +76,13 @@ public class ServicioService {
 
     //Este metodo permite: Eliminar mediante su ID.
     @Transactional
-    public boolean delete(Long id) throws Exception
+    public boolean delete(long id) throws Exception
     {
         try
         {
-            if(servicioRepository.existsById(id))
+            if(orderRepository.existsById(id))
             {
-            	servicioRepository.deleteById(id);
+            	orderRepository.deleteById(id);
                 return  true;
             }
             else

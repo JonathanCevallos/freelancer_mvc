@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uteq.freelancer_mvc.models.Pregunta;
+import uteq.freelancer_mvc.models.Question;
 import uteq.freelancer_mvc.service.PreguntaService;
 import java.util.List;
 
@@ -12,13 +12,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/pregunta")
 
-public class PreguntaController {
+public class QuestionController {
 	 @Autowired
 	    private PreguntaService preguntaService;
 
 	    //LISTAR TODO
 	    @GetMapping
-	    public ResponseEntity<List<Pregunta>> getAll() {
+	    public ResponseEntity<List<Question>> getAll() {
 	        try {
 	            return ResponseEntity.ok().body(preguntaService.findAll());
 	        } catch (Exception e) {
@@ -28,7 +28,7 @@ public class PreguntaController {
 
 	    // BUSCAR POR ID
 	    @RequestMapping(value = "{id}")
-	    public ResponseEntity<Pregunta> finfById(@PathVariable("id") Long id) {
+	    public ResponseEntity<Question> finfById(@PathVariable("id") Long id) {
 	        try {
 	            return ResponseEntity.ok().body(preguntaService.findById(id));
 	        } catch (Exception e) {
@@ -38,7 +38,7 @@ public class PreguntaController {
 
 	    //GUARDAR
 	    @PostMapping
-	    public ResponseEntity<Pregunta> create(@RequestBody Pregunta entity) {
+	    public ResponseEntity<Question> create(@RequestBody Question entity) {
 	        try {
 	            return ResponseEntity.ok().body(preguntaService.save(entity));
 	        } catch (Exception e) {
@@ -58,7 +58,7 @@ public class PreguntaController {
 
 	    //ACTUALIZAR
 	    @PutMapping(value = "{id}")
-	    public ResponseEntity<Pregunta> update(@PathVariable Long id, @RequestBody Pregunta entity) {
+	    public ResponseEntity<Question> update(@PathVariable Long id, @RequestBody Question entity) {
 	        try {
 	            return ResponseEntity.ok().body(preguntaService.update(id, entity));
 	        } catch (Exception e) {

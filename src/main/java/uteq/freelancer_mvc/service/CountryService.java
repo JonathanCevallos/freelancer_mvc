@@ -5,21 +5,21 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Factura;
-import uteq.freelancer_mvc.repository.FacturaRepository;
+import uteq.freelancer_mvc.models.Country;
+import uteq.freelancer_mvc.repository.CountryRepository;
 
 @Service
-public class FacturaService {
+public class CountryService {
 	@Autowired
-	private FacturaRepository facturaRepository;
+	private CountryRepository countryRepository;
 	
 	//Este metodo permite listar todos los registro de la entidad.
 	@Transactional
-	public List<Factura> findAll() throws Exception
+	public List<Country> findAll() throws Exception
 	{
 		try
 		{
-			return facturaRepository.findAll();
+			return countryRepository.findAll();
 		}
 		catch(Exception ex)
 		{
@@ -27,13 +27,13 @@ public class FacturaService {
 		}
 	}
 	
-	//Este metodo permite: Actualizar una factura mediante su ID.
+	//Este metodo permite: Actualizar un país mediante su ID.
 	@Transactional
-	public Factura findById(long id) throws Exception
+	public Country findById(int id) throws Exception
 	{
 	    try
 	    {
-	        Optional<Factura> entityOptional = facturaRepository.findById(id);
+	        Optional<Country> entityOptional = countryRepository.findById(id);
 	        return entityOptional.get();
 	    }
 	    catch (Exception e)
@@ -42,13 +42,13 @@ public class FacturaService {
 	    }
 	}
 
-    //Este metodo permite: guardar.
+    //Este metodo permite: guardar
 	@Transactional
-	public Factura save(Factura entity) throws Exception
+	public Country save(Country entity) throws Exception
 	{
 	    try
 	    {
-	        entity = facturaRepository.save(entity);
+	        entity = countryRepository.save(entity);
 	        return entity;
 	    }
 	    catch (Exception e)
@@ -59,14 +59,14 @@ public class FacturaService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Factura update(long id, Factura entity) throws Exception
+    public Country update(int id, Country entity) throws Exception
     {
         try
         {
-            Optional<Factura> entityOptional = facturaRepository.findById(id);
-            Factura factura = entityOptional.get();
-            factura = facturaRepository.save(entity);
-            return  factura;
+            Optional<Country> entityOptional = countryRepository.findById(id);
+            Country country = entityOptional.get();
+            country = countryRepository.save(entity);
+            return  country;
         }
         catch (Exception e)
         {
@@ -76,13 +76,13 @@ public class FacturaService {
 
     //Este metodo permite: Eliminar mediante su ID.
     @Transactional
-    public boolean delete(long id) throws Exception
+    public boolean delete(int id) throws Exception
     {
         try
         {
-            if(facturaRepository.existsById(id))
+            if(countryRepository.existsById(id))
             {
-            	facturaRepository.deleteById(id);
+            	countryRepository.deleteById(id);
                 return  true;
             }
             else

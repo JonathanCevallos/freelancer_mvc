@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uteq.freelancer_mvc.models.Idioma;
-import uteq.freelancer_mvc.service.IdiomaService;
+import uteq.freelancer_mvc.models.Languaje;
+import uteq.freelancer_mvc.service.LanguajeService;
 
 @RestController
 @RequestMapping("api/idiomas")
 @CrossOrigin("*")
 
-public class IdiomaController {
+public class LanguajeController {
 	@Autowired
-	private IdiomaService idiomaService;
+	private LanguajeService languajeService;
 	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Idioma>> getAll()
+    public ResponseEntity<List<Languaje>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(idiomaService.findAll());
+            return ResponseEntity.ok().body(languajeService.findAll());
         }
         catch (Exception e)
         {
@@ -40,11 +40,11 @@ public class IdiomaController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Idioma> finfById(@PathVariable("id")int id)
+    public ResponseEntity<Languaje> finfById(@PathVariable("id")int id)
     {
         try
         {
-            return ResponseEntity.ok().body(idiomaService.findById(id));
+            return ResponseEntity.ok().body(languajeService.findById(id));
         }
         catch (Exception e)
         {
@@ -54,11 +54,11 @@ public class IdiomaController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Idioma> create (@RequestBody Idioma entity)
+    public ResponseEntity<Languaje> create (@RequestBody Languaje entity)
     {
         try
         {
-            return ResponseEntity.ok().body(idiomaService.save(entity));
+            return ResponseEntity.ok().body(languajeService.save(entity));
         }
         catch (Exception e)
         {
@@ -72,7 +72,7 @@ public class IdiomaController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(idiomaService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(languajeService.delete(id));
         }
         catch (Exception e)
         {
@@ -82,11 +82,11 @@ public class IdiomaController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Idioma>update(@PathVariable int id, @RequestBody Idioma entity)
+    private ResponseEntity<Languaje>update(@PathVariable int id, @RequestBody Languaje entity)
     {
         try
         {
-            return ResponseEntity.ok().body(idiomaService.update(id,entity));
+            return ResponseEntity.ok().body(languajeService.update(id,entity));
         }
         catch (Exception e)
         {

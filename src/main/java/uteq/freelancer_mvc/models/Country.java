@@ -8,19 +8,15 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "idiomas")
+@Table(name = "country")
 
-public class Idioma {
+public class Country {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_idioma")
-    private int Idioma;
-	
+	@Column(name="id_country")
+    private int idCountry;
+
     @NotEmpty
-	@Column(name="nombre", length = 30)
-    private String nombre;
-    
-    @NotEmpty
-	@Column(name="nivel", length = 20)
-    private String nivel;
+	@Column(name="name", length = 50)
+    private String name;
 }

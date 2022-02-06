@@ -5,21 +5,21 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Pais;
-import uteq.freelancer_mvc.repository.PaisRepository;
+import uteq.freelancer_mvc.models.Publication;
+import uteq.freelancer_mvc.repository.PublicationRepository;
 
 @Service
-public class PaisService {
+public class ServiceService {
 	@Autowired
-	private PaisRepository paisRepository;
+	private PublicationRepository publicationRepository;
 	
 	//Este metodo permite listar todos los registro de la entidad.
 	@Transactional
-	public List<Pais> findAll() throws Exception
+	public List<Publication> findAll() throws Exception
 	{
 		try
 		{
-			return paisRepository.findAll();
+			return publicationRepository.findAll();
 		}
 		catch(Exception ex)
 		{
@@ -27,13 +27,13 @@ public class PaisService {
 		}
 	}
 	
-	//Este metodo permite: Actualizar un país mediante su ID.
+	//Este metodo permite: Actualizar un servicio mediante su ID.
 	@Transactional
-	public Pais findById(int id) throws Exception
+	public Publication findById(Long id) throws Exception
 	{
 	    try
 	    {
-	        Optional<Pais> entityOptional = paisRepository.findById(id);
+	        Optional<Publication> entityOptional = publicationRepository.findById(id);
 	        return entityOptional.get();
 	    }
 	    catch (Exception e)
@@ -42,13 +42,13 @@ public class PaisService {
 	    }
 	}
 
-    //Este metodo permite: guardar
+    //Este metodo permite: guardar.
 	@Transactional
-	public Pais save(Pais entity) throws Exception
+	public Publication save(Publication entity) throws Exception
 	{
 	    try
 	    {
-	        entity = paisRepository.save(entity);
+	        entity = publicationRepository.save(entity);
 	        return entity;
 	    }
 	    catch (Exception e)
@@ -59,14 +59,14 @@ public class PaisService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Pais update(int id, Pais entity) throws Exception
+    public Publication update(Long id, Publication entity) throws Exception
     {
         try
         {
-            Optional<Pais> entityOptional = paisRepository.findById(id);
-            Pais pais = entityOptional.get();
-            pais = paisRepository.save(entity);
-            return  pais;
+            Optional<Publication> entityOptional = publicationRepository.findById(id);
+            Publication publication = entityOptional.get();
+            publication = publicationRepository.save(entity);
+            return  publication;
         }
         catch (Exception e)
         {
@@ -76,13 +76,13 @@ public class PaisService {
 
     //Este metodo permite: Eliminar mediante su ID.
     @Transactional
-    public boolean delete(int id) throws Exception
+    public boolean delete(Long id) throws Exception
     {
         try
         {
-            if(paisRepository.existsById(id))
+            if(publicationRepository.existsById(id))
             {
-            	paisRepository.deleteById(id);
+            	publicationRepository.deleteById(id);
                 return  true;
             }
             else

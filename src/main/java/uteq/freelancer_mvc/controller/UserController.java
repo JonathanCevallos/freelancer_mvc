@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uteq.freelancer_mvc.models.Servicio;
-import uteq.freelancer_mvc.service.ServicioService;
+import uteq.freelancer_mvc.models.User;
+import uteq.freelancer_mvc.service.UserService;
 
 @RestController
-@RequestMapping("api/servicios")
+@RequestMapping("api/usuarios")
 @CrossOrigin("*")
-public class ServicioController {
+public class UserController {
 	@Autowired
-	private ServicioService servicioService;
+	private UserService userService;
 	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Servicio>> getAll()
+    public ResponseEntity<List<User>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(servicioService.findAll());
+            return ResponseEntity.ok().body(userService.findAll());
         }
         catch (Exception e)
         {
@@ -39,11 +39,11 @@ public class ServicioController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Servicio> finfById(@PathVariable("id")Long id)
+    public ResponseEntity<User> finfById(@PathVariable("id")Long id)
     {
         try
         {
-            return ResponseEntity.ok().body(servicioService.findById(id));
+            return ResponseEntity.ok().body(userService.findById(id));
         }
         catch (Exception e)
         {
@@ -53,11 +53,11 @@ public class ServicioController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Servicio> create (@RequestBody Servicio entity)
+    public ResponseEntity<User> create (@RequestBody User entity)
     {
         try
         {
-            return ResponseEntity.ok().body(servicioService.save(entity));
+            return ResponseEntity.ok().body(userService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +71,7 @@ public class ServicioController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(servicioService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(userService.delete(id));
         }
         catch (Exception e)
         {
@@ -81,11 +81,11 @@ public class ServicioController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Servicio>update(@PathVariable Long id, @RequestBody Servicio entity)
+    private ResponseEntity<User>update(@PathVariable Long id, @RequestBody User entity)
     {
         try
         {
-            return ResponseEntity.ok().body(servicioService.update(id,entity));
+            return ResponseEntity.ok().body(userService.update(id,entity));
         }
         catch (Exception e)
         {

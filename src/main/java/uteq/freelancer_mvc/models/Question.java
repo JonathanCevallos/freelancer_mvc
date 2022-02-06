@@ -10,24 +10,24 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "preguntas")
+@Table(name = "question")
 
-public class Pregunta {
+public class Question {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_pregunta")
-    private Long idPregunta;
+	@Column(name="id_question")
+    private Long idQuestion;
 	
 
     @NotEmpty
-	@Column(name="descripcion")
-    private String descripcion;
+	@Column(name="description")
+    private String description;
 
     @NotEmpty
-	@Column(name="respuesta")
-    private String respuesta;
+	@Column(name="answer")
+    private String answer;
     
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name = "fecha")
-    private Date fecha;
+    @Column(name = "date")
+    private Date date;
 }
