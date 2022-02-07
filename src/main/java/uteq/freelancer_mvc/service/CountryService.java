@@ -1,6 +1,15 @@
 package uteq.freelancer_mvc.service;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import uteq.freelancer_mvc.models.Country;
+import uteq.freelancer_mvc.repository.CountryRepository;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CountryService {
     @Autowired

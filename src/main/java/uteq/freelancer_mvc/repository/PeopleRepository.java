@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import uteq.freelancer_mvc.models.People;
 
 @Repository
-public interface UserRepository extends JpaRepository<People, Long> {
+public interface PeopleRepository extends JpaRepository<People, Long> {
 
 }

@@ -6,18 +6,18 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.freelancer_mvc.models.People;
-import uteq.freelancer_mvc.repository.UserRepository;
+import uteq.freelancer_mvc.repository.PeopleRepository;
 
 @Service
 public class UserService {
     @Autowired
-    private UserRepository userRepository;
+    private PeopleRepository peopleRepository;
 
     //Este metodo permite listar todos los registro de la entidad.
     @Transactional
     public List<People> findAll() throws Exception {
         try {
-            return userRepository.findAll();
+            return peopleRepository.findAll();
         } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
@@ -27,7 +27,7 @@ public class UserService {
     @Transactional
     public People findById(long id) throws Exception {
         try {
-            Optional<People> entityOptional = userRepository.findById(id);
+            Optional<People> entityOptional = peopleRepository.findById(id);
             return entityOptional.get();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -38,7 +38,7 @@ public class UserService {
     @Transactional
     public People save(People entity) throws Exception {
         try {
-            entity = userRepository.save(entity);
+            entity = peopleRepository.save(entity);
             return entity;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -49,9 +49,9 @@ public class UserService {
     @Transactional
     public People update(long id, People entity) throws Exception {
         try {
-            Optional<People> entityOptional = userRepository.findById(id);
+            Optional<People> entityOptional = peopleRepository.findById(id);
             People user = entityOptional.get();
-            user = userRepository.save(entity);
+            user = peopleRepository.save(entity);
             return user;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -62,8 +62,8 @@ public class UserService {
     @Transactional
     public boolean delete(long id) throws Exception {
         try {
-            if (userRepository.existsById(id)) {
-                userRepository.deleteById(id);
+            if (peopleRepository.existsById(id)) {
+                peopleRepository.deleteById(id);
                 return true;
             } else {
                 throw new Exception();
