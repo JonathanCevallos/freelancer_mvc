@@ -19,7 +19,7 @@ import uteq.freelancer_mvc.models.SubCategory;
 import uteq.freelancer_mvc.service.SubCategoryService;
 
 @RestController
-@RequestMapping("api/subcategory")
+@RequestMapping("api/subcategories")
 @CrossOrigin("*")
 public class SubCategoryController {
 	@Autowired

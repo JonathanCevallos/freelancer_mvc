@@ -11,7 +11,7 @@ import uteq.freelancer_mvc.service.PlanService;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/plan")
+@RequestMapping("api/plans")
 @CrossOrigin("*")
 public class PlanController {
 	@Autowired

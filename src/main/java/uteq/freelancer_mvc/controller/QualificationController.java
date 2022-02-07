@@ -12,7 +12,7 @@ import uteq.freelancer_mvc.models.Qualification;
 import uteq.freelancer_mvc.service.QualificationService;
 
 @RestController
-@RequestMapping("api/qualification")
+@RequestMapping("api/qualifications")
 @CrossOrigin("*")
 public class QualificationController {
 	

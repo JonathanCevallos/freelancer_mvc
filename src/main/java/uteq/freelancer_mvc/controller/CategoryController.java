@@ -18,7 +18,7 @@ import uteq.freelancer_mvc.models.Category;
 import uteq.freelancer_mvc.service.CategoryService;
 
 @RestController
-@RequestMapping("api/category")
+@RequestMapping("api/categories")
 @CrossOrigin("*")
 public class CategoryController {
 	@Autowired

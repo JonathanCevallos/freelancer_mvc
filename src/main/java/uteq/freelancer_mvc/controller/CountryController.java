@@ -17,7 +17,7 @@ import uteq.freelancer_mvc.models.Country;
 import uteq.freelancer_mvc.service.CountryService;
 
 @RestController
-@RequestMapping("api/country")
+@RequestMapping("api/countries")
 @CrossOrigin("*")
 public class CountryController {
 	@Autowired

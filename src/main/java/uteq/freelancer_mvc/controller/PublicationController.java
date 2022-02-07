@@ -17,7 +17,7 @@ import uteq.freelancer_mvc.models.Publication;
 import uteq.freelancer_mvc.service.PublicationService;
 
 @RestController
-@RequestMapping("api/publication")
+@RequestMapping("api/publications")
 @CrossOrigin("*")
 public class PublicationController {
 	@Autowired

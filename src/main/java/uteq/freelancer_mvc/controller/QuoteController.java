@@ -21,7 +21,7 @@ import uteq.freelancer_mvc.service.QuoteService;
 
 
 @RestController
-@RequestMapping("api/quote")
+@RequestMapping("api/quotes")
 @CrossOrigin("*")
 
 public class QuoteController {
