@@ -37,6 +37,11 @@ public class Professional {
     @JoinColumn(name = "id_people")
     private People people;
 
+    //todo: relacion con la entidad usuario
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_occupation")
+    private Occupation occupation;
+
     //todo: relacion con la entidad skill
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Skill.class)
     @JoinColumn(name = "id_professional", referencedColumnName = "id_professional")
@@ -46,11 +51,5 @@ public class Professional {
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Education.class)
     @JoinColumn(name = "id_professional", referencedColumnName = "id_professional")
     private Set<Education> education;
-
-    //todo: relacion con la entidad occupation
-    @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Occupation.class)
-    @JoinColumn(name = "id_professional", referencedColumnName = "id_professional")
-    private Set<Occupation> occupation;
-
 
 }
