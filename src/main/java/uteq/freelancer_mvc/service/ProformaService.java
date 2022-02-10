@@ -7,19 +7,19 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uteq.freelancer_mvc.models.Quote;
-import uteq.freelancer_mvc.repository.QuoteRepository;
+import uteq.freelancer_mvc.models.Proforma;
+import uteq.freelancer_mvc.repository.ProformaRepository;
 
 @Service
-public class QuoteService {
+public class ProformaService {
     @Autowired
-    private QuoteRepository quoteRepository;
+    private ProformaRepository proformaRepository;
 
     //Este metodo permite listar todos los registros de la entidad.
     @Transactional
-    public List<Quote> findAll() throws Exception {
+    public List<Proforma> findAll() throws Exception {
         try {
-            return quoteRepository.findAll();
+            return proformaRepository.findAll();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -27,9 +27,9 @@ public class QuoteService {
 
     //Este metodo permite: Buscar una cotización mediante su ID.
     @Transactional
-    public Quote findById(int id) throws Exception {
+    public Proforma findById(int id) throws Exception {
         try {
-            Optional<Quote> entityOptional = quoteRepository.findById(id);
+            Optional<Proforma> entityOptional = proformaRepository.findById(id);
             return entityOptional.get();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -38,9 +38,9 @@ public class QuoteService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Quote save(Quote entity) throws Exception {
+    public Proforma save(Proforma entity) throws Exception {
         try {
-            entity = quoteRepository.save(entity);
+            entity = proformaRepository.save(entity);
             return entity;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -49,12 +49,12 @@ public class QuoteService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Quote update(int id, Quote entity) throws Exception {
+    public Proforma update(int id, Proforma entity) throws Exception {
         try {
-            Optional<Quote> entityOptional = quoteRepository.findById(id);
-            Quote quote = entityOptional.get();
-            quote = quoteRepository.save(entity);
-            return quote;
+            Optional<Proforma> entityOptional = proformaRepository.findById(id);
+            Proforma proforma = entityOptional.get();
+            proforma = proformaRepository.save(entity);
+            return proforma;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -64,8 +64,8 @@ public class QuoteService {
     @Transactional
     public boolean delete(int id) throws Exception {
         try {
-            if (quoteRepository.existsById(id)) {
-                quoteRepository.deleteById(id);
+            if (proformaRepository.existsById(id)) {
+                proformaRepository.deleteById(id);
                 return true;
             } else {
                 throw new Exception();

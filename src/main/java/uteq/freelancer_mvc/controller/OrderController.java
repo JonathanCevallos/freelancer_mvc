@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uteq.freelancer_mvc.models.Pay;
-import uteq.freelancer_mvc.service.PayService;
+import uteq.freelancer_mvc.models.Payment;
+import uteq.freelancer_mvc.service.PaymentService;
 
 @RestController
 @RequestMapping("api/orders")
 @CrossOrigin("*")
 public class OrderController {
 	@Autowired
-	private PayService payService;
+	private PaymentService paymentService;
 	
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Pay>> getAll()
+    public ResponseEntity<List<Payment>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(payService.findAll());
+            return ResponseEntity.ok().body(paymentService.findAll());
         }
         catch (Exception e)
         {
@@ -39,11 +39,11 @@ public class OrderController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Pay> finfById(@PathVariable("id")Long id)
+    public ResponseEntity<Payment> finfById(@PathVariable("id")Long id)
     {
         try
         {
-            return ResponseEntity.ok().body(payService.findById(id));
+            return ResponseEntity.ok().body(paymentService.findById(id));
         }
         catch (Exception e)
         {
@@ -53,11 +53,11 @@ public class OrderController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Pay> create (@RequestBody Pay entity)
+    public ResponseEntity<Payment> create (@RequestBody Payment entity)
     {
         try
         {
-            return ResponseEntity.ok().body(payService.save(entity));
+            return ResponseEntity.ok().body(paymentService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +71,7 @@ public class OrderController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(payService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(paymentService.delete(id));
         }
         catch (Exception e)
         {
@@ -81,11 +81,11 @@ public class OrderController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Pay>update(@PathVariable Long id, @RequestBody Pay entity)
+    private ResponseEntity<Payment>update(@PathVariable Long id, @RequestBody Payment entity)
     {
         try
         {
-            return ResponseEntity.ok().body(payService.update(id,entity));
+            return ResponseEntity.ok().body(paymentService.update(id,entity));
         }
         catch (Exception e)
         {

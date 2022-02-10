@@ -2,9 +2,9 @@ package uteq.freelancer_mvc.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import uteq.freelancer_mvc.models.Pay;
+import uteq.freelancer_mvc.models.Skill;
 
 @Repository
-public interface PayRepository extends JpaRepository<Pay, Long> {
+public interface SkillRepository extends JpaRepository<Skill, Integer> {
 
 }

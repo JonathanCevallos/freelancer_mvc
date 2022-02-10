@@ -3,9 +3,9 @@ package uteq.freelancer_mvc.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import uteq.freelancer_mvc.models.Quote;
+import uteq.freelancer_mvc.models.Proforma;
 
 @Repository
-public interface QuoteRepository extends JpaRepository<Quote, Integer> {
+public interface ProformaRepository extends JpaRepository<Proforma, Integer> {
 
 }

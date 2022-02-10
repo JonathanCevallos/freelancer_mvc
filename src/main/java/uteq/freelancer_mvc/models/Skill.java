@@ -13,12 +13,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "ability")
-public class Ability {
+@Table(name = "skill")
+public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_ability")
-    private int idAbility;
+    @Column(name = "id_skill")
+    private int idSkill;
 
     @NotEmpty
     @Column(name = "name", nullable = false)

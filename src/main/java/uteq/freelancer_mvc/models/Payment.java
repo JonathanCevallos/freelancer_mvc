@@ -11,13 +11,13 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "pay")
+@Table(name = "payment")
 
-public class Pay {
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pay")
-    private Long idPay;
+    @Column(name = "id_payment")
+    private Long idPayment;
 
     @NotEmpty
     @Temporal(TemporalType.DATE)

@@ -11,13 +11,13 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "quote")
-public class Quote {
+@Table(name = "proforma")
+public class Proforma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_quote")
-    private int idQuote;
+    @Column(name = "id_proforma")
+    private int idProforma;
 
     @NotEmpty
     @Column(name = "description")
@@ -31,7 +31,7 @@ public class Quote {
     @Column(name = "delivery_day")
     private Short deliveryDay;
 
-    @Column(name = "quote_date")
+    @Column(name = "proforma_date")
     private Date quoteDate;
 
     @Column(name = "document", length = 50)

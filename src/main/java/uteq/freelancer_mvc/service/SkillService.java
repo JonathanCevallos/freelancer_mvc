@@ -2,23 +2,23 @@ package uteq.freelancer_mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.freelancer_mvc.models.Ability;
-import uteq.freelancer_mvc.repository.AbilityRepository;
+import uteq.freelancer_mvc.models.Skill;
+import uteq.freelancer_mvc.repository.SkillRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AbilityService {
+public class SkillService {
     @Autowired
-    private AbilityRepository abilityRepository;
+    private SkillRepository skillRepository;
 
     //Este metodo permite lisatr todos los registro de la entidad.
     @Transactional
-    public List<Ability> findAll() throws Exception {
+    public List<Skill> findAll() throws Exception {
         try {
-            return abilityRepository.findAll();
+            return skillRepository.findAll();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -26,9 +26,9 @@ public class AbilityService {
 
     //Este metodo permite: Buscar un habilidad mediante su ID.
     @Transactional
-    public Ability findById(int id) throws Exception {
+    public Skill findById(int id) throws Exception {
         try {
-            Optional<Ability> entityOptional = abilityRepository.findById(id);
+            Optional<Skill> entityOptional = skillRepository.findById(id);
             return entityOptional.get();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -37,9 +37,9 @@ public class AbilityService {
 
     //Este metodo permite: guardar.
     @Transactional
-    public Ability save(Ability entity) throws Exception {
+    public Skill save(Skill entity) throws Exception {
         try {
-            entity = abilityRepository.save(entity);
+            entity = skillRepository.save(entity);
             return entity;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -48,12 +48,12 @@ public class AbilityService {
 
     //Este metodo permite: Actualizar mediante ID
     @Transactional
-    public Ability update(int id, Ability entity) throws Exception {
+    public Skill update(int id, Skill entity) throws Exception {
         try {
-            Optional<Ability> entityOptional = abilityRepository.findById(id);
-            Ability ability = entityOptional.get();
-            ability = abilityRepository.save(entity);
-            return ability;
+            Optional<Skill> entityOptional = skillRepository.findById(id);
+            Skill skill = entityOptional.get();
+            skill = skillRepository.save(entity);
+            return skill;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -63,8 +63,8 @@ public class AbilityService {
     @Transactional
     public boolean delete(int id) throws Exception {
         try {
-            if (abilityRepository.existsById(id)) {
-                abilityRepository.deleteById(id);
+            if (skillRepository.existsById(id)) {
+                skillRepository.deleteById(id);
                 return true;
             } else {
                 throw new Exception();

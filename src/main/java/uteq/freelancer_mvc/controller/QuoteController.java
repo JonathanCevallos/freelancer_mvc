@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import uteq.freelancer_mvc.models.Quote;
-import uteq.freelancer_mvc.service.QuoteService;
+import uteq.freelancer_mvc.models.Proforma;
+import uteq.freelancer_mvc.service.ProformaService;
 
 
 
@@ -27,14 +27,14 @@ import uteq.freelancer_mvc.service.QuoteService;
 public class QuoteController {
 
 	@Autowired
-	private QuoteService quoteService;
+	private ProformaService proformaService;
 	//LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Quote>> getAll()
+    public ResponseEntity<List<Proforma>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(quoteService.findAll());
+            return ResponseEntity.ok().body(proformaService.findAll());
         }
         catch (Exception e)
         {
@@ -44,11 +44,11 @@ public class QuoteController {
 
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Quote> finfById(@PathVariable("id")int id)
+    public ResponseEntity<Proforma> finfById(@PathVariable("id")int id)
     {
         try
         {
-            return ResponseEntity.ok().body(quoteService.findById(id));
+            return ResponseEntity.ok().body(proformaService.findById(id));
         }
         catch (Exception e)
         {
@@ -58,11 +58,11 @@ public class QuoteController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Quote> create (@RequestBody Quote entity)
+    public ResponseEntity<Proforma> create (@RequestBody Proforma entity)
     {
         try
         {
-            return ResponseEntity.ok().body(quoteService.save(entity));
+            return ResponseEntity.ok().body(proformaService.save(entity));
         }
         catch (Exception e)
         {
@@ -76,7 +76,7 @@ public class QuoteController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(quoteService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(proformaService.delete(id));
         }
         catch (Exception e)
         {
@@ -86,11 +86,11 @@ public class QuoteController {
 
     //ACTUALIZAR
     @PutMapping(value =  "{id}")
-    private ResponseEntity<Quote>update(@PathVariable int id, @RequestBody Quote entity)
+    private ResponseEntity<Proforma>update(@PathVariable int id, @RequestBody Proforma entity)
     {
         try
         {
-            return ResponseEntity.ok().body(quoteService.update(id,entity));
+            return ResponseEntity.ok().body(proformaService.update(id,entity));
         }
         catch (Exception e)
         {

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -35,4 +36,21 @@ public class Professional {
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_people")
     private People people;
+
+    //todo: relacion con la entidad skill
+    @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Skill.class)
+    @JoinColumn(name = "id_professional", referencedColumnName = "id_professional")
+    private Set<Skill> skill;
+
+    //todo: relacion con la entidad education
+    @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Education.class)
+    @JoinColumn(name = "id_professional", referencedColumnName = "id_professional")
+    private Set<Education> education;
+
+    //todo: relacion con la entidad occupation
+    @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Occupation.class)
+    @JoinColumn(name = "id_professional", referencedColumnName = "id_professional")
+    private Set<Occupation> occupation;
+
+
 }

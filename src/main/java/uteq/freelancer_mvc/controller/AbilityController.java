@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uteq.freelancer_mvc.models.Ability;
-import uteq.freelancer_mvc.service.AbilityService;
+import uteq.freelancer_mvc.models.Skill;
+import uteq.freelancer_mvc.service.SkillService;
 
 import java.util.List;
 
@@ -14,13 +14,13 @@ import java.util.List;
 @CrossOrigin("*")
 public class AbilityController {
     @Autowired
-    private AbilityService abilityService;
+    private SkillService skillService;
 
     //LISTAR TODO
     @GetMapping
-    public ResponseEntity<List<Ability>> getAll() {
+    public ResponseEntity<List<Skill>> getAll() {
         try {
-            return ResponseEntity.ok().body(abilityService.findAll());
+            return ResponseEntity.ok().body(skillService.findAll());
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
@@ -28,9 +28,9 @@ public class AbilityController {
 
     // BUSCAR POR ID
     @RequestMapping(value = "{id}")
-    public ResponseEntity<Ability> finfById(@PathVariable("id") int id) {
+    public ResponseEntity<Skill> finfById(@PathVariable("id") int id) {
         try {
-            return ResponseEntity.ok().body(abilityService.findById(id));
+            return ResponseEntity.ok().body(skillService.findById(id));
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
@@ -38,9 +38,9 @@ public class AbilityController {
 
     //GUARDAR
     @PostMapping
-    public ResponseEntity<Ability> create(@RequestBody Ability entity) {
+    public ResponseEntity<Skill> create(@RequestBody Skill entity) {
         try {
-            return ResponseEntity.ok().body(abilityService.save(entity));
+            return ResponseEntity.ok().body(skillService.save(entity));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
@@ -50,7 +50,7 @@ public class AbilityController {
     @DeleteMapping(value = "{id}")
     public ResponseEntity<Boolean> delete(@PathVariable int id) {
         try {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(abilityService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(skillService.delete(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
@@ -58,9 +58,9 @@ public class AbilityController {
 
     //ACTUALIZAR
     @PutMapping(value = "{id}")
-    private ResponseEntity<Ability> update(@PathVariable int id, @RequestBody Ability entity) {
+    private ResponseEntity<Skill> update(@PathVariable int id, @RequestBody Skill entity) {
         try {
-            return ResponseEntity.ok().body(abilityService.update(id, entity));
+            return ResponseEntity.ok().body(skillService.update(id, entity));
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
