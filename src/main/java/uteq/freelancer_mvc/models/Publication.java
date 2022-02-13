@@ -21,10 +21,6 @@ public class Publication {
     private Long idPublication;
 
     @NotEmpty
-    @Column(name = "name", length = 150, nullable = false)
-    private String name;
-
-    @NotEmpty
     @Column(name = "description", nullable = false)
     private String description;
 

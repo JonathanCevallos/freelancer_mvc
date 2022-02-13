@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,8 @@
                             src="https://i.ibb.co/56YxZH7/officialsevenoops-2693314994656645759-1-20211026175306597.jpg"
                             width="260" height="250" />
                         <h5 class="card-title text-center">kaochan</h5>
-                        <p class="card-text"><b>Nombre: </b>Kaori</p>
+                        <p class="card-text"><b>Nombre: </b></p>
+                        <h1 th:text="${people}></h1>
                         <p class="card-text"><b>Apellidos: </b>Yokoiwa</p>
                         <p class="card-text"><b>País: </b>Japón</p>
                         <p class="card-text"><b>Correo: </b>kao-kao@gmail.com</p>
