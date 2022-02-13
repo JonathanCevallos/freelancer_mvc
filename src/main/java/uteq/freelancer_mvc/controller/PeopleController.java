@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uteq.freelancer_mvc.models.People;
-import uteq.freelancer_mvc.service.UserService;
+import uteq.freelancer_mvc.service.PeopleService;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("api/people")
 @CrossOrigin("*")
-public class UserController {
+public class PeopleController {
 	@Autowired
-	private UserService userService;
+	private PeopleService peopleService;
 	
 	//LISTAR TODO
     @GetMapping
@@ -29,7 +29,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.ok().body(userService.findAll());
+            return ResponseEntity.ok().body(peopleService.findAll());
         }
         catch (Exception e)
         {
@@ -43,7 +43,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.ok().body(userService.findById(id));
+            return ResponseEntity.ok().body(peopleService.findById(id));
         }
         catch (Exception e)
         {
@@ -57,7 +57,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.ok().body(userService.save(entity));
+            return ResponseEntity.ok().body(peopleService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +71,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(userService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(peopleService.delete(id));
         }
         catch (Exception e)
         {
@@ -85,7 +85,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.ok().body(userService.update(id,entity));
+            return ResponseEntity.ok().body(peopleService.update(id,entity));
         }
         catch (Exception e)
         {
