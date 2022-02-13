@@ -22,6 +22,10 @@ public class Plan {
     private String name;
 
     @NotEmpty
+    @Column(name = "type", length = 25)
+    private String type;
+
+    @NotEmpty
     @Column(name = "description")
     private String description;
 
