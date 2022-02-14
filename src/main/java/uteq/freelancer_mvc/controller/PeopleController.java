@@ -51,6 +51,7 @@ public class PeopleController {
     		return "error";
     	}
     }
+    
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
     public ResponseEntity<People> finfById(@PathVariable("id")Long id)

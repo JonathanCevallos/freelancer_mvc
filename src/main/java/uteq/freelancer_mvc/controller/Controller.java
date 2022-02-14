@@ -11,6 +11,4 @@ public class Controller {
     String menu(){
         return "index";
     }
-
 }
-

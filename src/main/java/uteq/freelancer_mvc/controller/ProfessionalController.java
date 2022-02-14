@@ -2,7 +2,9 @@ package uteq.freelancer_mvc.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import uteq.freelancer_mvc.models.Professional;
 import uteq.freelancer_mvc.service.ProfessionalService;
 
@@ -24,7 +26,22 @@ public class ProfessionalController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    
+    @GetMapping("/")
+    public String professionalProfile(Model model)
+    {
+    	try
+    	{
+    		Professional professional = professionalService.findById(3L);
+            model.addAttribute("professional", professional);
+            return "views/perfilprofesional";
+    	}
+    	catch(Exception e)
+    	{
+    		return "error";
+    	}
+    }
+    
     //TODO: BUSCAR POR ID
     @RequestMapping(value = "{id}")
     public ResponseEntity<Professional> finfById(@PathVariable("id")Long id){
