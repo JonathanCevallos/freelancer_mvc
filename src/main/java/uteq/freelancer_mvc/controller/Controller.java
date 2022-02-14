@@ -26,6 +26,12 @@ public class Controller {
         return "index";
     }
 
+    @GetMapping("/servicios")
+    public String services(Model model) throws Exception {
+        return "views/publicarservicio";
+    }
+
+
 
     @GetMapping("/list")
     public String list(Model model) throws Exception {

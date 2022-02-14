@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publica tu servicio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
+</head>
+
+<body class="p-2 bg-light border">
+    <header>
+        <div class="container d-flex flex-wrap justify-content-center">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Aquí va un logotipo</span>
+            </a>
+        </div>
+        <hr>
+        <div class="container d-flex flex-wrap">
+            <ul class="nav me-auto">
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Inicio</a>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Servicios</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Servios destacados</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Ofertas</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Acerca de...</a></li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <form class="w-100 me-3">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </form>
+
+                <div class="flex-shrink-0 dropdown">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://scontent.fgye12-1.fna.fbcdn.net/v/t1.6435-9/91247413_10222060132914418_7656822680309465088_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH1W04MjJTZiizNC92FC-OvGiGqhbvpiDUaIaqFu-mINWn7jw489ACLgQ2MtZav8C_oL_xCSTY29zv_7H42SxNN&_nc_ohc=rsUdDOUJwxcAX9Ym7B8&tn=k3BhbqzYL2ahCCxv&_nc_ht=scontent.fgye12-1.fna&oh=00_AT9CoIi7zZK5pzPbr_Ib0le2LGldqj30J3B51UZ4pti8tg&oe=6228EF05"
+                            alt="mdo" class="rounded-circle" width="32" height="32">
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Modificar datos</a></li>
+                        <li><a class="dropdown-item" href="#">Mis compras</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </header>
+    <main>
+        <div class="container col-8 justify-content-center">
+            <div class="row">
+                <ul class="nav nav-tabs" id="pasos_servicios" role="tablist">
+
+                    <li class="nav-item" role="presentation"><a class="nav-link active" id="descripcion_general-tab"
+                            data-bs-toggle="tab" href="#descripcion_general" role="tab"
+                            aria-controls="descripcion_general" aria-selected="true">Descripción general</a></li>
+
+                    <li class="nav-item" role="presentation"><a class="nav-link" id="planes-tab" data-bs-toggle="tab"
+                            href="#planes" role="tab" aria-controls="planes" aria-selected="false">Planes</a></li>
+
+                    <li class="nav-item" role="presentation"><a class="nav-link"
+                            id="descripcion_preguntas_frecuentes-tab" data-bs-toggle="tab"
+                            href="#descripcion_preguntas_frecuentes" role="tab"
+                            aria-controls="descripcion_preguntas_frecuentes" aria-selected="false">
+                            Descripción y preguntas frecuentes</a></li>
+
+                    <li class="nav-item" role="presentation"><a class="nav-link" id="galeria-tab" data-bs-toggle="tab"
+                            href="#galeria" role="tab" aria-controls="galeria" aria-selected="false">Galería</a></li>
+
+                    <li class="nav-item" role="presentation"><a class="nav-link" id="publicar-tab" data-bs-toggle="tab"
+                            href="#publicar" role="tab" aria-controls="publicar" aria-selected="false">Publicar</a></li>
+                </ul>
+
+                <div class="tab-content" id="servicios_datos">
+                    <div class="tab-pane fade show active" id="descripcion_general" role="tabpanel"
+                        aria-labelledby="home-tab">
+                        <br>
+                        <div class="card">
+                            <div class="card-body">
+                                <p>Título del servicio</p>
+                                <input class="form-control" type="text" placeholder="Ingrese el título del servicio">
+                                <br>
+                                <div class="form-group col-5">
+                                    <label for="cmbCategoria">Seleccione la categoría</label>
+                                    <select class="form-control" id="cmbCategoria">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                    <br>
+                                    <label for="cmbSubCategoria">Seleccione la subcategoría</label>
+                                    <select class="form-control" id="cmbSubCategoria">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <button type="button" class="btn btn-primary">Siguiente</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="planes" role="tabpanel" aria-labelledby="planes-tab">
+                        <h5>Alcance y precios</h5>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <div class="card border-warning" style="width: 15rem;">
+                                        <div class="card-body">
+                                            <h5 class="text-center">Básico</h5>
+                                            <hr>
+                                            <input class="form-control" type="text" placeholder="Nombre del paquete">
+                                            <br>
+                                            <input class="form-control" type="text" placeholder="Detalles de la oferta">
+                                            <br>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Días">
+                                                <span class="input-group-text">días</span>
+                                            </div>
+                                            <br>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">$</span>
+                                                <input type="text" class="form-control"
+                                                    aria-label="Amount (to the nearest dollar)">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card border border-primary" style="width: 15rem;">
+                                        <div class="card-body">
+                                            <h5 class="text-center">Estandar</h5>
+                                            <hr>
+                                            <input class="form-control" type="text" placeholder="Nombre del paquete">
+                                            <br>
+                                            <input class="form-control" type="text" placeholder="Detalles de la oferta">
+                                            <br>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Días">
+                                                <span class="input-group-text">días</span>
+                                            </div>
+                                            <br>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">$</span>
+                                                <input type="text" class="form-control"
+                                                    aria-label="Amount (to the nearest dollar)">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card border border-success" style="width: 15rem;">
+                                        <div class="card-body">
+                                            <h5 class="text-center">Premium</h5>
+                                            <hr>
+                                            <input class="form-control" type="text" placeholder="Nombre del paquete">
+                                            <br>
+                                            <input class="form-control" type="text" placeholder="Detalles de la oferta">
+                                            <br>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Días">
+                                                <span class="input-group-text">días</span>
+                                            </div>
+                                            <br>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">$</span>
+                                                <input type="text" class="form-control"
+                                                    aria-label="Amount (to the nearest dollar)">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="descripcion_preguntas_frecuentes" role="tabpanel"
+                        aria-labelledby="descripcion_preguntas_frecuentes-tab">
+                        <h5>Descripción</h5>
+                        <hr>
+                        <div class="card">
+                            <div class="card-body">
+                                <h8 class="text-center">Agregue una breve descripción de la publicación</h8>
+                                <hr>
+                                <textarea class="form-control" placeholder="Descripción..."
+                                    aria-label="With textarea"></textarea>
+                            </div>
+                        </div>
+                        <h5>Preguntas frecuentes</h5>
+                        <hr>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <h8 class="text-center">Agregue las preguntas necesarias y su respuesta
+                                    </h8>
+                                    <hr>
+                                    <table id="PreguntasServicios" class="table"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="galeria" role="tabpanel" aria-labelledby="galeria-tab">
+                        <h5>Subir mínimo 1 imagen</h5>
+                        <hr>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="formFileSm" class="form-label">Imagen 1</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFileSm" class="form-label">Imagen 2</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFileSm" class="form-label">Imagen 3</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                </div>
+                            </div>
+                        </div>
+                        <h5>Subir un documento</h5>
+                        <hr>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="formFileSm" class="form-label">Archivo pdf</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="publicar" role="tabpanel" aria-labelledby="publicar-tab">
+                        <h5>Publicación en revisión</h5>
+                        <hr>
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                                <use xlink:href="#check-circle-fill" />
+                            </svg>
+                            <div>
+                                Su publicación ha sido enviada a revisión. Será redireccionado a la página principal
+                                automáticamente.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <span class="text-muted">© 2022 Proyecto Construcción de software</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#twitter"></use>
+                    </svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#instagram"></use>
+                    </svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                        <use xlink:href="#facebook"></use>
+                    </svg></a></li>
+        </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/jquery/jquery-3.3.1.min.js"></script>
+    <script src="assets/popper/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!--  Plugin DynamicTable -->
+    <script src="assets/plugins/dynamicTable/jquery.dynamicTable-1.0.0.js"></script>
+
+    <script src="assets/js/ServicioPreguntas.js"></script>
+</body>
+
+</html>
