@@ -40,12 +40,17 @@ public class PeopleController {
     @GetMapping("/list")
     public String peopleProfile(Model model)
     {
-        	String nombre = "Vallejo";
-            //People people = peopleService.findById('3L');
-            model.addAttribute("people", "Vallejo");
-            return "otra";
+    	try
+    	{
+    		People people = peopleService.findById(3L);
+            model.addAttribute("people", people);
+            return "views/perfilusuario";
+    	}
+    	catch(Exception e)
+    	{
+    		return "error";
+    	}
     }
-
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
     public ResponseEntity<People> finfById(@PathVariable("id")Long id)

@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Controller {
     @GetMapping
     String menu(){
-        return "otra";
+        return "index";
     }
 }

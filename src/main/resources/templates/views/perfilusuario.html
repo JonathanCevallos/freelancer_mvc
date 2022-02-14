@@ -64,12 +64,21 @@
                             src="https://i.ibb.co/56YxZH7/officialsevenoops-2693314994656645759-1-20211026175306597.jpg"
                             width="260" height="250" />
                         <h5 class="card-title text-center">kaochan</h5>
-                        <p class="card-text"><b>Nombre: </b></p>
-                        <h1 th:text="${people}></h1>
-                        <p class="card-text"><b>Apellidos: </b>Yokoiwa</p>
-                        <p class="card-text"><b>País: </b>Japón</p>
-                        <p class="card-text"><b>Correo: </b>kao-kao@gmail.com</p>
-                        <p class="card-text"><b>Número: </b>+817064323774</p>
+                        
+                        <div><label class="card-text"><b>Nombre: </b>
+                        <label th:text="${people.name}"></div>
+                        
+                        <div><label class="card-text"><b>Apellido: </b>
+                        <label th:text="${people.lastName}"></div>
+                        
+                        <div><label class="card-text"><b>País: </b>
+                        <label th:text="${people.country.name}"></div>
+                        
+                        <div><label class="card-text"><b>Correo:</b>
+                        <label th:text="${people.email}"></div>
+                        
+                        <div><label class="card-text"><b>Número: </b>
+                        <label>+</label><label th:text="${people.phone}"> </div>
                     </div>
                 </div>
             </div>
@@ -78,7 +87,7 @@
                 <div class="card border" style="width: 30rem;">
                     <div class="card-body">
                         <h5 class="card-title"><b>Descripción</b></h5>
-                        <p class="card-text">Hola, soy Kaori y vengo a buscar servicios</p>
+                        <label th:text="${people.description}">
                         <hr>
                         <h5 class="card-title"><b>Idioma</b></h5>
                         <p class="card-text">Japonés - Nativo</p>
