@@ -33,6 +33,9 @@ public class Publication {
     @Column(name = "title", length = 200, nullable = false)
     private String title;
 
+    @Column(name="cover_photo")
+    private String coverPhoto;
+
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "publication_date")
     private Date publicationDate;

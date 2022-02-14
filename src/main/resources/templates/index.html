@@ -18,6 +18,8 @@
     <link href="assets/css/Header-Blue.css" rel="stylesheet">
     <link href="assets/css/Pretty-Search-Form.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -143,20 +145,18 @@
 <section>
     <div class="container mt-3">
         <h2 style="margin-top: 26px;font-family: Roboto, sans-serif;font-weight: bold;">Servicios</h2>
+        <hr>
         <div class="row">
-            <div th:each="s:${servicios}" class="col-sm-4 p-3">
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+            <div th:each="s:${servicios}" class="col-sm-3 p-3">
+                <div class="card" style="height: 435px">
+                    <img th:src="@{${'/assets/img/' + s.coverPhoto + '.png'}}" height="180">
                     <div class="card-body">
-                        <h5 th:text="${s.title}" class="card-title">Card title</h5>
-                        <p th:text="${s.description}" class="card-text">Some quick example text to build on the card
-                            title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-success">Comprar</a>
+                        <h5 th:text="${s.title}" class="card-title fw-bold">Card title</h5>
+                        <p th:text="${s.description}" class="card-text">Descripcion.</p>
                     </div> <!--card-body -->
                     <div class="card-footer">
-                        <h6>precio</h6>
+                        <p>calificación<i class="bi bi-star"></i></p>
+                            <a href="#" class="btn btn-block btn-success">Visualizar</a>
                     </div>
                 </div> <!--card-->
             </div> <!--col-->
