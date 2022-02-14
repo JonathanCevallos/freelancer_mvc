@@ -52,4 +52,8 @@ public class Publication {
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Qualification.class)
     @JoinColumn(name = "id_publication", referencedColumnName = "id_publication")
     private Set<Qualification> qualification;
+
+    @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Image.class)
+    @JoinColumn(name = "id_publication", referencedColumnName = "id_publication")
+    private Set<Image> images;
 }

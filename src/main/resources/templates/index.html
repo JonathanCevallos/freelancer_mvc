@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -45,7 +45,7 @@
     <div class="container hero">
         <div class="row">
             <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
-                <h1 style="font-family: Roboto, sans-serif;margin-top: 89px;">FREELANCERS</h1>
+                <h1 th:text="${variable}" style="font-family: Roboto, sans-serif;margin-top: 89px;">FREELANCERS</h1>
                 <p style="width: 299px;font-family: Roboto, sans-serif;">Encuentra los mejores servicios&nbsp; &nbsp;
                     FRELANCERSpara tu negocio</p>
                 <form class="search-form">
