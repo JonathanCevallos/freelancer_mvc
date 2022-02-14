@@ -6,5 +6,4 @@ import uteq.freelancer_mvc.models.Publication;
 
 @Repository
 public interface PublicationRepository extends JpaRepository<Publication, Long> {
-
 }
