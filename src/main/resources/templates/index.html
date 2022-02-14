@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
-    <title>menu</title>
+    <title>home</title>
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,800&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
@@ -18,6 +18,8 @@
     <link href="assets/css/Header-Blue.css" rel="stylesheet">
     <link href="assets/css/Pretty-Search-Form.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -45,7 +47,7 @@
     <div class="container hero">
         <div class="row">
             <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
-                <h1 th:text="${variable}" style="font-family: Roboto, sans-serif;margin-top: 89px;">FREELANCERS</h1>
+                <h1 style="font-family: Roboto, sans-serif;margin-top: 40px;">FREELANCERS</h1>
                 <p style="width: 299px;font-family: Roboto, sans-serif;">Encuentra los mejores servicios&nbsp; &nbsp;
                     FRELANCERSpara tu negocio</p>
                 <form class="search-form">
@@ -86,7 +88,8 @@
             <div class="d-flex flex-row multiple-item-slider">
                 <div class="justify-content-center spacer-slider">
                     <figure class="figure"><img alt="alt text here"
-                                                class="img-fluid figure-img border rounded" src="https://picsum.photos/1080/1335?image=0">
+                                                class="img-fluid figure-img border rounded"
+                                                src="https://picsum.photos/1080/1335?image=0">
                         <figcaption class="figure-caption" style="font-family: Roboto, sans-serif;">Desarrollo web
                         </figcaption>
                     </figure>
@@ -94,7 +97,8 @@
                 <div class="justify-content-center spacer-slider" style="font-family: Roboto, sans-serif;">
                     <figure class="figure" style="font-family: Roboto, sans-serif;"><img
                             alt="alt text here"
-                            class="img-fluid figure-img border rounded mx-auto d-block" src="https://picsum.photos/1080/1335?image=1083"
+                            class="img-fluid figure-img border rounded mx-auto d-block"
+                            src="https://picsum.photos/1080/1335?image=1083"
                             style="font-family: Roboto, sans-serif;">
                         <figcaption class="figure-caption" style="font-family: Roboto, sans-serif;">Diseño de
                             lógotipos
@@ -137,6 +141,29 @@
         </section>
     </div>
 </section>
+
+<section>
+    <div class="container mt-3">
+        <h2 style="margin-top: 26px;font-family: Roboto, sans-serif;font-weight: bold;">Servicios</h2>
+        <hr>
+        <div class="row">
+            <div th:each="s:${servicios}" class="col-sm-3 p-3">
+                <div class="card" style="height: 435px">
+                    <img th:src="@{${'/assets/img/' + s.coverPhoto + '.png'}}" height="180">
+                    <div class="card-body">
+                        <h5 th:text="${s.title}" class="card-title fw-bold">Card title</h5>
+                        <p th:text="${s.description}" class="card-text">Descripcion.</p>
+                    </div> <!--card-body -->
+                    <div class="card-footer">
+                        <p>calificación<i class="bi bi-star"></i></p>
+                            <a href="#" class="btn btn-block btn-success">Visualizar</a>
+                    </div>
+                </div> <!--card-->
+            </div> <!--col-->
+        </div> <!--row-->
+    </div> <!--container-->
+</section>
+
 <section>
     <section class="features-boxed">
         <div class="container">
