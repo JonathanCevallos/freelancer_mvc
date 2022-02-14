@@ -64,6 +64,25 @@
                             src="https://scontent.fgye12-1.fna.fbcdn.net/v/t1.6435-9/91247413_10222060132914418_7656822680309465088_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH1W04MjJTZiizNC92FC-OvGiGqhbvpiDUaIaqFu-mINWn7jw489ACLgQ2MtZav8C_oL_xCSTY29zv_7H42SxNN&_nc_ohc=rsUdDOUJwxcAX9Ym7B8&tn=k3BhbqzYL2ahCCxv&_nc_ht=scontent.fgye12-1.fna&oh=00_AT9CoIi7zZK5pzPbr_Ib0le2LGldqj30J3B51UZ4pti8tg&oe=6228EF05"
                             width="260" height="250" />
                         <h5 class="card-title text-center">gguerero</h5>
+                        
+                        
+                        <div><label class="card-text"><b>Nombre: </b>
+                        <label th:text="${people.name}"></div>
+                        
+                        <div><label class="card-text"><b>Apellido: </b>
+                        <label th:text="${people.lastName}"></div>
+                        
+                        <div><label class="card-text"><b>País: </b>
+                        <label th:text="${people.country.name}"></div>
+                        
+                        <div><label class="card-text"><b>Correo:</b>
+                        <label th:text="${people.email}"></div>
+                        
+                        <div><label class="card-text"><b>Número: </b>
+                        <label>+</label><label th:text="${people.phone}"> </div>
+                        
+                        
+                        
                         <p class="card-text"><b>Nombre: </b>Gleiston</p>
                         <p class="card-text"><b>Apellidos: </b>Guerrero</p>
                         <p class="card-text"><b>País: </b>Ecuador</p>
