@@ -21,10 +21,6 @@ public class Publication {
     private Long idPublication;
 
     @NotEmpty
-    @Column(name = "name", length = 150, nullable = false)
-    private String name;
-
-    @NotEmpty
     @Column(name = "description", nullable = false)
     private String description;
 
@@ -56,4 +52,8 @@ public class Publication {
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Qualification.class)
     @JoinColumn(name = "id_publication", referencedColumnName = "id_publication")
     private Set<Qualification> qualification;
+
+    @OneToMany(cascade = {CascadeType.ALL}, targetEntity = Image.class)
+    @JoinColumn(name = "id_publication", referencedColumnName = "id_publication")
+    private Set<Image> images;
 }

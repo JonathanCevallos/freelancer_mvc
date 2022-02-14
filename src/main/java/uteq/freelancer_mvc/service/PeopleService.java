@@ -9,7 +9,7 @@ import uteq.freelancer_mvc.models.People;
 import uteq.freelancer_mvc.repository.PeopleRepository;
 
 @Service
-public class UserService {
+public class PeopleService {
     @Autowired
     private PeopleRepository peopleRepository;
 
@@ -50,9 +50,9 @@ public class UserService {
     public People update(long id, People entity) throws Exception {
         try {
             Optional<People> entityOptional = peopleRepository.findById(id);
-            People user = entityOptional.get();
-            user = peopleRepository.save(entity);
-            return user;
+            People people = entityOptional.get();
+            people = peopleRepository.save(entity);
+            return people;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

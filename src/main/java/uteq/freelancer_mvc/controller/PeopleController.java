@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,29 +13,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import uteq.freelancer_mvc.models.People;
-import uteq.freelancer_mvc.service.UserService;
+import uteq.freelancer_mvc.service.PeopleService;
 
-@RestController
-@RequestMapping("api/users")
+@org.springframework.stereotype.Controller
+@RequestMapping("api/people")
 @CrossOrigin("*")
-public class UserController {
+public class PeopleController {
 	@Autowired
-	private UserService userService;
-	
+	private PeopleService peopleService;
+	//private Long id = 3L;
 	//LISTAR TODO
     @GetMapping
     public ResponseEntity<List<People>> getAll()
     {
         try
         {
-            return ResponseEntity.ok().body(userService.findAll());
+            return ResponseEntity.ok().body(peopleService.findAll());
         }
         catch (Exception e)
         {
             return ResponseEntity.notFound().build();
         }
+    }
+    
+    @GetMapping("/list")
+    public String peopleProfile(Model model)
+    {
+        	String nombre = "Vallejo";
+            //People people = peopleService.findById('3L');
+            model.addAttribute("people", "Vallejo");
+            return "otra";
     }
 
     //BUSCAR POR ID
@@ -43,7 +52,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.ok().body(userService.findById(id));
+            return ResponseEntity.ok().body(peopleService.findById(id));
         }
         catch (Exception e)
         {
@@ -57,7 +66,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.ok().body(userService.save(entity));
+            return ResponseEntity.ok().body(peopleService.save(entity));
         }
         catch (Exception e)
         {
@@ -71,7 +80,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(userService.delete(id));
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(peopleService.delete(id));
         }
         catch (Exception e)
         {
@@ -85,7 +94,7 @@ public class UserController {
     {
         try
         {
-            return ResponseEntity.ok().body(userService.update(id,entity));
+            return ResponseEntity.ok().body(peopleService.update(id,entity));
         }
         catch (Exception e)
         {
