@@ -25,9 +25,7 @@ public class Controller {
         model.addAttribute("servicios", servicios);
         return "index";
     }
-<<<<<<< HEAD
-}
-=======
+
 
     @GetMapping("/list")
     public String list(Model model) throws Exception {
@@ -37,5 +35,3 @@ public class Controller {
     }
 
 }
-
->>>>>>> branch 'main' of https://github.com/JonathanCevallos/freelancer_mvc.git
