@@ -1,6 +1,7 @@
 package uteq.freelancer_mvc.models;
 
 import lombok.*;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -11,7 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Entity
 @Table(name = "people")
-public class People {
+public class People{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_people")
