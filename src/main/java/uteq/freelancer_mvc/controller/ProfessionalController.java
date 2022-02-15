@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import uteq.freelancer_mvc.models.Professional;
 import uteq.freelancer_mvc.service.ProfessionalService;
 
-import java.util.List;
-
+@org.springframework.stereotype.Controller
 @RestController
 @RequestMapping("api/professionals")
 @CrossOrigin("*")
@@ -17,17 +16,8 @@ public class ProfessionalController {
     @Autowired
     private ProfessionalService professionalService;
 
-    //TODO LISTAR
+    //TODOLISTAR
     @GetMapping
-    public ResponseEntity<List<Professional>> getAll() {
-        try {
-            return ResponseEntity.ok().body(professionalService.findAll());
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-    
-    @GetMapping("/")
     public String professionalProfile(Model model)
     {
     	try
