@@ -8,8 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import uteq.freelancer_mvc.service.PeopleService;
 
-@Configuration
-@EnableWebSecurity
+
 public class security {
     @Autowired
     private PeopleService peopleService;
