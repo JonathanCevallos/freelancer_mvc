@@ -18,6 +18,6 @@ public class Occupation {
     private int idOccupation;
 
     @NotEmpty
-    @Column(name = "name", length = 80, unique = true, nullable = false)
+    @Column(name = "name", length = 80, nullable = false)
     private String name;
 }

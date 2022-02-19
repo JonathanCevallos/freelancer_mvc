@@ -1,6 +1,7 @@
 package uteq.freelancer_mvc.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import uteq.freelancer_mvc.models.Plan;
 import uteq.freelancer_mvc.models.Professional;
 import uteq.freelancer_mvc.repository.ProfessionalRepository;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 public class ProfessionalService {
     @Autowired
     private ProfessionalRepository professionalRepository;
+
 
     //Este metodo permite lisatr todos los profesionales registrados en la BD.
     @Transactional

@@ -5,19 +5,37 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import uteq.freelancer_mvc.models.Occupation;
 import uteq.freelancer_mvc.models.Professional;
+import uteq.freelancer_mvc.models.Publication;
+import uteq.freelancer_mvc.service.OccupationService;
 import uteq.freelancer_mvc.service.ProfessionalService;
 
+import java.util.List;
+
 @org.springframework.stereotype.Controller
-@RestController
 @RequestMapping("api/professionals")
 @CrossOrigin("*")
 public class ProfessionalController {
     @Autowired
     private ProfessionalService professionalService;
 
+    @Autowired
+    private OccupationService occupationService;
+
+    //LISTAR TODO
+    @GetMapping("/new")
+    public String registrer(Model model) throws Exception {
+        List<Occupation> occupations = occupationService.findAll();
+        model.addAttribute("occupations", occupations);
+        return "views/registrarprofesional";
+    }
+
+
+
+
     //TODOLISTAR
-    @GetMapping
+    @GetMapping("list")
     public String professionalProfile(Model model)
     {
     	try
@@ -31,6 +49,7 @@ public class ProfessionalController {
     		return "error";
     	}
     }
+
     
     //TODO: BUSCAR POR ID
     @RequestMapping(value = "{id}")

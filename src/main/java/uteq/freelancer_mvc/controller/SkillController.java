@@ -10,9 +10,9 @@ import uteq.freelancer_mvc.service.SkillService;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/abilities")
+@RequestMapping("api/skills")
 @CrossOrigin("*")
-public class AbilityController {
+public class SkillController {
     @Autowired
     private SkillService skillService;
 

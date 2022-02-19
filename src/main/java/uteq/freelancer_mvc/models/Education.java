@@ -3,9 +3,11 @@ package uteq.freelancer_mvc.models;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,11 +29,13 @@ public class Education {
     private String description;
 
     @NotEmpty
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "year", nullable = false)
-    private String year;
+    private Date year;
 
     //Todo: relacion con la entidad pais
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_country")
+    @ManyToOne
+    @JoinColumn(name="id_country")
     private Country country;
 }

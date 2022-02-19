@@ -2,11 +2,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	//Form
 	const form = document.getElementById("myForm");
 
+	//botones
 	const btnAddLanguaje = document.getElementById("btnAddLanguaje");
 	const btnAddSkill = document.getElementById("btnAddSkill");
     const btnAddEducation = document.getElementById("btnAddEducation");
+	// const btnAddPeople = document.getElementById("btnAddPeople");
 	const btnAddCertification = document.getElementById("btnAddCertification");
 
+	//arrays
 	var skill = { skill: [] };
 	var education = { education: [] };
 	var languaje = { languaje: [] };
@@ -14,6 +17,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	var country = { country };
 	var people = { people };
 
+	//creación del JSON
 	form.addEventListener("submit", async (e) => {
 		e.preventDefault();
 		const formData = new FormData(form);
@@ -61,6 +65,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 		languajeList.appendChild(clone);
 	});
+
+	//ACCION BOTON AGREGAR {SKILL}
 	btnAddSkill.addEventListener("click", () => {
 		const skillList = document.getElementById("skillList");
 		const name = document.querySelector("input[id=nameSkill]");
@@ -97,6 +103,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		skillList.appendChild(clone);
 	});
 
+	//ACCION BOTON AGREGAR {EDUCATION}
 	btnAddEducation.addEventListener("click", () => {
 		const educationList = document.getElementById("educationList");
 		const nameInstitution = document.querySelector(
@@ -137,6 +144,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		educationList.appendChild(clone);
 	});
 
+	//ACCION BOTON AGREGAR {CERTIFICATION}
 	btnAddCertification.addEventListener("click", () => {
 		const certiticationList = document.getElementById("certificationList");
 		const name = document.querySelector("input[id=nameCertification]");
@@ -166,4 +174,35 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		certiticationList.appendChild(clone);
 	});
 
+	//ACCION BOTON AGREGAR {PEOPLE}
+	btnAddPeople.addEventListener("click", () => {
+		const name = document.querySelector("input[id=namePeople]");
+		const lastName = document.querySelector("input[id=lastName]");
+		const direction = document.querySelector("input[id=direction]");
+		const description = document.querySelector("input[id=descriptionPeople]");
+		const profilePic = document.querySelector("input[id=profilePic]");
+		const password = document.querySelector("input[id=passwordPeople]");
+		const dni = document.querySelector("input[id=dni]");
+		const email = document.querySelector("input[id=email]");
+		const phone = document.querySelector("input[id=phone]");
+
+		const country = document.querySelector("input[id=country]");
+
+		var load = {
+			name: name.value,
+			lastName: lastName.value,
+			direction: direction.value,
+			description: description.value,
+			profilePic: profilePic.value,
+			password: password.value,
+			dni: dni.value,
+			email: email.value,
+			phone: phone.value,
+			country: {
+				idCountry: country.value,
+				name: country.textContent,
+			},
+		};
+		people.people = load;
+	});
 });

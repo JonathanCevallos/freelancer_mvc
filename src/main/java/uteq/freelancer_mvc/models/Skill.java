@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -26,7 +28,7 @@ public class Skill {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "date_from")
-    private String dateFrom;
+    private Date dateFrom;
 
     @Column(name = "description")
     private String description;

@@ -23,7 +23,18 @@
                             </div>
                             <div class="card-body">
                                             <!-- DATOS FORM -->
-                                            
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">Seleccione su Ocupación</label>
+                                                    <select class="form-control" id="selectOccupation">
+                                                        <option th:each="Item : ${occupations}"
+                                                                th:value="${Item.idOccupation}"
+                                                                th:text="${Item.name}"
+                                                                th:selected="false"
+                                                        />
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="row my-3">
                                                 <div class="colum col-6">
                                                     <input

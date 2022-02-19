@@ -15,7 +15,7 @@ public class Languaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_languaje")
-    private int languaje;
+    private int idLanguaje;
 
     @NotEmpty
     @Column(name = "name", length = 30, nullable = false)

@@ -1,11 +1,12 @@
 package uteq.freelancer_mvc.models;
 
 import lombok.*;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+
+import static javax.persistence.CascadeType.ALL;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,25 +20,17 @@ public class People{
     private Long idPeople;
 
     @NotEmpty
-    @Column(name = "name", length = 100, nullable = false)
+    @Column(name = "name",  nullable = false)
     private String name;
 
-    @NotEmpty
-    @Column(name = "last_name", length = 100, nullable = false)
-    private String lastName;
 
-    @Column(name = "phone", length = 15, nullable = false, unique = false)
+    @Column(name = "phone", length = 15, nullable = false)
     private String phone;
 
-    @NotEmpty
-    @Column(name = "direction")
-    private String direction;
 
     @Column(name = "profile_pic", length = 50)
     private String profilePic;
 
-    @Column(name = "description")
-    private String description;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -50,7 +43,9 @@ public class People{
     @Column(name = "email", length = 50, nullable = false, unique = true)
     private String email;
 
-    @OneToOne(cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "id_country")
+
+    @ManyToOne
+    @JoinColumn(name="id_country")
     private Country country;
+
 }

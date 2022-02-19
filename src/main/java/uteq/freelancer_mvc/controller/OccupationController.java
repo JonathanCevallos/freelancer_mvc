@@ -3,8 +3,10 @@ package uteq.freelancer_mvc.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import uteq.freelancer_mvc.models.Occupation;
+import uteq.freelancer_mvc.models.Publication;
 import uteq.freelancer_mvc.service.OccupationService;
 
 import java.util.List;
@@ -28,6 +30,14 @@ public class OccupationController {
         {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    //LISTAR TODO
+    @GetMapping("/new")
+    public String findAll(Model model) throws Exception {
+        List<Occupation> occupations = occupationService.findAll();
+        model.addAttribute("occupations", occupations);
+        return "views/registrarprofesional";
     }
 
     //BUSCAR POR ID

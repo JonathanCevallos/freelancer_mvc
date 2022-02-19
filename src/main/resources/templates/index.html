@@ -30,7 +30,8 @@
                     class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Convértirse en vendedor</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/api/professionals/new}"  target="_blank">Convértirse en
+                        vendedor</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Iniciar sesión</a></li>
                     <li class="nav-item"><a class="nav-link" href="#"></a></li>
                 </ul>
@@ -147,16 +148,16 @@
         <h2 style="margin-top: 26px;font-family: Roboto, sans-serif;font-weight: bold;">Servicios</h2>
         <hr>
         <div class="row">
-            <div th:each="s:${servicios}" class="col-sm-3 p-3">
+            <div class="col-sm-3 p-3" th:each="s:${servicios}">
                 <div class="card" style="height: 435px">
-                    <img th:src="@{${'/assets/img/' + s.coverPhoto + '.png'}}" height="180">
+                    <img height="180" th:src="@{${'/assets/img/' + s.coverPhoto + '.png'}}">
                     <div class="card-body">
-                        <h5 th:text="${s.title}" class="card-title fw-bold">Card title</h5>
-                        <p th:text="${s.description}" class="card-text">Descripcion.</p>
+                        <h5 class="card-title fw-bold" th:text="${s.title}">Card title</h5>
+                        <p class="card-text" th:text="${s.description}">Descripcion.</p>
                     </div> <!--card-body -->
                     <div class="card-footer">
                         <p>calificación<i class="bi bi-star"></i></p>
-                            <a href="#" class="btn btn-block btn-success">Visualizar</a>
+                        <a class="btn btn-block btn-success" href="#">Visualizar</a>
                     </div>
                 </div> <!--card-->
             </div> <!--col-->

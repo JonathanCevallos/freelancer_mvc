@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 850px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>registrar_profesional</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/Ludens---Sleek-Image-Input-with-Preview.css">
+    <link rel="stylesheet" href="assets/css/Multi-step-form.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<section style="height: 900px;">
+    <div class="container">
+        <div id="progress-bar-button" class="multisteps-form ">
+            <div class="row  ">
+                <div class="col-12 col-lg-8  mr-auto mt-5 mb-4">
+                    <div class="multisteps-form__progress"><a class="btn multisteps-form__progress-btn js-active"
+                                                              role="button" title="User Info">Información personal</a><a
+                            class="btn multisteps-form__progress-btn" role="button" title="User Info">Información de
+                        profesión</a><a class="btn multisteps-form__progress-btn" role="button" title="User Info">Seguridad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="multple-step-form-n" class="container overflow-hidden"
+         style="margin: 0px;margin-top: 0px;margin-bottom: 10px;padding-bottom: 300px;padding-top: 57px;height: 1300px;">
+        <div id="multistep-start-row" class="row">
+            <div id="multistep-start-column" class="col-12 col-lg-8 m-auto">
+                <form id="main-form" class="multisteps-form__form">
+                    <div id="single-form-next" class="multisteps-form__panel shadow p-4 rounded bg-white js-active"
+                         data-animation="scaleIn">
+                        <div class="container mb-2">
+                            <h3 class="text-center multisteps-form__title" style="font-family: Roboto, sans-serif;">
+                                Datos personales</h3>
+                            <p style="font-family: Roboto, sans-serif;">Cuéntanos un poco sobre ti. Esta información
+                                aparecerá en un su perfil público, para que los compradores potenciales puedan conocerlo
+                                mejor.</p>
+                            <hr>
+                        </div>
+                        <div id="form-content" class="multisteps-form__content my-2">
+                            <div class="container mt-4" id="container-datos-personales">
+                                <div class="row">
+                                    <div class="col col-6">
+                                        <div class="my-2"><input class="form-control form-control" type="text"
+                                                                 placeholder="Ingrese su nombre"
+                                                                 style="font-family: Roboto, sans-serif;">
+                                            <div style="margin-top: 30px;"><input class="form-control form-control"
+                                                                                  type="text"
+                                                                                  placeholder="Ingrese su apellido"
+                                                                                  style="font-family: Roboto, sans-serif;">
+                                            </div>
+                                            <div style="margin: 33px 0px 0px;margin-top: 17px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-6">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="container">
+                                                        <div class="text-center"><img class="img-fluid"
+                                                                                      style="width: 73px;"
+                                                                                      src="assets/img/default.png">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="mt-1"><input class="form-control file_upload"
+                                                                             type="file" id="input-file-now"
+                                                                             style="font-family: Roboto, sans-serif;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container mt-2" id="container-descripcion">
+                                <div class="row">
+                                    <div class="col">
+                                        <div><label class="form-label" style="font-family: Roboto, sans-serif;">Descripción</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div><textarea class="form-control"></textarea></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container mt-5" id="container-table-idiomas">
+                                <div class="row">
+                                    <div class="col">
+                                        <div>
+                                            <div>
+                                                <table class="table table tablesorter" id="ipi-table">
+                                                    <thead class="table-dark">
+                                                    <tr>
+                                                        <th>iDIOMA</th>
+                                                        <th class="sorter-false">NIVEL</th>
+                                                        <th class="filter-false" style="text-align: right;">
+                                                            <a class="btn btn-sm btn-primary">Agregar</a>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Español</td>
+                                                        <td>Nativo</td>
+                                                        <td style="text-align: right;"><a
+                                                                class="btn btn-outline-primary btn-sm"
+                                                                href="#">Editar</a><a
+                                                                class="btn btn-outline-danger btn-sm"
+                                                                href="#">Eliminar</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Portugues</td>
+                                                        <td>Intermedio</td>
+                                                        <td style="text-align: right;"><a
+                                                                class="btn btn-outline-primary btn-sm"
+                                                                href="#">Editar</a><a
+                                                                class="btn btn-outline-danger btn-sm"
+                                                                href="#">Eliminar</a></td>
+                                                    </tr>
+                                                    <tr></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container" id="container-boton-next">
+                                <div id="next-button" class="button-row d-flex mt-4">
+                                    <button class="btn btn-success btn btn-primary ml-auto js-btn-next" type="button"
+                                            title="Next">Siguiente
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="single-form-next-prev" class="multisteps-form__panel shadow p-4 rounded bg-white"
+                         data-animation="scaleIn">
+                        <div class="container" id="container-header-profesion">
+                            <h3 class="text-center multisteps-form__title" style="font-family: Roboto, sans-serif;">
+                                Datos de profesión</h3>
+                            <p style="font-family: Roboto, sans-serif;">Este es tu momento de brillar. Deje que los
+                                compradores potenciales sepan qué es lo que mejor haces y cómo adquiriste tus
+                                habiliades, certificaciones y experiencias laborales.</p>
+                            <hr>
+                        </div>
+                        <div id="form-content-1" class="multisteps-form__content">
+                            <div class="container mt-2">
+                                <div class="row">
+                                    <div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" aria-expanded="false"
+                                                    data-bs-toggle="dropdown" type="button">Seleccione su ocupación
+                                            </button>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                                          href="#">Desarrollador</a><a
+                                                    class="dropdown-item" href="#">Diseñador gráfico</a><a
+                                                    class="dropdown-item" href="#">Escritor</a></div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div><label class="form-label">Desde que fecha</label></div>
+                                            <div><input class="form-control" type="date"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <hr>
+                            </div>
+
+                            <div class="container mt-5" id="container-table-idiomas-1">
+                                <div class="row">
+                                    <div class="col">
+                                        <div>
+                                            <div>
+                                                <table class="table table tablesorter" id="ipi-table">
+                                                    <thead class="table-dark">
+                                                    <tr>
+                                                        <th>Habilidad</th>
+                                                        <th class="sorter-false">Fecha</th>
+                                                        <th class="sorter-false">Descripción</th>
+                                                        <th class="filter-false" style="text-align: right;">
+                                                            <a class="btn btn-sm btn-primary">Agregar</a>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>SPRING BOOT</td>
+                                                        <td>2018</td>
+                                                        <td>Desarrollo de api rest full + spring security</td>
+                                                        <td style="text-align: right;"><a
+                                                                class="btn btn-outline-primary btn-sm"
+                                                                href="#">Editar</a><a
+                                                                class="btn btn-outline-danger btn-sm"
+                                                                href="#">Eliminar</a></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container mt-5" id="container-table-idiomas-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div>
+                                            <div>
+                                                <table class="table  table tablesorter" id="ipi-table-">
+                                                    <thead class="table-dark">
+                                                    <tr>
+                                                        <th>Título</th>
+                                                        <th class="sorter-false">Institución</th>
+                                                        <th class="sorter-false">Pais</th>
+                                                        <th class="sorter-false">Fecha</th>
+                                                        <th class="filter-false" style="text-align: right;">
+                                                            <a class="btn btn-sm btn-primary">Agregar</a>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Ingeniero en sistemas</td>
+                                                        <td>UTEQ</td>
+                                                        <td>Ecuador</td>
+                                                        <td>20/07/2017</td>
+                                                        <td style="text-align: right;">
+                                                            <a class="btn btn-outline-primary btn-sm"
+                                                               href="#">Editar</a><a
+                                                                class="btn btn-outline-danger btn-sm"
+                                                                href="#">Eliminar</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            >
+                            <div class="container mt-5" id="container-table-idiomas-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <div>
+                                            <div>
+                                                <table class="table table tablesorter" id="ipi-table--">
+                                                    <thead class="table-dark">
+                                                    <tr>
+                                                        <th>Certificación</th>
+                                                        <th class="sorter-false">Fecha</th>
+                                                        <th class="filter-false" style="text-align: right;">
+                                                            <a class="btn btn-sm btn-primary">Agregar</a>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Español</td>
+                                                        <td>Nativo</td>
+                                                        <td style="text-align: right;"><a
+                                                                class="btn btn-outline-primary btn-sm"
+                                                                href="#">Editar</a><a
+                                                                class="btn btn-outline-danger btn-sm"
+                                                                href="#">Eliminar</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Portugues</td>
+                                                        <td>Intermedio</td>
+                                                        <td style="text-align: right;"><a
+                                                                class="btn btn-outline-primary btn-sm"
+                                                                href="#">Editar</a><a
+                                                                class="btn btn-outline-danger btn-sm"
+                                                                href="#">Eliminar</a></td>
+                                                    </tr>
+                                                    <tr></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container mt-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div><input class="form-control" placeholder="Sitio web personal" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container mt-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <div><input class="form-control" placeholder="Link / perfil de LikedIn"
+                                                    type="text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div id="next-prev-buttons-1-" class="button-row d-flex mt-4">
+                                    <button class="btn btn btn-primary js-btn-prev" type="button" title="Prev">
+                                        Regresar
+                                    </button>
+                                    <button class="btn btn btn-success ml-auto js-btn-next" type="button" title="Next">
+                                        Siguiente
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="single-form-next-prev-1" class="multisteps-form__panel shadow p-4 rounded bg-white"
+                         data-animation="scaleIn">
+                        <div class="container" id="container-header-profesion-1">
+                            <h3 class="text-center multisteps-form__title" style="font-family: Roboto, sans-serif;">
+                                Verificar cuenta</h3>
+                            <div class="container col-3 row-3">
+                                <div class="row">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiUg7VkQuQMmIJiPWNE
+                                    dtwALf550bhx9-9UkwpkFjVdsyRDNSsO_5Fn3jwpbs7yMNWNMA&usqp=CAU"
+                                         class="rounded" alt="Cinque Terre">
+                                </div>
+                            </div>
+                            <p style="font-family: Roboto, sans-serif;">La confianza y la seguridad son un gran problema
+                                en nuestra comunidad.
+                                Verifique su cuenta mediante su número de telefono para poder mantener su cuenta
+                                segura..</p>
+                            <hr>
+                        </div>
+                        <div id="form-content-2" class="multisteps-form__content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div><input class="form-control" placeholder="Ingrese su número de télefono"
+                                                    type="tel"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <container>
+                                <div class="container">
+                                    <div id="next-prev-buttons-1" class="button-row d-flex mt-4">
+                                        <button class="btn btn btn-primary js-btn-prev" type="button" title="Prev">
+                                            Regresar
+                                        </button>
+                                        <button class="btn btn btn-success ml-auto js-btn-next" type="button"
+                                                title="Next">Finalizar
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/Ludens---Sleek-Image-Input-with-Preview.js"></script>
+<script src="assets/js/Multi-step-form.js"></script>
+</body>
+
+</html>
