@@ -28,7 +28,7 @@ public class Controller {
 
     @GetMapping("/servicios")
     public String services(Model model) throws Exception {
-        return "views/publicarservicio";
+        return "views/registrarprofesional";
     }
 
 
