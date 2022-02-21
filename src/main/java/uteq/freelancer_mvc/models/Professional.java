@@ -29,6 +29,9 @@ public class Professional {
     @Column(name = "url_linkedin", length = 100)
     private String urlLinkedin;
 
+    @Column(name = "description")
+    private String description;
+
   /*  @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "registration_Date")

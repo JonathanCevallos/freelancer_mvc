@@ -14,6 +14,7 @@ import uteq.freelancer_mvc.service.ProfessionalService;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
+@RestController
 @RequestMapping("api/professionals")
 @CrossOrigin("*")
 public class ProfessionalController {
@@ -32,7 +33,15 @@ public class ProfessionalController {
     }
 
 
-
+    //LISTAR TODO
+    @GetMapping
+    public ResponseEntity<List<Professional>> getAll() {
+        try {
+            return ResponseEntity.ok().body(professionalService.findAll());
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     //TODOLISTAR
     @GetMapping("list")
@@ -62,7 +71,7 @@ public class ProfessionalController {
     }
 
     //GUARDAR
-    @PostMapping
+    @PostMapping("add")
     public ResponseEntity<Professional> create (@RequestBody Professional entity) {
         try {
             return ResponseEntity.ok().body(professionalService.save(entity));
