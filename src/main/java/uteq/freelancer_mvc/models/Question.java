@@ -22,14 +22,11 @@ public class Question {
 
 
     @NotEmpty
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "question", nullable = false)
+    private String question;
 
     @NotEmpty
     @Column(name = "answer", nullable = false)
     private String answer;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name = "date", nullable = false)
-    private Date date;
 }
