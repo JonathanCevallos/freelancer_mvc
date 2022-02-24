@@ -27,8 +27,8 @@ public class Publication {
     @Column(name = "status")
     private Boolean status;
 
-    @Column(name = "document", length = 50)
-    private String document;
+    @Column(name = "doc", length = 50)
+    private String doc;
 
     @Column(name = "title", length = 200, nullable = false)
     private String title;
