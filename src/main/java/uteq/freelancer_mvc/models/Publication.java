@@ -20,6 +20,9 @@ public class Publication {
     @Column(name = "id_publication")
     private Long idPublication;
 
+    @Column(name = "cover_photo")
+    private String coverPhoto;
+    
     @NotEmpty
     @Column(name = "description", nullable = false)
     private String description;
