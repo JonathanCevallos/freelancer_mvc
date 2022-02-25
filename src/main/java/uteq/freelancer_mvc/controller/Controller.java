@@ -28,10 +28,8 @@ public class Controller {
 
     @GetMapping("/servicios")
     public String services(Model model) throws Exception {
-        return "views/registrarprofesional";
+    	return "views/postservice";
     }
-
-
 
     @GetMapping("/list")
     public String list(Model model) throws Exception {
