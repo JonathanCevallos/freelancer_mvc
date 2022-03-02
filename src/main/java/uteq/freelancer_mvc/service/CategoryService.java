@@ -8,71 +8,48 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import uteq.freelancer_mvc.interfaceService.IcategoriaService;
 import uteq.freelancer_mvc.models.Category;
 import uteq.freelancer_mvc.repository.CategoryRepository;
 
 @Service
-public class CategoryService {
-    @Autowired
-    private CategoryRepository categoryRepository;
+public class CategoryService implements IcategoriaService {
+    
+	@Autowired
+	private CategoryRepository data;
+	
+	@Override
+	public List<Category> listar() {
+	return (List<Category>)data.findAll();
+	}
 
-    //Este metodo permite listar todos los registro de la entidad.
-    @Transactional
-    public List<Category> findAll() throws Exception {
-        try {
-            return categoryRepository.findAll();
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
+	@Override
+	public Optional<Category> listarId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    //Este metodo permite: Buscar una categoría mediante su ID.
-    @Transactional
-    public Category findById(int id) throws Exception {
-        try {
-            Optional<Category> entityOptional = categoryRepository.findById(id);
-            return entityOptional.get();
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
+	@Override
+	public int save(Category c) {
+		int res=0;
+		Category Category=data.save(c);
+		if(!Category.equals(null))
+		{
+			res=1;
+		}
+		// TODO Auto-generated method stub
+		return res;
+	}
 
-    //Este metodo permite: guardar.
-    @Transactional
-    public Category save(Category entity) throws Exception {
-        try {
-            entity = categoryRepository.save(entity);
-            return entity;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    //Este metodo permite: Actualizar mediante ID
-    @Transactional
-    public Category update(int id, Category entity) throws Exception {
-        try {
-            Optional<Category> entityOptional = categoryRepository.findById(id);
-            Category category = entityOptional.get();
-            category = categoryRepository.save(entity);
-            return category;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
 
-    //Este metodo permite: Eliminar mediante su ID.
-    @Transactional
-    public boolean delete(int id) throws Exception {
-        try {
-            if (categoryRepository.existsById(id)) {
-                categoryRepository.deleteById(id);
-                return true;
-            } else {
-                throw new Exception();
-            }
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
+     
+    
+    
 }
+
