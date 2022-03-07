@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import uteq.freelancer_mvc.models.Publication;
 import uteq.freelancer_mvc.service.PublicationService;
+import org.springframework.stereotype.Controller;
 
-@org.springframework.stereotype.Controller
+@Controller
 @RequestMapping("api/publications")
 @CrossOrigin("*")
 public class PublicationController {
@@ -43,7 +45,21 @@ public class PublicationController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    
+    //LISTAR POR PROFESIONAL
+    @GetMapping("/list")
+    public ResponseEntity<List<Publication>> findByIdProfessional(@RequestParam Long idProfessional)
+    {
+    	try
+        {
+            return ResponseEntity.ok().body(publicationService.findByIdProfessional(idProfessional));
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
     //BUSCAR POR ID
     @RequestMapping(value = "{id}")
     public ResponseEntity<Publication> finfById(@PathVariable("id")Long id)

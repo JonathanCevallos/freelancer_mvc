@@ -10,7 +10,6 @@ import uteq.freelancer_mvc.models.People;
 import uteq.freelancer_mvc.service.PeopleService;
 
 @org.springframework.stereotype.Controller
-@RestController
 @RequestMapping("api/people")
 @CrossOrigin("*")
 public class PeopleController {
@@ -18,6 +17,12 @@ public class PeopleController {
 	private PeopleService peopleService;
 	//private Long id = 3L;
 	//LISTAR TODO
+	
+	@GetMapping("/")
+	public static String image(Model model) {
+		return "views/perfilusuario";
+	}
+	
     @GetMapping
     public ResponseEntity<List<People>> getAll()
     {

@@ -4,26 +4,44 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
 
 import uteq.freelancer_mvc.models.Occupation;
 import uteq.freelancer_mvc.models.Professional;
 import uteq.freelancer_mvc.models.Publication;
 import uteq.freelancer_mvc.service.OccupationService;
 import uteq.freelancer_mvc.service.ProfessionalService;
+import uteq.freelancer_mvc.service.PublicationService;
 
 import java.util.List;
 
-@org.springframework.stereotype.Controller
-@RestController
+@Controller
 @RequestMapping("api/professionals")
 @CrossOrigin("*")
 public class ProfessionalController {
     @Autowired
     private ProfessionalService professionalService;
-
     @Autowired
     private OccupationService occupationService;
 
+    
+	//Llamado a la página del perfilprofesional
+    @GetMapping("/profile")
+    public String professionalProfile(Model model)
+    {
+    	try
+    	{
+    		Professional professional = professionalService.findById(2L);
+            model.addAttribute("professional", professional);
+            return "views/professionalprofile";
+    	}
+    	catch(Exception e)
+    	{
+    		return "error";
+    	}
+    }
+    
+    
     //LISTAR TODO
     @GetMapping("/new")
     public String registrer(Model model) throws Exception {
@@ -43,21 +61,7 @@ public class ProfessionalController {
         }
     }
 
-    //TODOLISTAR
-    @GetMapping("list")
-    public String professionalProfile(Model model)
-    {
-    	try
-    	{
-    		Professional professional = professionalService.findById(3L);
-            model.addAttribute("professional", professional);
-            return "views/perfilprofesional";
-    	}
-    	catch(Exception e)
-    	{
-    		return "error";
-    	}
-    }
+    
 
     
     //TODO: BUSCAR POR ID

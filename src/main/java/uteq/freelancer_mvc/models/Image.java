@@ -13,6 +13,7 @@ import javax.persistence.*;
 
 public class Image {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_image")
     private Long idImage;
 

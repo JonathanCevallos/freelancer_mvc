@@ -12,82 +12,74 @@
 
 <body class="p-2 bg-light border">
     <header>
-        <div class="container d-flex flex-wrap justify-content-center">
-            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="fs-4">Aquí va un logotipo</span>
-            </a>
-        </div>
-        <hr>
-        <div class="container d-flex flex-wrap">
-            <ul class="nav me-auto">
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Inicio</a>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Servicios</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Servios destacados</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Ofertas</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Acerca de...</a></li>
-            </ul>
-            <div class="d-flex align-items-center">
-                <form class="w-100 me-3">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                </form>
-
-                <div class="flex-shrink-0 dropdown">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://i.ibb.co/56YxZH7/officialsevenoops-2693314994656645759-1-20211026175306597.jpg"
-                            alt="mdo" class="rounded-circle" width="32" height="32">
-                    </a>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Modificar datos</a></li>
-                        <li><a class="dropdown-item" href="#">Mis compras</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <hr>
+        <nav th:replace="components/navbar :: _navbar"></nav>
     </header>
     <main>
         <div class="container">
             <div class="row">
-                <div class="card border" style="width: 30rem;">
+                <div class="card border" style="width: 22rem;">
                     <div class="card-body">
                         <img class="rounded mx-auto d-block" style="margin-top:0px;"
                             src="https://i.ibb.co/56YxZH7/officialsevenoops-2693314994656645759-1-20211026175306597.jpg"
-                            width="260" height="250" />
+                            width="200" height="205" />
                         <h5 class="card-title text-center">kaochan</h5>
                         
                         <div><label class="card-text"><b>Nombre: </b>
-                        <label th:text="${people.name}"></div>
-                        
-                        <div><label class="card-text"><b>Apellido: </b>
-                        <label th:text="${people.lastName}"></div>
+                        <label>Kaori Yokoiwa</div>
                         
                         <div><label class="card-text"><b>País: </b>
-                        <label th:text="${people.country.name}"></div>
+                        <label>Japon</div>
                         
                         <div><label class="card-text"><b>Correo:</b>
-                        <label th:text="${people.email}"></div>
+                        <label>kaochan@icloud.com</div>
                         
                         <div><label class="card-text"><b>Número: </b>
-                        <label>+</label><label th:text="${people.phone}"> </div>
+                        <label>+81564567899</label> </div>
                     </div>
                 </div>
+                
+                <div class="card" style="width: 48rem;">
+					<div class="card-body">
+						<h5 class="card-title"><b>Servicios comprados</b></h5>
+						<table class="table table-responsive table-dark">
+							<thead>
+								<tr>
+									<th>Servicios</th>
+									<th></th>
+									<th>Precio</th>
+									<th>Estado</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="table-light">
+									<td>Programación en PHP y MySQL</td>
+									<td><button type="button" class="btn btn-outline-primary">
+											Ver
+										</button></td>
+										
+									<td>13.00</td>
+									<td>Pendiente</td>
+								</tr>
+								<tr class="table-light">
+									<td>Aplicaciones Android</td>
+									<td><button type="button" class="btn btn-outline-primary">
+											Ver
+										</button></td>
+									<td>20.00</td>
+									<td>Activo</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+                
             </div>
             <br>
             <div class="row">
-                <div class="card border" style="width: 30rem;">
+                <div class="card border" style="width: 22rem;">
                     <div class="card-body">
                         <h5 class="card-title"><b>Descripción</b></h5>
-                        <label th:text="${people.description}">
+                        <label>Tokio
                         <hr>
                         <h5 class="card-title"><b>Idioma</b></h5>
                         <p class="card-text">Japonés - Nativo</p>

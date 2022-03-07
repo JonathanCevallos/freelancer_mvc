@@ -12,48 +12,7 @@
 
 <body class="p-2 bg-light border">
 	<header>
-		<div class="container d-flex flex-wrap justify-content-center">
-			<a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-				<svg class="bi me-2" width="40" height="32">
-					<use xlink:href="#bootstrap"></use>
-				</svg>
-				<span class="fs-4">Aquí va un logotipo</span>
-			</a>
-		</div>
-		<hr>
-		<div class="container d-flex flex-wrap">
-			<ul class="nav me-auto">
-				<li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Inicio</a>
-				</li>
-				<li class="nav-item"><a href="#" class="nav-link link-dark px-2">Servicios</a></li>
-				<li class="nav-item"><a href="#" class="nav-link link-dark px-2">Servios destacados</a></li>
-				<li class="nav-item"><a href="#" class="nav-link link-dark px-2">Ofertas</a></li>
-				<li class="nav-item"><a href="#" class="nav-link link-dark px-2">Acerca de...</a></li>
-			</ul>
-			<div class="d-flex align-items-center">
-				<form class="w-100 me-3">
-					<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-				</form>
-
-				<div class="flex-shrink-0 dropdown">
-					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
-						data-bs-toggle="dropdown" aria-expanded="false">
-						<img src="https://scontent.fgye12-1.fna.fbcdn.net/v/t1.6435-9/91247413_10222060132914418_7656822680309465088_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH1W04MjJTZiizNC92FC-OvGiGqhbvpiDUaIaqFu-mINWn7jw489ACLgQ2MtZav8C_oL_xCSTY29zv_7H42SxNN&_nc_ohc=rsUdDOUJwxcAX9Ym7B8&tn=k3BhbqzYL2ahCCxv&_nc_ht=scontent.fgye12-1.fna&oh=00_AT9CoIi7zZK5pzPbr_Ib0le2LGldqj30J3B51UZ4pti8tg&oe=6228EF05"
-							alt="mdo" class="rounded-circle" width="32" height="32">
-					</a>
-					<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-						<li><a class="dropdown-item" href="#">Perfil</a></li>
-						<li><a class="dropdown-item" href="#">Modificar datos</a></li>
-						<li><a class="dropdown-item" href="#">Mis compras</a></li>
-						<li>
-							<hr class="dropdown-divider">
-						</li>
-						<li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<hr>
+		<nav th:replace="components/navbar :: _navbar"></nav>
 	</header>
 	<main>
 		<div class="container">
@@ -63,19 +22,12 @@
 						<img class="rounded mx-auto d-block" style="margin-top:0px;"
 							src="https://scontent.fgye12-1.fna.fbcdn.net/v/t1.6435-9/91247413_10222060132914418_7656822680309465088_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH1W04MjJTZiizNC92FC-OvGiGqhbvpiDUaIaqFu-mINWn7jw489ACLgQ2MtZav8C_oL_xCSTY29zv_7H42SxNN&_nc_ohc=rsUdDOUJwxcAX9Ym7B8&tn=k3BhbqzYL2ahCCxv&_nc_ht=scontent.fgye12-1.fna&oh=00_AT9CoIi7zZK5pzPbr_Ib0le2LGldqj30J3B51UZ4pti8tg&oe=6228EF05"
 							width="260" height="250" />
-						<h5 class="card-title text-center">gguerero</h5>
-
+						<br>
 						<div><label class="card-text"><b>Nombre: </b>
 								<label th:text="${professional.people.name}"></div>
 
-						<div><label class="card-text"><b>Apellido: </b>
-								<label th:text="${professional.people.lastName}"></div>
-
 						<div><label class="card-text"><b>País: </b>
 								<label th:text="${professional.people.country.name}"></div>
-
-						<div><label class="card-text"><b>Usuario desde: </b>
-								<label th:text="${professional.registrationDate}"> </div>
 
 						<div><label class="card-text"><b>Correo:</b>
 								<label th:text="${professional.people.email}"></div>
@@ -177,9 +129,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="pro:${professional}" class="table-light">
+								<tr class="table-light">
 									<th class="table-light"></th>
-									<td th:text="${pro.occupation.name}"> </td>
+									<td> </td>
 								</tr>
 							</tbody>
 						</table>

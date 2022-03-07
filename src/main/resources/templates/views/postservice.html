@@ -2,321 +2,226 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publica tu servicio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Publica tu servicio</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
-        <div class="container d-flex flex-wrap justify-content-center">
-            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="fs-4">Aquí va un logotipo</span>
-            </a>
-        </div>
-        <hr>
-        <div class="container d-flex flex-wrap">
-            <ul class="nav me-auto">
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Inicio</a>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Servicios</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Servios destacados</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Ofertas</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Acerca de...</a></li>
-            </ul>
-            <div class="d-flex align-items-center">
-                <form class="w-100 me-3">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                </form>
+	<header>
+		<nav th:replace="components/navbar :: _navbar"></nav>
+	</header>
+	<main>
+		<div class="container col-10 justify-content-center">
+			<form method="post" th:action="@{/api/images/uploads}" enctype="multipart/form-data" id="fileUploadForm"
+				class="container">
+				<div class=" card">
+					<div class="card-header">
+						<h3>Datos de tu servicio</h3>
+					</div>
+					<div class="card-body">
+						<div class="card">
+							<div class="card-header">
+								Descripción general
+							</div>
+							<div class="card-body">
+								<p>Título del servicio</p>
+								<input class="form-control" type="text" name="title" id="title"
+									placeholder="Ingrese el título del servicio">
 
-                <div class="flex-shrink-0 dropdown">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://scontent.fgye12-1.fna.fbcdn.net/v/t1.6435-9/91247413_10222060132914418_7656822680309465088_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH1W04MjJTZiizNC92FC-OvGiGqhbvpiDUaIaqFu-mINWn7jw489ACLgQ2MtZav8C_oL_xCSTY29zv_7H42SxNN&_nc_ohc=rsUdDOUJwxcAX9Ym7B8&tn=k3BhbqzYL2ahCCxv&_nc_ht=scontent.fgye12-1.fna&oh=00_AT9CoIi7zZK5pzPbr_Ib0le2LGldqj30J3B51UZ4pti8tg&oe=6228EF05"
-                            alt="mdo" class="rounded-circle" width="32" height="32">
-                    </a>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Modificar datos</a></li>
-                        <li><a class="dropdown-item" href="#">Mis compras</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <hr>
-    </header>
-    <main>
-        <div class="container col-10 justify-content-center">
-            <form id="serviceForm">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Datos de tu servicio</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="card">
-                            <div class="card-header">
-                                Descripción general
-                            </div>
-                            <div class="card-body">
-                                <p>Título del servicio</p>
-                                <input class="form-control" type="text" name="title" id="title"
-                                    placeholder="Ingrese el título del servicio">
+								<br>
+								<p>Descripción del servicio</p>
+								<textarea class="form-control" placeholder="Descripción..." name="description"
+									id="description" aria-label="With textarea"></textarea>
 
-                                <br>
-                                <p>Descripción del servicio</p>
-                                <textarea class="form-control" placeholder="Descripción..." name="description"
-                                    id="description" aria-label="With textarea"></textarea>
+								<br>
 
-                                <br>
+								<div class="form-group col-5">
+									<label for="cmbCategory">Seleccione la categoría</label>
+									<select class="form-control" id="cmbCategory">
+										<option>Seleccione una categoría...</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+									<br>
+									<label for="subCategory">Seleccione la subcategoría</label>
+									<select class="form-control" name="subCategory" id="subCategory">
+										<option>Seleccione una subcategoría...</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+								</div>
 
-                                <div class="form-group col-5">
-                                    <label for="cmbCategory">Seleccione la categoría</label>
-                                    <select class="form-control" id="cmbCategory">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                    <br>
-                                    <label for="subCategory">Seleccione la subcategoría</label>
-                                    <select class="form-control" name="subCategory" id="subCategory">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
+							</div>
+						</div>
 
-                            </div>
-                        </div>
+						<hr>
 
-                        <hr>
+						<div class="card">
+							<div class="card-header">
+								Planes (hasta un máximo de 3 planes)
+							</div>
+							<div class="card-body">
+								<div class="row justify-content-center">
+									<div class="mb-3">
+										<table class="table table-responsive table-dark">
+											<thead>
+												<tr>
+													<th>Tipo de plan</th>
+													<th>Nombre</th>
+													<th>Descripción</th>
+													<th>Días</th>
+													<th>Precio</th>
+													<th>Acción</th>
+												</tr>
+											</thead>
+											<tbody class="table-light" id="plansList">
+												<tr>
+													<td>
+														<select class="form-control" id="type">
+															<option>Básico</option>
+															<option>Estándar</option>
+															<option>Premium</option>
+														</select>
+													</td>
+													<td>
+														<input type="text" placeholder="Nombre..." class="form-control"
+															id="name" />
+													</td>
+													<td>
+														<input type="text" placeholder="Descripción..."
+															class="form-control" id="description" />
+													</td>
+													<td>
+														<input type="text" placeholder="Días..." class="form-control"
+															id="deliveryDay" />
+													</td>
+													<td>
+														<input type="text" placeholder="Precio..." class="form-control"
+															id="price" />
+													</td>
+													<td>
+														<button type="button" class="btn btn-outline-success"
+															id="btnAddPlan">Agregar</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="card">
+							<div class="card-header">
+								Preguntas frecuentes
+							</div>
+							<div class="card-body">
+								<div class="mb-3">
+									<table class="table table-responsive table-dark">
+										<thead>
+											<tr>
+												<th>Pregunta</th>
+												<th>Respuesta</th>
+												<th>Acción</th>
+											</tr>
+										</thead>
+										<tbody class="table-light" id="questionsList">
+											<tr>
+												<td>
+													<input type="text" placeholder="Pregunta..." class="form-control"
+														id="question" />
+												</td>
+												<td>
+													<input type="text" placeholder="Respuesta..." class="form-control"
+														id="answer" />
+												</td>
+												<td>
+													<button type="button" class="btn btn-outline-success"
+														id="btnAddQuestion">Agregar</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="card">
+							<div class="card-header">
+								Galería
+							</div>
+							<div class="card-body">
+								<div class="mb-3">
+									<div class="form-group">
+										<label class="custom-file" id="customFile">
+											<input type="file" class="custom-file-input" name="image" id="image"
+												aria-describedby="fileHelp" accept="image/png, image/jpeg"
+												onchange="preview()" multiple>
+											<span class="custom-file-control form-control-file"></span>
+										</label>
+									</div>
+									<label for="image">
+										<i class="fas fa-upload"></i>
+									</label>
+									<p id="num-of-files"></p>
+									<div class="card">
+										<div class="card-body">
+											<div id="images"></div>
+										</div>
+									</div>
+									<hr>
+									<label for="formFileSm" class="form-label">Archivo pdf</label>
+									<input class="form-control form-control-sm" name="doc" id="doc" type="file">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-footer">
+						<div style="margin-bottom: 10px">
+							<button type="submit" class="btn btn-success">Enviar</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</main>
 
-                        <div class="card">
-                            <div class="card-header">
-                                Planes (hasta un máximo de 3 planes)
-                            </div>
-                            <div class="card-body">
-                                <div class="row justify-content-center">
-                                    <div class="mb-3">
-                                        <table class="table table-responsive table-dark">
-                                            <thead>
-                                                <tr>
-                                                    <th>Tipo de plan</th>
-                                                    <th>Nombre</th>
-                                                    <th>Descripción</th>
-                                                    <th>Días</th>
-                                                    <th>Precio</th>
-                                                    <th>Acción</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="table-light" id="plansList">
-                                                <tr>
-                                                    <td>
-                                                        <select class="form-control" id="type">
-                                                            <option>Básico</option>
-                                                            <option>Estándar</option>
-                                                            <option>Premium</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" placeholder="Nombre..." class="form-control"
-                                                            id="name" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" placeholder="Descripción..."
-                                                            class="form-control" id="description" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" placeholder="Días..." class="form-control"
-                                                            id="deliveryDay" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" placeholder="Precio..." class="form-control"
-                                                            id="price" />
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-outline-success"
-                                                            id="btnAddPlan">Agregar</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="card">
-                            <div class="card-header">
-                                Preguntas frecuentes
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <table class="table table-responsive table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th>Pregunta</th>
-                                                <th>Respuesta</th>
-                                                <th>Acción</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-light" id="questionsList">
-                                            <tr>
-                                                <td>
-                                                    <input type="text" placeholder="Pregunta..." class="form-control"
-                                                        id="question" />
-                                                </td>
-                                                <td>
-                                                    <input type="text" placeholder="Respuesta..." class="form-control"
-                                                        id="answer" />
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-outline-success"
-                                                        id="btnAddQuestion">Agregar</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
+	<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+		<div class="col-md-4 d-flex align-items-center">
+			<a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+				<svg class="bi" width="30" height="24">
+					<use xlink:href="#bootstrap"></use>
+				</svg>
+			</a>
+			<span class="text-muted">© 2022 Proyecto Construcción de software</span>
+		</div>
 
-                        <div class="card">
-                            <div class="card-header">
-                                Galería
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <table class="table table-responsive table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th>Ruta de imagen</th>
-                                                <th>Acción</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-light" id="imageList">
-                                            <tr>
-                                                <td>
-                                                    <input class="form-control form-control-sm" id="image" type="file">
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-outline-success"
-                                                        id="btnAddImage">Agregar</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <hr>
-                                    <label for="formFileSm" class="form-label">Archivo pdf</label>
-                                    <input class="form-control form-control-sm" name="doc" id="doc"
-                                        type="file">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <input type="submit" value="Guardar" class="btn btn-success" />
-                        <input type="hidden" id="publicationDate" name="publicationDate">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </main>
+		<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+			<li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+						<use xlink:href="#twitter"></use>
+					</svg></a></li>
+			<li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+						<use xlink:href="#instagram"></use>
+					</svg></a></li>
+			<li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+						<use xlink:href="#facebook"></use>
+					</svg></a></li>
+		</ul>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
 
-
-    <template id="tmPlans">
-        <tr>
-            <td class="type"></td>
-            <td class="name"></td>
-            <td class="description"></td>
-            <td class="deliveryDay"></td>
-            <td class="price"></td>
-            <td>
-                <button class="btn btn-outline-warning editRowPlan" type="button">Editar</button>
-            </td>
-            <td>
-                <button class="btn btn-outline-danger deleteRowPlan" type="button">Eliminar</button>
-            </td>
-        </tr>
-    </template>
-
-    <template id="tmQuestions">
-        <tr>
-            <td class="question"></td>
-            <td class="answer"></td>
-            <td>
-                <button class="btn btn-outline-warning editRowService" type="button">Editar</button>
-            </td>
-            <td>
-                <button class="btn btn-outline-danger deleteRowService" type="button">Eliminar</button>
-            </td>
-        </tr>
-    </template>
-
-    <template id="tmImage">
-        <tr>
-            <td class="image"></td>
-            <td>
-                <button class="btn btn-outline-danger deleteRowImage" type="button">Eliminar</button>
-            </td>
-        </tr>
-    </template>
-
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-            <span class="text-muted">© 2022 Proyecto Construcción de software</span>
-        </div>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#twitter"></use>
-                    </svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#instagram"></use>
-                    </svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#facebook"></use>
-                    </svg></a></li>
-        </ul>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
-    <script th:src="@{/assets/js/postservice.js}"></script>
+	<script th:src="@{/assets/js/postservice.js}"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-
-            var now = new Date();
-
-            var day = ("0" + now.getDate()).slice(-2);
-            var month = ("0" + (now.getMonth() + 1)).slice(-2);
-
-            var today = now.getFullYear() + "-" + (month) + "-" + (day);
-            $("#publicationDate").val(today);
-        });
-    </script>
 
 </body>
 

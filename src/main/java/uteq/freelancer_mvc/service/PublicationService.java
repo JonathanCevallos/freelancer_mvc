@@ -15,22 +15,43 @@ public class PublicationService {
 
     //Este metodo permite listar todos los registro de la entidad.
     @Transactional
-    public List<Publication> findAll() throws Exception {
-        try {
+    public List<Publication> findAll() throws Exception
+    {
+        try
+        {
             return publicationRepository.findAll();
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
             throw new Exception(ex.getMessage());
         }
     }
 
-
     //Este metodo permite: Actualizar un servicio mediante su ID.
     @Transactional
     public Publication findById(Long id) throws Exception {
-        try {
+        try
+        {
             Optional<Publication> entityOptional = publicationRepository.findById(id);
             return entityOptional.get();
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.getMessage());
+        }
+    }
+    
+  //Este metodo permite:Buscar por profesional
+    @Transactional
+    public List<Publication> findByIdProfessional(Long idProfessional) throws Exception
+    {
+        try
+        {
+            List<Publication> publication = publicationRepository.findByIdProfessional(idProfessional);
+            return publication;
+        }
+        catch (Exception e)
+        {
             throw new Exception(e.getMessage());
         }
     }
